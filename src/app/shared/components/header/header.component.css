@@ -1,0 +1,62 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    background-color: white;
+    color: var(--default-blue);
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    padding: 0px 32px;
+}
+
+.tab-menu {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-color: white;
+    height: 70px;
+}
+
+.profile-button.mat-mdc-fab.mat-accent,
+.profile-button.mat-mdc-mini-fab.mat-accent {
+    color: var(--default-blue);
+    background-color: white;
+    box-shadow: none;
+}
+
+.profile {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.profile > select {
+    border: none;
+    font-family: var(--mat-toolbar-title-text-font);
+    font-size: var(--mat-toolbar-title-text-size);
+    line-height: var(--mat-toolbar-title-text-line-height);
+    font-weight: var(--mat-toolbar-title-text-weight);
+    letter-spacing: var(--mat-toolbar-title-text-tracking);
+    color: var(--default-blue);
+    outline: none;
+}
+
+mat-tab-group {
+    width: 50%;
+    --mdc-tab-indicator-active-indicator-color: var(--default-blue);
+    --mat-tab-header-active-label-text-color: var(--default-blue);
+    --mat-tab-header-active-ripple-color: var(--default-blue);
+    --mat-tab-header-inactive-ripple-color: var(--default-blue);
+    --mat-tab-header-active-focus-label-text-color: var(--default-blue);
+    --mat-tab-header-active-hover-label-text-color: var(--default-blue);
+    --mat-tab-header-active-focus-indicator-color: var(--default-blue);
+    --mat-tab-header-active-hover-indicator-color: var(--default-blue);
+}
+
+
