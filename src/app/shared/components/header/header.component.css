@@ -18,7 +18,7 @@ mat-toolbar {
     align-items: end;
     justify-content: center;
     background-color: white;
-    height: 70px;
+    height: 52px;
 }
 
 .profile-button.mat-mdc-fab.mat-accent,
