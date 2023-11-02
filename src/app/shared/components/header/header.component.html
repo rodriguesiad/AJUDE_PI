@@ -1,11 +1,13 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon" aria-label="Menu">
         <mat-icon>menu</mat-icon>
     </button>
-    <span style="display: flex;">
-        AJUDE
-        <img src="../../../../assets/images/logo.svg" alt="Logo">
-    </span>
+    <a (click)="navigateToBeneficiariosList()" class="unstyled-link">
+        <span>
+            AJUDE
+            <img src="../../../../assets/images/logo.svg" alt="Logo do sistema">
+        </span>
+    </a>
     <span class="spacer"></span>
     <div class="profile">
         <select matNativeControl name="car">
@@ -20,7 +22,8 @@
 </mat-toolbar>
 
 <div class="tab-menu">
-    <mat-tab-group animationDuration="0ms" #tabRef>
+    <mat-tab-group animationDuration="0ms" #tabRef [selectedIndex]="getSelectedTabIndex()"
+        (selectedTabChange)="onTabChange($event)">
         <mat-tab label="BENEFICIÁRIOS">
             <app-beneficiario-list></app-beneficiario-list>
         </mat-tab>

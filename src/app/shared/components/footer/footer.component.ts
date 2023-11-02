@@ -3,11 +3,11 @@ import { TabSelectionService } from '../../services/tab-selection.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class HeaderComponent {
+export class FooterComponent {
 
   constructor(private tabSelectionService: TabSelectionService, private router: Router) { }
 
@@ -15,14 +15,6 @@ export class HeaderComponent {
     this.router.navigate(['/beneficiarios/list']).then(() => {
       this.tabSelectionService.setSelectedTabIndex(0);
     });
-  }
-
-  getSelectedTabIndex(): number {
-    return this.tabSelectionService.getSelectedTabIndex();
-  }
-
-  onTabChange(event: any): void {
-    this.tabSelectionService.setSelectedTabIndex(event.index);
   }
 
 }

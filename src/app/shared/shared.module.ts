@@ -11,10 +11,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BeneficiarioModule } from '../beneficiario/beneficiario.module';
 import { OrgaoModule } from '../orgao/orgao.module';
 import { UsuarioModule } from '../usuario/usuario.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { UsuarioModule } from '../usuario/usuario.module';
     UsuarioModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

@@ -21,6 +21,16 @@ mat-toolbar {
     height: 52px;
 }
 
+.unstyled-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.unstyled-link span {
+    display: flex;
+}
+
 .profile-button.mat-mdc-fab.mat-accent,
 .profile-button.mat-mdc-mini-fab.mat-accent {
     color: var(--default-blue);
@@ -36,7 +46,18 @@ mat-toolbar {
     height: 100%;
 }
 
-.profile > select {
+.custom-button {
+    display: flex;
+    align-items: flex-end;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.profile>select {
     border: none;
     font-family: var(--mat-toolbar-title-text-font);
     font-size: var(--mat-toolbar-title-text-size);
@@ -58,5 +79,3 @@ mat-tab-group {
     --mat-tab-header-active-focus-indicator-color: var(--default-blue);
     --mat-tab-header-active-hover-indicator-color: var(--default-blue);
 }
-
-
