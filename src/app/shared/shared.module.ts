@@ -8,6 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { BeneficiarioModule } from '../beneficiario/beneficiario.module';
+import { OrgaoModule } from '../orgao/orgao.module';
+import { UsuarioModule } from '../usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatToolbarModule,
     MatTabsModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    BeneficiarioModule,
+    OrgaoModule,
+    UsuarioModule
   ],
   exports: [
     HeaderComponent
