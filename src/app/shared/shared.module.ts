@@ -8,15 +8,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { BeneficiarioModule } from '../beneficiario/beneficiario.module';
-import { OrgaoModule } from '../orgao/orgao.module';
-import { UsuarioModule } from '../usuario/usuario.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { TabSelectionComponent } from './components/tab-selection/tab-selection.component';
+import { RouterModule } from '@angular/router';
+import {NgFor} from '@angular/common';
+
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TabSelectionComponent,
   ],
   imports: [
     CommonModule,
@@ -27,13 +29,13 @@ import { FooterComponent } from './components/footer/footer.component';
     MatTabsModule,
     MatSelectModule,
     MatFormFieldModule,
-    BeneficiarioModule,
-    OrgaoModule,
-    UsuarioModule
+    RouterModule,
+    NgFor
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TabSelectionComponent
   ]
 })
 export class SharedModule { }

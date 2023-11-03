@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BeneficiarioListComponent } from './beneficiario/components/beneficiario-list/beneficiario-list.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: BeneficiarioListComponent
+  },
   {
     path: 'beneficiarios', loadChildren:
       () => import('./beneficiario/beneficiario.module')
@@ -13,7 +18,7 @@ const routes: Routes = [
         .then(m => m.OrgaoModule)
   },
   {
-    path: 'usuario', loadChildren:
+    path: 'usuarios', loadChildren:
       () => import('./usuario/usuario.module')
         .then(m => m.UsuarioModule)
   },

@@ -20,18 +20,3 @@
         Maria
     </button>
 </mat-toolbar>
-
-<div class="tab-menu">
-    <mat-tab-group animationDuration="0ms" #tabRef [selectedIndex]="getSelectedTabIndex()"
-        (selectedTabChange)="onTabChange($event)">
-        <mat-tab label="BENEFICIÁRIOS">
-            <app-beneficiario-list></app-beneficiario-list>
-        </mat-tab>
-        <mat-tab label="ÓRGÃOS">
-            <app-orgao-list></app-orgao-list>
-        </mat-tab>
-        <mat-tab label="USUÁRIOS">
-            <app-usuario-list></app-usuario-list>
-        </mat-tab>
-    </mat-tab-group>
-</div>
