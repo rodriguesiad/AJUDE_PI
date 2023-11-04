@@ -21,10 +21,6 @@
     box-sizing: content-box;
 }
 
-.spacer {
-    height: 2rem;
-}
-
 .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
     width: 50%;
     --mdc-tab-indicator-active-indicator-color: var(--default-blue);

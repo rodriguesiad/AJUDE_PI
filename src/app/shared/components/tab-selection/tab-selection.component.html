@@ -1,13 +1,9 @@
 <div class="container">
     <div class="tab-menu">
         <nav mat-tab-nav-bar [tabPanel]="tabPanel">
-            <a mat-tab-link *ngFor="let link of navLinks" 
-                [routerLink]="link.path" 
-                routerLinkActive
-                #rla="routerLinkActive" 
-                [active]="rla.isActive"
-            >
-                {{link.label}} 
+            <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive
+                #rla="routerLinkActive" [active]="rla.isActive">
+                {{link.label}}
             </a>
         </nav>
         <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
@@ -15,5 +11,4 @@
     <div class="container-body">
         <router-outlet></router-outlet>
     </div>
-    <div class="spacer"></div>
-<div>
+    <div>

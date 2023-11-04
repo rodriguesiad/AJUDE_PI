@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TabSelectionComponent } from './components/tab-selection/tab-selection.component';
 import { RouterModule } from '@angular/router';
 import {NgFor} from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {NgFor} from '@angular/common';
     MatSelectModule,
     MatFormFieldModule,
     RouterModule,
-    NgFor
+    NgFor,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,
