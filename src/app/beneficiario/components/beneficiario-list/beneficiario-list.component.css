@@ -1,0 +1,76 @@
+.demo-table {
+    width: 100%;
+}
+
+mat-card {
+    width: 1880px;
+    margin: 2rem auto;
+    max-width: 1816px;
+    min-height: 100%;
+    padding: 2rem;
+    justify-content: flex-end;
+}
+
+.body-container {
+    min-height: 100%;
+}
+
+
+.toolbar-title {
+    flex: 1;
+    text-align: start;
+    font-size: 28px;
+    padding-top: 3px;
+}
+
+mat-toolbar {
+    background-color: white;
+    padding-left: 5px;
+    padding-top: 0.2rem;
+    height: 60px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.table-container {
+    border: 1px solid rgb(224, 223, 223);
+    border-radius: 2px;
+    padding: 5px;
+    min-height: 100%;
+}
+
+.full-width-input {
+    width: 80%;
+    margin-left: 10px;
+    margin-left: 0;
+}
+
+.filter-container {
+    margin-top: 20px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: flex-start;
+    width: auto;
+}
+
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+    vertical-align: middle;
+}
