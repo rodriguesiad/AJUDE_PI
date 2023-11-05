@@ -1,54 +1,58 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, signal } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Beneficiario } from 'src/app/models/beneficiario.model';
+import { Estado } from 'src/app/models/estado.model';
+import { Municipio } from 'src/app/models/municipio.model';
 
 @Component({
   selector: 'app-beneficiario-list',
   templateUrl: './beneficiario-list.component.html',
   styleUrls: ['./beneficiario-list.component.css']
 })
-export class BeneficiarioListComponent implements AfterViewInit {
+export class BeneficiarioListComponent implements AfterViewInit, OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['nome', 'cpf', 'nis', 'dataNascimento', 'acoes'];
+  dataSource = new MatTableDataSource<Beneficiario>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-
   
+
+  ngOnInit(): void {
+
+    const estado = new Estado(1, "Tocantins", "TO");
+    const municipio = new Municipio(1, "Palmas", estado);
+
+    const ELEMENT_DATA: Beneficiario[] = [
+      { id: 1, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 2, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 3, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 4, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 5, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 6, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 7, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 8, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 9, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 10, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 11, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 12, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 13, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 14, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 15, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 16, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 17, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 18, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 19, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+      { id: 20, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+    ];
+
+    this.dataSource = new MatTableDataSource<Beneficiario>(ELEMENT_DATA);
+
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
 }
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-  { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-  { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-  { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-  { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-  { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-  { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-  { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-  { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-  { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
-];

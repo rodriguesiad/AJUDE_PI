@@ -14,11 +14,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { BeneficiarioFormComponent } from './components/beneficiario-form/beneficiario-form.component';
 
 
 @NgModule({
   declarations: [
-    BeneficiarioListComponent
+    BeneficiarioListComponent,
+    BeneficiarioFormComponent
   ],
   imports: [
     CommonModule,
