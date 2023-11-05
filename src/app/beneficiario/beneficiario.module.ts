@@ -15,12 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { BeneficiarioFormComponent } from './components/beneficiario-form/beneficiario-form.component';
+import { BeneficiarioViewComponent } from './components/beneficiario-view/beneficiario-view.component';
 
 
 @NgModule({
   declarations: [
     BeneficiarioListComponent,
-    BeneficiarioFormComponent
+    BeneficiarioFormComponent,
+    BeneficiarioViewComponent
   ],
   imports: [
     CommonModule,
