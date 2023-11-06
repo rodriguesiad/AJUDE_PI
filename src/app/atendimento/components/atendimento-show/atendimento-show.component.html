@@ -1,0 +1,44 @@
+<mat-card class="no-shadow">
+  <mat-card class="no-shadow info">
+    <div class="container-info">
+      <div class="card-info">
+        <p>Nº 1567 - AUXÍLIO MORADIA CRAS MS</p>
+        <p>Data do Cadastro: 10/07/2023</p>
+        <p>Situação: Ativo</p>
+      </div>
+      <div class="card-info">
+        <p>Usuário Responsável - Iad Moraes</p>
+      </div>
+      <div class="card-info">
+        <p>Descrição: Atendimento re- alizado no dia 10/07 para o paciente Isac Pereira</p>
+      </div>
+      <div class="card-info">
+        <p>Órgão Atual: CRAS Morada do Sol</p>
+      </div>
+      <div>
+        <button mat-raised-button class="back-button">
+          VOLTAR
+        </button>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-tab-group>
+    <mat-tab label="Encaminhamentos">
+      <div *ngIf="isCadastro">
+        <app-encaminhamento-form></app-encaminhamento-form>
+      </div>
+      <div *ngIf="!isCadastro">
+        <app-encaminhamento-list></app-encaminhamento-list>
+      </div>
+    </mat-tab>
+    <mat-tab label="Movimentações">
+      <div *ngIf="isCadastro">
+        <app-movimentacao-form></app-movimentacao-form>
+      </div>
+      <div *ngIf="!isCadastro">
+        <app-movimentacao-list></app-movimentacao-list>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

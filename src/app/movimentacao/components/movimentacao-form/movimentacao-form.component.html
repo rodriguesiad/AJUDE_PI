@@ -1,0 +1,38 @@
+<div class="card">
+  <mat-card-content>
+    <form [formGroup]="movimentacao" >
+      <div class="space">
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Usuário Responsável</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Data de Inclusão</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Documentos</mat-label>
+          <textarea  matInput rows="2" ></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Descrição</mat-label>
+          <textarea  matInput rows="5" ></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button style="color: var(--default-blue);"
+                (click)="isCadastro()">
+          CANCELAR
+        </button>
+        <button mat-raised-button
+                color="primary"
+                (click)="isCadastro()"
+                style="background-color: var(--default-blue);">
+          SALVAR
+        </button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</div>

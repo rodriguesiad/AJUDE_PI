@@ -1,0 +1,55 @@
+mat-card {
+  width: 1000px;
+  margin: 2rem auto;
+  min-height: 100%;
+  padding: 2rem;
+  justify-content: flex-end;
+}
+
+.info {
+  background-color: rgba(206, 206, 206, 0.34);
+  width: 900px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.container-info {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+button[mat-raised-button] {
+  width: 120px;
+  font-size: 12px;
+  background-color: inherit;
+  color: var(--default-blue);
+  margin: 5px 5px 0 0;
+  box-shadow: none;
+  margin-top: 30%;
+}
+
+.card-info {
+  width: 20%;
+}
+
+.card-info p {
+  font-size: 12px;
+  margin: 1px;
+}
+
+.card-info p:first-child {
+  font-weight: bold;
+}
+
+
+.mat-mdc-tab-group {
+  --mdc-tab-indicator-active-indicator-color: var(--default-blue);;
+  --mat-tab-header-active-label-text-color: var(--default-blue);;
+  --mat-tab-header-active-ripple-color: var(--default-blue);;
+  --mat-tab-header-inactive-ripple-color: var(--default-blue);;
+  --mat-tab-header-active-focus-label-text-color: var(--default-blue);;
+  --mat-tab-header-active-hover-label-text-color: var(--default-blue);;
+  --mat-tab-header-active-focus-indicator-color: var(--default-blue);;
+  --mat-tab-header-active-hover-indicator-color: var(--default-blue);;
+}

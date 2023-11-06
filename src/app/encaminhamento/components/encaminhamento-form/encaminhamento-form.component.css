@@ -1,0 +1,42 @@
+.card{
+  width: auto;
+  margin-top: 15px;
+  border: 1px solid #2d8bba ;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.min-width-input {
+  width: calc(50% - 10px);
+}
+
+.space {
+  margin-right: 20px;
+}
+
+button[mat-raised-button] {
+  width: 150px;
+  /* tamanho do botao */
+}
+
+button[mat-raised-button]:not(:last-child) {
+  margin-right: 1rem;
+  /* Adiciona margem à direita de todos os botões, exceto o último */
+}
+
+.form {
+  padding: 5px;
+}
+
+button:not(:last-child) {
+  margin-left: 15%;
+}
+
+button {
+  margin-top: 5%;
+}
