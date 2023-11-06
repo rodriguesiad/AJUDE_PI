@@ -1,1 +1,144 @@
-<p>beneficiario-form works!</p>
+<mat-card class="no-shadow">
+    <mat-toolbar>
+        <div class="flex-container">
+            <span class="toolbar-title">Cadastrar Beneficiário</span>
+        </div>
+    </mat-toolbar>
+
+    <div class="form-container">
+        <mat-card-content>
+            <form [formGroup]="formGroup">
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Nome</mat-label>
+                    <input matInput type="text" formControlName="nome" />
+                    <mat-error *ngIf="formGroup.get('nome') &&
+                            formGroup.get('nome')?.invalid &&
+                            formGroup.get('nome')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>CPF</mat-label>
+                    <input matInput type="text" formControlName="cpf" />
+                    <mat-error *ngIf="formGroup.get('cpf') &&
+                            formGroup.get('cpf')?.invalid &&
+                            formGroup.get('cpf')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>RG</mat-label>
+                    <input matInput type="text" formControlName="rg" />
+                    <mat-error *ngIf="formGroup.get('rg') &&
+                            formGroup.get('rg')?.invalid &&
+                            formGroup.get('rg')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Data de Nascimento</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="dataNascimento" [max]="maxDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="formGroup.get('dataNascimento')?.hasError('apiError')">
+                            {{ formGroup.get('dataNascimento')?.getError('apiError') }}
+                        </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput type="text" formControlName="telefone" />
+                    <mat-error *ngIf="formGroup.get('telefone') &&
+                            formGroup.get('telefone')?.invalid &&
+                            formGroup.get('telefone')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput type="text" formControlName="email" />
+                    <mat-error *ngIf="formGroup.get('email') &&
+                            formGroup.get('email')?.invalid &&
+                            formGroup.get('email')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>NIS</mat-label>
+                    <input matInput type="text" formControlName="nis" />
+                    <mat-error *ngIf="formGroup.get('nis') &&
+                            formGroup.get('nis')?.invalid &&
+                            formGroup.get('nis')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>CPF dos Pais</mat-label>
+                    <input matInput type="text" formControlName="cpfDosPais" />
+                    <mat-error *ngIf="formGroup.get('cpfDosPais') &&
+                            formGroup.get('cpfDosPais')?.invalid &&
+                            formGroup.get('cpfDosPais')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>CEP</mat-label>
+                    <input matInput type="text" formControlName="cep" />
+                    <mat-error *ngIf="formGroup.get('cep') &&
+                            formGroup.get('cep')?.invalid &&
+                            formGroup.get('cep')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Estado</mat-label>
+                    <input matInput type="text" formControlName="estado" />
+                    <mat-error *ngIf="formGroup.get('estado') &&
+                            formGroup.get('estado')?.invalid &&
+                            formGroup.get('estado')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Município</mat-label>
+                    <input matInput type="text" formControlName="municipio" />
+                    <mat-error *ngIf="formGroup.get('municipio') &&
+                            formGroup.get('municipio')?.invalid &&
+                            formGroup.get('municipio')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Bairro</mat-label>
+                    <input matInput type="bairro" formControlName="bairro" />
+                    <mat-error *ngIf="formGroup.get('bairro') &&
+                            formGroup.get('bairro')?.invalid &&
+                            formGroup.get('bairro')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Logradouro</mat-label>
+                    <input matInput type="text" formControlName="logradouro" />
+                    <mat-error *ngIf="formGroup.get('logradouro') &&
+                            formGroup.get('logradouro')?.invalid &&
+                            formGroup.get('logradouro')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Número</mat-label>
+                    <input matInput type="text" formControlName="numero" />
+                    <mat-error *ngIf="formGroup.get('numero') &&
+                            formGroup.get('numero')?.invalid &&
+                            formGroup.get('numero')?.touched">
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width-input">
+                    <mat-label>Complemento</mat-label>
+                    <input matInput type="text" formControlName="complemento" />
+                    <mat-error *ngIf="formGroup.get('complemento') &&
+                            formGroup.get('complemento')?.invalid &&
+                            formGroup.get('complemento')?.touched">
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button style="color: var(--default-blue);" routerLink="/beneficiarios/list">
+                CANCELAR
+            </button>
+            <button mat-raised-button (click)="salvar()" [disabled]="formGroup.invalid"
+                style="background-color: var(--default-blue); color: white;">
+                SALVAR
+            </button>
+        </mat-card-actions>
+    </div>
+</mat-card>
