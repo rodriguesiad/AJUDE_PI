@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
 
 @Component({
@@ -19,13 +19,14 @@ export class BeneficiarioFormComponent implements OnInit {
   formGroup: FormGroup;
   maxDate = new Date();
 
-  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
 
     this.formGroup = formBuilder.group({
       id: [null],
       nome: ['', Validators.required],
       email: [''],
       cpf: ['', Validators.required],
+      rg: [''],
       nis: ['', Validators.required],
       dataNascimento: [null],
       telefone: [''],
@@ -52,6 +53,7 @@ export class BeneficiarioFormComponent implements OnInit {
       nome: [(beneficiario && beneficiario.nome) ? beneficiario.nome : '', Validators.required],
       email: [(beneficiario && beneficiario.email) ? beneficiario.email : ''],
       cpf: [(beneficiario && beneficiario.cpf) ? beneficiario.cpf : '', Validators.required],
+      rg: [(beneficiario && beneficiario.rg) ? beneficiario.rg : ''],
       nis: [(beneficiario && beneficiario.nis) ? beneficiario.nis : '', Validators.required],
       dataNascimento: [(beneficiario && beneficiario.dataNascimento) ? beneficiario.dataNascimento : null],
       telefone: [(beneficiario && beneficiario.telefone) ? beneficiario.telefone : ''],
@@ -73,8 +75,10 @@ export class BeneficiarioFormComponent implements OnInit {
 
       if (novo.id == null) {
         console.log('Beneficiário cadastrado.')
+        this.router.navigateByUrl('/beneficiarios/list');
       } else {
         console.log('Beneficiário alterado.')
+        this.router.navigateByUrl('/beneficiarios/list');
       }
     }
   }

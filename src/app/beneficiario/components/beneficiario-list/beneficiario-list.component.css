@@ -87,3 +87,8 @@ button, .clean-button, #new {
 .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
     vertical-align: middle;
 }
+
+button[mat-raised-button] {
+    width: 120px;
+    font-size: 12px;
+}

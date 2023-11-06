@@ -5,6 +5,7 @@ mat-card {
     min-height: 100%;
     padding: 2rem;
     justify-content: flex-end;
+    margin-bottom: 3rem;
 }
 
 mat-toolbar {
@@ -20,4 +21,34 @@ mat-toolbar {
 .full-width-input {
     width: 100%;
     margin-bottom: 20px;
+}
+
+.sub-form {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-3-parts {
+    width: 545px;
+}
+
+.input-2-equals-parts {
+    width: 837px;
+}
+
+.input-1-2-parts {
+    width: 1131px;
+}
+
+.mdc-card__actions {
+    justify-content: flex-end;
+    gap: 15px
+}
+
+button[mat-raised-button] {
+    width: 120px;
+    font-size: 12px;
 }
