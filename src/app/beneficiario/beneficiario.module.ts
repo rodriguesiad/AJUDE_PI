@@ -16,6 +16,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { BeneficiarioFormComponent } from './components/beneficiario-form/beneficiario-form.component';
 import { BeneficiarioViewComponent } from './components/beneficiario-view/beneficiario-view.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePtBr from '@angular/common/locales/pt';
+
+registerLocaleData(localePtBr);
+
 
 
 @NgModule({
@@ -38,10 +45,12 @@ import { BeneficiarioViewComponent } from './components/beneficiario-view/benefi
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
   ],
   exports: [
-    BeneficiarioListComponent
-  ]
+    BeneficiarioListComponent,
+  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
 })
 export class BeneficiarioModule { }

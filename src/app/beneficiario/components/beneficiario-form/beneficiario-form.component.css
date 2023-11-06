@@ -1,0 +1,54 @@
+mat-card {
+    width: 1880px;
+    margin: auto;
+    max-width: 1816px;
+    min-height: 100%;
+    padding: 2rem;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+}
+
+mat-toolbar {
+    background-color: white;
+    padding-left: 5px;
+    padding-top: 0.2rem;
+    height: 60px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.full-width-input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sub-form {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-3-parts {
+    width: 545px;
+}
+
+.input-2-equals-parts {
+    width: 837px;
+}
+
+.input-1-2-parts {
+    width: 1131px;
+}
+
+.mdc-card__actions {
+    justify-content: flex-end;
+    gap: 15px
+}
+
+button[mat-raised-button] {
+    width: 120px;
+    font-size: 12px;
+}
