@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BeneficiarioListComponent } from './beneficiario/components/beneficiario-list/beneficiario-list.component';
+import { AtendimentoModule } from './atendimento/atendimento.module';
 
 const routes: Routes = [
   {
@@ -22,11 +23,21 @@ const routes: Routes = [
       () => import('./usuario/usuario.module')
         .then(m => m.UsuarioModule)
   },
+  
+<<<<<<< HEAD
   {
     path: 'atendimentos', loadChildren:
       () => import('./atendimento/atendimento.module')
         .then(m => m.AtendimentoModule)
   },
+=======
+  
+  {
+    path: 'atendimentos', loadChildren:
+    () => import('./atendimento/atendimento.module')
+      .then(m => m.AtendimentoModule)
+  }
+>>>>>>> origin/atendimento-front
 ];
 
 @NgModule({
