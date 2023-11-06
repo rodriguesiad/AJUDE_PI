@@ -1,0 +1,8 @@
+mat-card {
+    width: 1880px;
+    margin: auto;
+    max-width: 1816px;
+    min-height: 100%;
+    padding: 2rem;
+    justify-content: flex-end;
+}

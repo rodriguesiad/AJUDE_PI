@@ -1,3 +1,7 @@
+.footer {
+    z-index: 100;
+}
+
 .toolbar-title {
     flex: 1;
     text-align: center;

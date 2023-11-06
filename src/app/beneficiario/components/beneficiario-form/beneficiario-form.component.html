@@ -14,18 +14,19 @@
                     <mat-error *ngIf="formGroup.get('nome') &&
                             formGroup.get('nome')?.invalid &&
                             formGroup.get('nome')?.touched">
-                            O campo Nome é obrigatório.
+                        O campo Nome é obrigatório.
                     </mat-error>
                 </mat-form-field>
 
                 <div class="sub-form">
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>CPF</mat-label>
-                        <input matInput type="text" formControlName="cpf" [readonly]="formGroup.get('cpf')?.value !== ''"/>
+                        <input matInput type="text" formControlName="cpf"
+                            [readonly]="formGroup.get('cpf')?.value !== ''" />
                         <mat-error *ngIf="formGroup.get('cpf') &&
                                 formGroup.get('cpf')?.invalid &&
                                 formGroup.get('cpf')?.touched">
-                                O campo CPF é obrigatório.
+                            O campo CPF é obrigatório.
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-3-parts">
@@ -97,7 +98,11 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>Estado</mat-label>
-                        <input matInput type="text" formControlName="estado" />
+                        <mat-select formControlName="estado">
+                            <mat-option *ngFor="let estado of estados" [value]="estado.id" >
+                                {{ estado.nome}}
+                            </mat-option>
+                        </mat-select>
                         <mat-error *ngIf="formGroup.get('estado') &&
                             formGroup.get('estado')?.invalid &&
                             formGroup.get('estado')?.touched">
@@ -105,7 +110,11 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>Município</mat-label>
-                        <input matInput type="text" formControlName="municipio" />
+                        <mat-select formControlName="municipio">
+                            <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
+                                {{ municipio.nome}}
+                            </mat-option>
+                        </mat-select>
                         <mat-error *ngIf="formGroup.get('municipio') &&
                             formGroup.get('municipio')?.invalid &&
                             formGroup.get('municipio')?.touched">

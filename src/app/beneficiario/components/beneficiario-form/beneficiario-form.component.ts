@@ -4,6 +4,8 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
+import { Estado } from 'src/app/models/estado.model';
+import { Municipio } from 'src/app/models/municipio.model';
 
 @Component({
   selector: 'app-beneficiario-form',
@@ -18,6 +20,18 @@ import { Beneficiario } from 'src/app/models/beneficiario.model';
 export class BeneficiarioFormComponent implements OnInit {
   formGroup: FormGroup;
   maxDate = new Date();
+
+  estados: Estado[] = [
+    new Estado(1, 'Tocantins', 'TO'),
+    new Estado(2, 'Rio de Janeiro', 'RJ'),
+    new Estado(3, 'São Paulo', 'SP'),
+  ];
+
+  municipios: Municipio[] = [
+    new Municipio(1, 'Palmas', this.estados[0]),
+    new Municipio(2, 'Porto Nacional', this.estados[0]),
+    new Municipio(3, 'Miracema',  this.estados[0]),
+  ];
 
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
 
@@ -47,7 +61,7 @@ export class BeneficiarioFormComponent implements OnInit {
 
   initializeForm() {
     const beneficiario: Beneficiario = this.activatedRoute.snapshot.data['beneficiario'];
-
+    
     this.formGroup = this.formBuilder.group({
       id: [(beneficiario && beneficiario.id) ? beneficiario.id : null],
       nome: [(beneficiario && beneficiario.nome) ? beneficiario.nome : '', Validators.required],
@@ -59,8 +73,8 @@ export class BeneficiarioFormComponent implements OnInit {
       telefone: [(beneficiario && beneficiario.telefone) ? beneficiario.telefone : ''],
       cpfDosPais: [(beneficiario && beneficiario.cpfDosPais) ? beneficiario.cpfDosPais : ''],
       cep: [(beneficiario && beneficiario.cep) ? beneficiario.cep : ''],
-      estado: [(beneficiario && beneficiario.estado) ? beneficiario.estado : null],
-      municipio: [(beneficiario && beneficiario.municipio) ? beneficiario.municipio : null],
+      estado: [(beneficiario && beneficiario.estado) ? beneficiario.estado.id : null],
+      municipio: [(beneficiario && beneficiario.municipio) ? beneficiario.municipio.id : null],
       bairro: [(beneficiario && beneficiario.bairro) ? beneficiario.bairro : ''],
       logradouro: [(beneficiario && beneficiario.logradouro) ? beneficiario.logradouro : ''],
       numero: [(beneficiario && beneficiario.numero) ? beneficiario.numero : ''],
@@ -75,10 +89,10 @@ export class BeneficiarioFormComponent implements OnInit {
 
       if (novo.id == null) {
         console.log('Beneficiário cadastrado.')
-        this.router.navigateByUrl('/beneficiarios/list');
+        this.router.navigateByUrl('/beneficiarios/view');
       } else {
         console.log('Beneficiário alterado.')
-        this.router.navigateByUrl('/beneficiarios/list');
+        this.router.navigateByUrl('/beneficiarios/view');
       }
     }
   }

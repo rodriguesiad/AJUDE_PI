@@ -47,6 +47,7 @@ registerLocaleData(localePtBr);
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatSelectModule
   ],
   exports: [
     BeneficiarioListComponent,
