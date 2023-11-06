@@ -1,0 +1,94 @@
+mat-card {
+    width: 1880px;
+    margin: auto;
+    max-width: 1816px;
+    min-height: 100%;
+    padding: 2rem;
+    justify-content: flex-end;
+}
+
+.body-container {
+    min-height: 100%;
+}
+
+
+.toolbar-title {
+    flex: 1;
+    text-align: start;
+    font-size: 28px;
+    padding-top: 3px;
+}
+
+mat-toolbar {
+    background-color: white;
+    padding-left: 5px;
+    padding-top: 0.2rem;
+    height: 60px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+
+table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.table-container {
+    border: 1px solid rgb(224, 223, 223);
+    border-radius: 2px;
+    padding: 5px;
+    min-height: 100%;
+}
+
+.full-width-input {
+    width: 100%;
+    margin: 0px;
+}
+
+.filter-container {
+    margin-top: 20px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: flex-start;
+    width: auto;
+    height: 63px;
+}
+
+form {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: flex-start;
+    margin-top: 20px;
+}
+
+button, .clean-button, #new {
+    background-color: var(--default-blue);
+    color: white;
+    box-shadow: none;
+}
+
+#new{
+    font-weight: 400;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+    color: var(--default-blue);
+    background-color: transparent;
+}
+
+.mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+    vertical-align: middle;
+}
+
+button[mat-raised-button] {
+    width: 120px;
+    font-size: 12px;
+}
