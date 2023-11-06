@@ -1,0 +1,42 @@
+.card{
+  width: auto;
+  margin-top: 15px;
+  border: 1px solid #2d8bba ;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+mat-card {
+  width: auto;
+  margin: 2rem auto;
+  padding: 2rem;
+  justify-content: flex-end;
+}
+
+.info {
+  background-color: rgba(206, 206, 206, 0.34);
+  width: 850px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+button[mat-raised-button] {
+  width: 200px;
+  font-size: 12px;
+  background-color: var(--default-blue);
+  color: white;
+  margin: 5px 5px 0 0;
+  box-shadow: none;
+  margin-bottom: 3%;
+  margin-left: 3%;
+}
+
+.container-info p {
+  font-size: 12px;
+  margin: 1px;
+}
+
+.container-info p:first-child {
+  font-weight: bold;
+}
