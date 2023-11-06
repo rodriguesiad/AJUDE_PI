@@ -44,3 +44,18 @@ button[mat-raised-button] {
     margin: 0;
     font-weight: 500;
 }
+
+
+#atendimentos {
+    background-color: var(--default-blue);
+    color: white;
+    box-shadow: none;
+    font-weight: 400;
+}
+
+.card-button {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

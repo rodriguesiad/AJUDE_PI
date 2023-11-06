@@ -7,7 +7,7 @@
                     <h2>{{ beneficiario?.nome || '-' }}</h2>
                 </div>
                 <div class="card-back-button">
-                    <button mat-raised-button class="back-button">
+                    <button mat-raised-button class="back-button" routerLink="/beneficiarios/list">
                         VOLTAR
                     </button>
                 </div>
@@ -88,4 +88,8 @@
 
         </div>
     </mat-card>
+
+    <div class="card-button">
+        <button mat-flat-button id="atendimentos" class="no-shadow" routerLink="/atendimentos/list">ATENDIMENTOS</button>
+    </div>
 </mat-card>

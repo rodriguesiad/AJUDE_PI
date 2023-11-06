@@ -23,7 +23,7 @@
           <p>ana@gmail.com</p>
         </div>
         <div>
-          <button mat-raised-button class="back-button">
+          <button mat-raised-button class="back-button" routerLink="/atendimentos/list">
             VOLTAR
           </button>
         </div>
@@ -60,10 +60,10 @@
             <mat-label class="tituloInput">Descrição do Atendimento</mat-label>
             <input matInput>
         </mat-form-field> 
-        <button mat-flat-button id="inputButton" style="margin-left: 520px; color: #2d8bba;">
+        <button mat-flat-button id="inputButton" style="margin-left: 520px; color: #2d8bba;" routerLink="/atendimentos/list">
             Cancelar
         </button> 
-        <button mat-flat-button id="inputButton" style="margin-left: 80px; background-color: #2d8bba; color: white;">
+        <button mat-flat-button id="inputButton" style="margin-left: 80px; background-color: #2d8bba; color: white;" routerLink="/atendimentos/show">
             Salvar
         </button>
 
