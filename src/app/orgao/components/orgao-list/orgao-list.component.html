@@ -40,12 +40,12 @@
   
             <ng-container matColumnDef="municipio">
               <th mat-header-cell *matHeaderCellDef> Municipio </th>
-              <td mat-cell *matCellDef="let orgao"> {{orgao.municipio}} </td>
+              <td mat-cell *matCellDef="let orgao"> {{orgao.municipio.nome}} </td>
             </ng-container>
   
             <ng-container matColumnDef="estado">
               <th mat-header-cell *matHeaderCellDef> Estado </th>
-              <td mat-cell *matCellDef="let orgao"> {{orgao.estado}} </td>
+              <td mat-cell *matCellDef="let orgao"> {{orgao.estado.nome}} </td>
             </ng-container>
   
             <ng-container matColumnDef="acoes">
