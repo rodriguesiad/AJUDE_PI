@@ -9,6 +9,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+  navLinks = [
+    {path: '/beneficiarios/list', label: 'BENEFICIÁRIOS'},
+    {path: '/orgaos/list', label: 'ÓRGÃOS'},
+    {path: '/usuarios/list', label: 'USUÁRIOS'}
+  ]
+
+
   constructor(private tabSelectionService: TabSelectionService, private router: Router) { }
 
   navigateToBeneficiariosList() {

@@ -3,21 +3,18 @@
     <div class="flex-container">
       <span class="toolbar-title"> Beneficiários </span>
     </div>
-    <button mat-flat-button id="new" class="no-shadow" routerLink="/beneficiarios/new">CADASTRAR BENEFICIÁRIO</button>
+    <button mat-flat-button id="new" class="no-shadow" routerLink="/beneficiarios/new">Cadastrar Beneficiário</button>
   </mat-toolbar>
 
   <div class="body-container">
     <div class="filter-container">
       <form>
         <mat-form-field appearance="outline" class="full-width-input">
-          <mat-label>Digite o nome, CPF ou NIS do beneficiario</mat-label>
-          <input matInput type="text" />
+          <mat-label>Digite o nome, CPF ou NIS do beneficiário</mat-label>
+          <input matInput placeholder="Digite aqui" />
+          <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
       </form>
-
-      <button mat-fab class="search-button no-shadow">
-        <mat-icon>search</mat-icon>
-      </button>
 
       <button mat-flat-button class="clean-button">
         LIMPAR

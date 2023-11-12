@@ -1,12 +1,11 @@
 mat-card {
-    width: 1880px;
-    margin: auto;
-    max-width: 1816px;
-    min-height: 100%;
-    padding: 2rem;
-    justify-content: flex-end;
+    min-width: 1250px;
+    margin: 2rem auto;
     margin-bottom: 3rem;
+    --mdc-elevated-card-container-color: var(--default-background-color);
+    --mdc-outlined-card-container-color: var(--default-background-color);
 }
+
 
 mat-toolbar {
     background-color: white;
@@ -16,6 +15,13 @@ mat-toolbar {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+}
+
+.toolbar-title {
+    flex: 1;
+    text-align: start;
+    font-size: 28px;
+    padding-top: 3px;
 }
 
 .full-width-input {
