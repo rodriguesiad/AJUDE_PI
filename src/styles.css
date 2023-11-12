@@ -11,7 +11,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #EBEBEB;
+  background-color: #FEFFFF;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -19,23 +19,34 @@ body {
 
 :root {
   --default-blue: #2D8BBA;
+  --default-background-color: #FEFFFF;
 }
+
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.rounded-corners {
+  border-radius: 4px;
+}
+
 
 html {
   overflow-y: scroll;
-  scrollbar-width: thin; /* Para navegadores baseados em Firefox */
-  scrollbar-color: transparent transparent; /* Para navegadores baseados em Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 
 html::-webkit-scrollbar {
-  width: 1px; /* Largura da barra de rolagem vertical */
+  width: 1px;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Cor do polegar da barra de rolagem */
-  border-radius: 4px; /* Raio das bordas do polegar da barra de rolagem */
+  background-color: transparent;
+  border-radius: 4px;
 }
 
 html::-webkit-scrollbar-track {
-  background-color: transparent; /* Cor da pista da barra de rolagem */
+  background-color: transparent;
 }

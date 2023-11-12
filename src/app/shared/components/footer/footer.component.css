@@ -17,7 +17,8 @@
     height: 13%;
 }
 
-.footer>.part1, .part2 {
+.footer>.part1,
+.part2 {
     background-color: white;
 }
 
@@ -26,14 +27,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--default-blue);
 }
 
 .footer>.part1>button>.mat-icon {
-    color: var(--default-blue);
+    color: white;
 }
 
 .footer>.part2 {
     height: 45%;
     border-top: solid 1px rgb(237, 232, 232);
 }
-
