@@ -48,8 +48,8 @@ export class OrgaoFormComponent {
       id: [(orgao && orgao.id) ? orgao.id : null],
       nome: [(orgao && orgao.nome) ? orgao.nome : '', Validators.required],
       sigla: [(orgao && orgao.sigla) ? orgao.sigla : ''],
-      municipio: [(orgao && orgao.municipio) ? orgao.municipio : null],
-      estado: [(orgao && orgao.estado) ? orgao.estado : null]
+      municipio: [(orgao && orgao.municipio) ? orgao.municipio.id : null],
+      estado: [(orgao && orgao.estado) ? orgao.estado.id : null]
     })
 
   }

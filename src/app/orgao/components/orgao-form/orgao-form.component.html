@@ -1,7 +1,7 @@
 <mat-card class="no-shadow">
     <mat-toolbar>
         <div class="flex-container">
-            <span class="toolbar-title">Cadastrar Órgão</span>
+            <span class="toolbar-title">{{ formGroup.get('id')?.value ? 'Editar Órgão' : 'Cadastrar Órgão' }}</span>
         </div>
     </mat-toolbar>
 
