@@ -41,13 +41,12 @@ registerLocaleData(localePtBr);
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatSelectModule
   ],
   exports: [
     BeneficiarioListComponent,

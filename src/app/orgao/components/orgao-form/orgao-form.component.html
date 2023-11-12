@@ -14,7 +14,7 @@
                     <mat-error *ngIf="formGroup.get('nome') &&
                             formGroup.get('nome')?.invalid &&
                             formGroup.get('nome')?.touched">
-                            O campo Nome é obrigatório.
+                        O campo Nome é obrigatório.
                     </mat-error>
                 </mat-form-field>
 
@@ -24,25 +24,33 @@
                     <mat-error *ngIf="formGroup.get('sigla') &&
                             formGroup.get('sigla')?.invalid &&
                             formGroup.get('sigla')?.touched">
-                            O campo Sigla é obrigatório.
+                        O campo Sigla é obrigatório.
                     </mat-error>
                 </mat-form-field>
 
                 <div class="sub-form">
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
-                        <mat-label>Municipio</mat-label>
-                        <input matInput type="text" formControlName="municipio" />
-                        <mat-error *ngIf="formGroup.get('municipio') &&
-                            formGroup.get('municipio')?.invalid &&
-                            formGroup.get('municipio')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="input-2-equals-parts">
                         <mat-label>Estado</mat-label>
-                        <input matInput type="text" formControlName="estado" />
+                        <mat-select formControlName="estado">
+                            <mat-option *ngFor="let estado of estados" [value]="estado.id">
+                                {{ estado.nome}}
+                            </mat-option>
+                        </mat-select>
                         <mat-error *ngIf="formGroup.get('estado') &&
                             formGroup.get('estado')?.invalid &&
                             formGroup.get('estado')?.touched">
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="input-2-equals-parts">
+                        <mat-label>Município</mat-label>
+                        <mat-select formControlName="municipio">
+                            <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
+                                {{ municipio.nome}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formGroup.get('municipio') &&
+                            formGroup.get('municipio')?.invalid &&
+                            formGroup.get('municipio')?.touched">
                         </mat-error>
                     </mat-form-field>
                 </div>

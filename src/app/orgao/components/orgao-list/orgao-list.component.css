@@ -1,16 +1,14 @@
 mat-card {
-    width: 1880px;
-    margin: auto;
-    max-width: 1816px;
-    min-height: 100%;
-    padding: 2rem;
-    justify-content: flex-end;
+    min-width: 1250px;
+    margin: 2rem auto;
+    margin-bottom: 3rem;
+    --mdc-elevated-card-container-color: var(--default-background-color);
+    --mdc-outlined-card-container-color: var(--default-background-color);
 }
 
 .body-container {
     min-height: 100%;
 }
-
 
 .toolbar-title {
     flex: 1;
@@ -69,13 +67,18 @@ form {
     margin-top: 20px;
 }
 
-button, .clean-button, #new {
+button,
+#new {
     background-color: var(--default-blue);
     color: white;
     box-shadow: none;
 }
 
-#new{
+.search-button {
+    height: 1rem;
+}
+
+#new {
     font-weight: 400;
 }
 
@@ -84,7 +87,15 @@ button, .clean-button, #new {
     background-color: transparent;
 }
 
-.mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+.mat-mdc-table tbody,
+.mat-mdc-table tfoot,
+.mat-mdc-table thead,
+.mat-mdc-cell,
+.mat-mdc-footer-cell,
+.mat-mdc-header-row,
+.mat-mdc-row,
+.mat-mdc-footer-row,
+.mat-mdc-table .mat-mdc-header-cell {
     vertical-align: middle;
 }
 

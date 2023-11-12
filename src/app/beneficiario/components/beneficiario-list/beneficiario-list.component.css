@@ -71,7 +71,6 @@ form {
 }
 
 button,
-.clean-button,
 #new {
     background-color: var(--default-blue);
     color: white;

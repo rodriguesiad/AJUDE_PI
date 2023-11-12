@@ -1,77 +1,74 @@
 <mat-card class="no-shadow">
-    <mat-toolbar>
-      <div class="flex-container">
-        <span class="toolbar-title"> Órgãos </span>
-      </div>
-      <button mat-flat-button id="new" class="no-shadow" routerLink="/orgaos/new">Cadastrar Órgão</button>
-    </mat-toolbar>
-  
-    <div class="body-container">
-      <div class="filter-container">
-        <form>
-          <mat-form-field appearance="outline" class="full-width-input">
-            <mat-label>Pesquise o órgão</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </form>
-  
-        <button mat-fab class="search-button no-shadow">
-          <mat-icon>search</mat-icon>
-        </button>
-  
-        <button mat-flat-button class="clean-button">
-          LIMPAR
-        </button>
-      </div>
-  
-      <div style="padding: 5px;">
-        <div class="table-container no-shadow rounded-corners">
-          <table mat-table [dataSource]="dataSource">
-  
-            <ng-container matColumnDef="nome">
-              <th mat-header-cell *matHeaderCellDef> Nome </th>
-              <td mat-cell *matCellDef="let orgao"> {{orgao.nome}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="sigla">
-              <th mat-header-cell *matHeaderCellDef> Sigla </th>
-              <td mat-cell *matCellDef="let orgao"> {{orgao.sigla}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="municipio">
-              <th mat-header-cell *matHeaderCellDef> Municipio </th>
-              <td mat-cell *matCellDef="let orgao"> {{orgao.municipio.nome}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="estado">
-              <th mat-header-cell *matHeaderCellDef> Estado </th>
-              <td mat-cell *matCellDef="let orgao"> {{orgao.estado.nome}} </td>
-            </ng-container>
-  
-            <ng-container matColumnDef="acoes">
-              <th mat-header-cell *matHeaderCellDef> Ações </th>
-              <td mat-cell *matCellDef="let orgao">
-                <div class="edit-button-container">
-                  <button mat-icon-button aria-label="Editar orgao" class="no-shadow"
-                    routerLink="/orgaos/edit/{{orgao.id}}">
-                    <mat-icon>edit</mat-icon>
-                  </button>
-                  <button mat-icon-button aria-label="Editar orgao" class="no-shadow"
-                    routerLink="/orgao/edit/{{orgao.id}}">
-                    <mat-icon>edit</mat-icon>
-                  </button>
-                </div>
-              </td>
-            </ng-container>
-  
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-  
-          <mat-paginator [pageSizeOptions]="[4, 10]" showFirstLastButtons
-            aria-label="Select page of periodic beneficiarios">
-          </mat-paginator>
-        </div>
+  <mat-toolbar>
+    <div class="flex-container">
+      <span class="toolbar-title"> Órgãos </span>
+    </div>
+    <button mat-flat-button id="new" class="no-shadow" routerLink="/orgaos/new">Cadastrar Órgão</button>
+  </mat-toolbar>
+
+  <div class="body-container">
+    <div class="filter-container">
+      <form>
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Digite o nome ou sigla do órgão</mat-label>
+          <input matInput placeholder="Digite aqui" />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+
+      <button mat-flat-button class="clean-button">
+        LIMPAR
+      </button>
+    </div>
+
+    <div style="padding: 5px;">
+      <div class="table-container no-shadow rounded-corners">
+        <table mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef> Nome </th>
+            <td mat-cell *matCellDef="let orgao"> {{orgao.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="sigla">
+            <th mat-header-cell *matHeaderCellDef> Sigla </th>
+            <td mat-cell *matCellDef="let orgao"> {{orgao.sigla}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="municipio">
+            <th mat-header-cell *matHeaderCellDef> Municipio </th>
+            <td mat-cell *matCellDef="let orgao"> {{orgao.municipio.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let orgao"> {{orgao.estado.nome}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef> Ações </th>
+            <td mat-cell *matCellDef="let orgao">
+              <div class="edit-button-container">
+                <button mat-icon-button aria-label="Editar orgao" class="no-shadow"
+                  routerLink="/orgaos/edit/{{orgao.id}}">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Editar orgao" class="no-shadow"
+                  routerLink="/orgao/edit/{{orgao.id}}">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[4, 10]" showFirstLastButtons
+          aria-label="Select page of periodic beneficiarios">
+        </mat-paginator>
       </div>
     </div>
-  </mat-card>
+  </div>
+</mat-card>

@@ -6,7 +6,6 @@ mat-card {
     --mdc-outlined-card-container-color: var(--default-background-color);
 }
 
-
 mat-toolbar {
     background-color: white;
     padding-left: 5px;
@@ -38,7 +37,7 @@ mat-toolbar {
 }
 
 .input-2-equals-parts {
-    width: 837px;
+    width: 49%;
 }
 
 .mdc-card__actions {
