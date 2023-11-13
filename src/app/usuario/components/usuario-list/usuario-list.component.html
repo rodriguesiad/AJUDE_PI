@@ -35,7 +35,7 @@
                         <th mat-header-cell *matHeaderCellDef> Perfil </th>
                         <td mat-cell *matCellDef="let usuario">
                             <ng-container *ngFor="let item of usuario.perfisOrgao">
-                                {{ item.perfil.label }} - {{ item.orgao.sigla }}
+                                {{ item.orgao.sigla }} - {{ item.perfil.label }} 
                                 <br>
                             </ng-container>
                         </td>
