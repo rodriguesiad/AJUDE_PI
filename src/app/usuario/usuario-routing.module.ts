@@ -7,7 +7,8 @@ import { usuarioResolver } from './resolver/usuario-resolver';
 const routes: Routes = [
   { path: 'list', component: UsuarioListComponent },
   { path: 'new', component: UsuarioFormComponent },
-  { path: 'edit/:id', component: UsuarioFormComponent, resolve: { usuario: usuarioResolver } }
+  { path: 'edit/:id', component: UsuarioFormComponent, resolve: { usuario: usuarioResolver } },
+  { path: 'view/:id', component: UsuarioFormComponent, resolve: { usuario: usuarioResolver } }
 ];
 
 @NgModule({

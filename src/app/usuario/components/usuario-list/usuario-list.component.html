@@ -56,7 +56,8 @@
                         <td mat-cell *matCellDef="let usuario">
                             <div class="edit-button-container">
                                 <button mat-icon-button aria-label="Visualizar usuario" class="no-shadow"
-                                    routerLink="/usuarios/view/{{usuario.id}}">
+                                    routerLink="/usuarios/view/{{usuario.id}}"
+                                    [queryParams]="{ modoVisualizacao: true }">
                                     <mat-icon>remove_red_eye</mat-icon>
                                 </button>
                                 <button mat-icon-button aria-label="Editar usuario" class="no-shadow"

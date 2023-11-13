@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedService } from "./shared/services/shared.service";
+import { ReadonlySelectDirective } from './directives/readonly-select.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ReadonlySelectDirective
   ],
   imports: [
     BrowserModule,

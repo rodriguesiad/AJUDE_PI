@@ -14,7 +14,8 @@ import { Usuario } from 'src/app/models/usuario.model';
 export class UsuarioFormComponent implements OnInit {
   formGroup: FormGroup;
   minPerfilOrgao = false;
-
+  modoVisualizacao: boolean = false;
+  idUsuarioVisualizacao: number = 0;
 
   estado = new Estado(1, "Tocantins", "TO");
   municipio = new Municipio(1, "Palmas", this.estado);
@@ -45,6 +46,10 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.modoVisualizacao = params['modoVisualizacao'] === 'true';
+    });
+
     this.initializeForm();
   }
 
@@ -53,24 +58,28 @@ export class UsuarioFormComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       id: [(usuario && usuario.id) ? usuario.id : null],
-      nome: [(usuario && usuario.nome) ? usuario.nome : '', Validators.required],
-      email: [(usuario && usuario.email) ? usuario.email : '', Validators.required],
-      cpf: [(usuario && usuario.cpf) ? usuario.cpf : '', Validators.required],
-      senha: [(usuario && usuario.senha) ? usuario.senha : '', Validators.required],
+      nome: [{ value: (usuario && usuario.nome) ? usuario.nome : '', disabled: this.modoVisualizacao }, Validators.required],
+      email: [{ value: (usuario && usuario.email) ? usuario.email : '', disabled: this.modoVisualizacao }, Validators.required],
+      cpf: [{ value: (usuario && usuario.cpf) ? usuario.cpf : '', disabled: this.modoVisualizacao }, Validators.required],
+      senha: [{ value: (usuario && usuario.senha) ? usuario.senha : '', disabled: this.modoVisualizacao }, Validators.required],
       perfisOrgao: this.formBuilder.array([])
-    })
+    });
 
     if (usuario.perfisOrgao && usuario.perfisOrgao.length > 0) {
       usuario.perfisOrgao.forEach((perfilOrgao: any) => {
         this.perfisOrgao.push(
           this.formBuilder.group({
-            perfil: [(perfilOrgao && perfilOrgao.perfil) ? perfilOrgao.perfil.value : null, Validators.required],
-            orgao: [(perfilOrgao && perfilOrgao.orgao) ? perfilOrgao.orgao.id : null, Validators.required],
+            perfil: [{ value: (perfilOrgao && perfilOrgao.perfil) ? perfilOrgao.perfil.value : null, disabled: this.modoVisualizacao }, Validators.required],
+            orgao: [{ value: (perfilOrgao && perfilOrgao.orgao) ? perfilOrgao.orgao.id : null, disabled: this.modoVisualizacao }, Validators.required],
           })
         );
       });
 
       this.minPerfilOrgao = true;
+    }
+
+    if (this.modoVisualizacao === true) {
+      this.idUsuarioVisualizacao = usuario.id;
     }
   }
 
@@ -94,7 +103,7 @@ export class UsuarioFormComponent implements OnInit {
     if (this.formGroup.valid && this.minPerfilOrgao) {
       const dadosFormulario = this.formGroup.value;
       console.log('Dados do formulário:', dadosFormulario);
-      this.router.navigateByUrl('/usuarios/list');
+      this.router.navigateByUrl('/usuarios/view');
     } else {
       if (!this.minPerfilOrgao) {
         alert("Adicione pelo menos 1 perfil para o usuário.")
@@ -102,6 +111,10 @@ export class UsuarioFormComponent implements OnInit {
         alert('O formulário está inválido.');
       }
     }
+  }
+
+  isModoVisualizacao(): any {
+    return this.modoVisualizacao ? { readonly: true } : null;
   }
 
 }

@@ -43,6 +43,7 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
+    
   ],
   exports: [
     UsuarioListComponent

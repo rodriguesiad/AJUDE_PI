@@ -36,6 +36,8 @@ html {
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+  --mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.87);
+  --mdc-outlined-text-field-disabled-input-text-color: rgba(0, 0, 0, 0.87);
 }
 
 html::-webkit-scrollbar {
