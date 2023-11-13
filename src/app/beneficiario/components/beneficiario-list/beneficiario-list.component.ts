@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild, signal } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
@@ -17,7 +17,7 @@ export class BeneficiarioListComponent implements AfterViewInit, OnInit {
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
+
 
   ngOnInit(): void {
 

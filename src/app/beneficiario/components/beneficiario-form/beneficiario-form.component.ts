@@ -30,7 +30,7 @@ export class BeneficiarioFormComponent implements OnInit {
   municipios: Municipio[] = [
     new Municipio(1, 'Palmas', this.estados[0]),
     new Municipio(2, 'Porto Nacional', this.estados[0]),
-    new Municipio(3, 'Miracema',  this.estados[0]),
+    new Municipio(3, 'Miracema', this.estados[0]),
   ];
 
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
@@ -61,7 +61,7 @@ export class BeneficiarioFormComponent implements OnInit {
 
   initializeForm() {
     const beneficiario: Beneficiario = this.activatedRoute.snapshot.data['beneficiario'];
-    
+
     this.formGroup = this.formBuilder.group({
       id: [(beneficiario && beneficiario.id) ? beneficiario.id : null],
       nome: [(beneficiario && beneficiario.nome) ? beneficiario.nome : '', Validators.required],
@@ -94,6 +94,8 @@ export class BeneficiarioFormComponent implements OnInit {
         console.log('Beneficiário alterado.')
         this.router.navigateByUrl('/beneficiarios/view');
       }
+    } else {
+      alert('O formulário está inválido.');
     }
   }
 
