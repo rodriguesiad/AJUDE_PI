@@ -1,9 +1,10 @@
-import { Component,AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Beneficiario } from 'src/app/models/beneficiario.model';
 import { Estado } from 'src/app/models/estado.model';
 import { Municipio } from 'src/app/models/municipio.model';
+import { Orgao } from 'src/app/models/orgao.model';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-usuario-list',
@@ -12,42 +13,45 @@ import { Municipio } from 'src/app/models/municipio.model';
 })
 export class UsuarioListComponent implements AfterViewInit, OnInit {
 
-  displayedColumns: string[] = ['nome', 'cpf', 'nis', 'dataNascimento', 'acoes'];
-  dataSource = new MatTableDataSource<Beneficiario>;
+  displayedColumns: string[] = ['nome', 'perfil', 'email', 'cpf', 'acoes'];
+  dataSource = new MatTableDataSource<Usuario>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
 
   ngOnInit(): void {
 
     const estado = new Estado(1, "Tocantins", "TO");
     const municipio = new Municipio(1, "Palmas", estado);
+    const perfil = { value: 1, label: 'Administrador' };
+    const cras = new Orgao({ id: 2, nome: 'Centro de Referência de Assistência Social', sigla: 'CRAS', municipio: municipio, estado: estado },);
+    const creas = new Orgao({ id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla: 'CREAS', municipio: municipio, estado: estado },);
 
-    const ELEMENT_DATA: Beneficiario[] = [
-      { id: 1, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 2, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 3, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 4, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 5, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 6, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 7, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 8, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 9, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 10, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 11, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 12, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 13, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 14, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 15, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 16, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 17, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 18, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 19, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
-      { id: 20, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111', dataNascimento: new Date(1998, 9, 1), rg: '', telefone: ' ', email: ' ', cpfDosPais: ' ', cep: ' ', estado: estado, municipio: municipio, bairro: ' ', logradouro: ' ', numero: ' ', complemento: ' ' },
+
+    const ELEMENT_DATA: Usuario[] = [
+      {
+        id: 1, nome: 'Maria de Souza', cpf: '474.112.440-15', email: 'maria@gmail.com', senha: '123',
+        perfisOrgao: [{ perfil: perfil, orgao: cras }, { perfil: perfil, orgao: creas }]
+      },
+      {
+        id: 1, nome: 'Maria de Souza', cpf: '474.112.440-15', email: 'maria@gmail.com', senha: '123',
+        perfisOrgao: [{ perfil: perfil, orgao: cras }, { perfil: perfil, orgao: creas }]
+      },
+      {
+        id: 1, nome: 'Maria de Souza', cpf: '474.112.440-15', email: 'maria@gmail.com', senha: '123',
+        perfisOrgao: [{ perfil: perfil, orgao: cras }, { perfil: perfil, orgao: creas }]
+      },
+      {
+        id: 1, nome: 'Maria de Souza', cpf: '474.112.440-15', email: 'maria@gmail.com', senha: '123',
+        perfisOrgao: [{ perfil: perfil, orgao: cras }, { perfil: perfil, orgao: creas }]
+      },
+      {
+        id: 1, nome: 'Maria de Souza', cpf: '474.112.440-15', email: 'maria@gmail.com', senha: '123',
+        perfisOrgao: [{ perfil: perfil, orgao: cras }, { perfil: perfil, orgao: creas }]
+      }
     ];
 
-    this.dataSource = new MatTableDataSource<Beneficiario>(ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource<Usuario>(ELEMENT_DATA);
 
   }
 

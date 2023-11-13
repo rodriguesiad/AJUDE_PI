@@ -29,8 +29,6 @@ export class UsuarioFormComponent implements OnInit {
     new Orgao({ id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla: 'CREAS', municipio: this.municipio, estado: this.estado },)
   ]
 
-
-
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
     this.formGroup = this.formBuilder.group({
       id: [null],
