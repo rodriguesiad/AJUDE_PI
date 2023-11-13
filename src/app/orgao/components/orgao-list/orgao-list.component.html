@@ -48,6 +48,12 @@
               <td mat-cell *matCellDef="let orgao"> {{orgao.estado.nome}} </td>
             </ng-container>
   
+            <ng-container matColumnDef="situacao">
+              <th mat-header-cell *matHeaderCellDef> Situação </th>
+              <td mat-cell *matCellDef="let orgao"> 
+                {{ orgao.situacao ? 'Ativo' : 'Inativo' }} </td>
+            </ng-container>
+
             <ng-container matColumnDef="acoes">
               <th mat-header-cell *matHeaderCellDef> Ações </th>
               <td mat-cell *matCellDef="let orgao">
@@ -56,10 +62,7 @@
                     routerLink="/orgaos/edit/{{orgao.id}}">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button aria-label="Editar orgao" class="no-shadow"
-                    routerLink="/orgao/edit/{{orgao.id}}">
-                    <mat-icon>edit</mat-icon>
-                  </button>
+                    <mat-slide-toggle color="primary" [(ngModel)]="orgao.situacao"></mat-slide-toggle>
                 </div>
               </td>
             </ng-container>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BeneficiarioListComponent } from './beneficiario/components/beneficiario-list/beneficiario-list.component';
+import { LoginComponent } from './login/components/login/login.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,9 @@ const routes: Routes = [
     path: 'atendimentos', loadChildren:
     () => import('./atendimento/atendimento.module')
       .then(m => m.AtendimentoModule)
-  }
+  },
+
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
