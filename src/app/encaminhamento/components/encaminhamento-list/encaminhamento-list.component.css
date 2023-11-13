@@ -1,7 +1,7 @@
-.card{
+.card {
   width: auto;
   margin-top: 15px;
-  border: 1px solid #2d8bba ;
+  border: 1px solid #2d8bba;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -16,7 +16,7 @@ mat-card {
 
 .info {
   background-color: rgba(206, 206, 206, 0.34);
-  width: 850px;
+  width: 95%;
   box-shadow: none;
   border-radius: 0;
 }

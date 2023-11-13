@@ -32,13 +32,20 @@ export class HeaderComponent implements OnInit {
   private highlightActiveLink(url: string): void {
     const linkPrefixes = ['/beneficiarios/', '/orgaos/', '/usuarios/'];
 
-    const foundLink = this.navLinks.find(link => linkPrefixes.some(prefix => url.includes(prefix)) && url.includes(link.path));
+    if (url.includes('/atendimentos/')) {
+      url = url.replace('/atendimentos/', '/beneficiarios/');
+    }
+
+    const foundLink = this.navLinks.find(link =>
+      linkPrefixes.some(prefix => url.includes(prefix)) && url.includes(link.path)
+    );
 
     if (foundLink) {
       this.navLinks.forEach(link => (link.isActive = false));
       foundLink.isActive = true;
     }
   }
+
 
   navigateToBeneficiariosList() {
     this.router.navigate(['/beneficiarios/list']).then(() => {

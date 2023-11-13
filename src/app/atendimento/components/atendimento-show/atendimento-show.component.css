@@ -1,16 +1,20 @@
 mat-card {
-  width: 1000px;
+  min-width: 1250px;
   margin: 2rem auto;
+  margin-bottom: 3rem;
   min-height: 100%;
   padding: 2rem;
   justify-content: flex-end;
+  --mdc-elevated-card-container-color: var(--default-background-color);
+  --mdc-outlined-card-container-color: var(--default-background-color);
 }
 
 .info {
   background-color: rgba(206, 206, 206, 0.34);
-  width: 900px;
+  width: 100%;
   box-shadow: none;
   border-radius: 0;
+  margin-top: 0;
 }
 
 .container-info {
@@ -34,7 +38,7 @@ button[mat-raised-button] {
 }
 
 .card-info p {
-  font-size: 12px;
+  font-size: 15px;
   margin: 1px;
 }
 
@@ -44,12 +48,20 @@ button[mat-raised-button] {
 
 
 .mat-mdc-tab-group {
-  --mdc-tab-indicator-active-indicator-color: var(--default-blue);;
-  --mat-tab-header-active-label-text-color: var(--default-blue);;
-  --mat-tab-header-active-ripple-color: var(--default-blue);;
-  --mat-tab-header-inactive-ripple-color: var(--default-blue);;
-  --mat-tab-header-active-focus-label-text-color: var(--default-blue);;
-  --mat-tab-header-active-hover-label-text-color: var(--default-blue);;
-  --mat-tab-header-active-focus-indicator-color: var(--default-blue);;
-  --mat-tab-header-active-hover-indicator-color: var(--default-blue);;
+  --mdc-tab-indicator-active-indicator-color: var(--default-blue);
+  ;
+  --mat-tab-header-active-label-text-color: var(--default-blue);
+  ;
+  --mat-tab-header-active-ripple-color: var(--default-blue);
+  ;
+  --mat-tab-header-inactive-ripple-color: var(--default-blue);
+  ;
+  --mat-tab-header-active-focus-label-text-color: var(--default-blue);
+  ;
+  --mat-tab-header-active-hover-label-text-color: var(--default-blue);
+  ;
+  --mat-tab-header-active-focus-indicator-color: var(--default-blue);
+  ;
+  --mat-tab-header-active-hover-indicator-color: var(--default-blue);
+  ;
 }

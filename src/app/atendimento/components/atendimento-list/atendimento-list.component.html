@@ -1,55 +1,115 @@
-<mat-card class="principal">
-    <mat-card class="secundario">
-      <div class="container-info">
-        <div class="card-info">
-          <p>Nome : Ana de Melo</p>
-          <p>CPF : 092.000.000-00</p>
-          <p>RG: 098112383</p>
-        </div>
-        <div class="card-info">
-          <p>Data de Nascimento</p>
-          <p>15/08/1975</p>
-        </div>
-        <div class="card-info">
-          <p>NIS</p>
-          <p>11111111111111</p>
-        </div>
-        <div class="card-info">
-          <p>Telefone</p>
-          <p>+55 63 99999-9999</p>
-        </div>
-        <div class="card-info">
-          <p>E-mail</p>
-          <p>ana@gmail.com</p>
-        </div>
-        <div>
-          <button mat-raised-button class="back-button" routerLink="/beneficiarios/view/1">
-            VOLTAR
-          </button>
-        </div>
+<mat-card class="principal no-shadow">
+  <mat-card class="secundario">
+    <div class="container-info">
+      <div class="card-info">
+        <p>Nome : Ana de Melo</p>
+        <p>CPF : 092.000.000-00</p>
+        <p>RG: 098112383</p>
       </div>
+      <div class="card-info">
+        <p>Data de Nascimento</p>
+        <p>15/08/1975</p>
+      </div>
+      <div class="card-info">
+        <p>NIS</p>
+        <p>11111111111111</p>
+      </div>
+      <div class="card-info">
+        <p>Telefone</p>
+        <p>+55 63 99999-9999</p>
+      </div>
+      <div class="card-info">
+        <p>E-mail</p>
+        <p>ana@gmail.com</p>
+      </div>
+      <div>
+        <button mat-raised-button class="back-button" routerLink="/beneficiarios/view/1">
+          VOLTAR
+        </button>
+      </div>
+    </div>
+  </mat-card>
+
+  <button mat-stroked-button routerLink="/atendimentos/new" class="buttonNew" style="color:#FFFFFF ;">
+    Cadastrar Atendimento
+  </button>
+
+  <h1>Atendimentos</h1>
+
+  <div class="listAtendimentos">
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>N* 1567 - AUXÍLIO MORADIA</mat-card-title>
+        <mat-card-subtitle>Cras MS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Data do Cadastro : 10/07/2023</p>
+        <p>Situação : Ativo</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="view-button" style="color: #2d8bba;"
+          routerLink="/atendimentos/show">Visualizar</button>
+      </mat-card-actions>
     </mat-card>
 
-    <button mat-stroked-button routerLink="/atendimentos/new" class="buttonNew" style="color:#FFFFFF ;">
-        Cadastrar Atendimento
-    </button>
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>N* 1567 - AUXÍLIO MORADIA</mat-card-title>
+        <mat-card-subtitle>Cras MS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Data do Cadastro : 10/07/2023</p>
+        <p>Situação : Ativo</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="view-button" style="color: #2d8bba;"
+          routerLink="/atendimentos/show">Visualizar</button>
+      </mat-card-actions>
+    </mat-card>
 
-    <h1>Atendimentos</h1>
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>N* 1567 - AUXÍLIO MORADIA</mat-card-title>
+        <mat-card-subtitle>Cras MS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Data do Cadastro : 10/07/2023</p>
+        <p>Situação : Ativo</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="view-button" style="color: #2d8bba;"
+          routerLink="/atendimentos/show">Visualizar</button>
+      </mat-card-actions>
+    </mat-card>
 
-    <div class="listAtendimentos">
-        <mat-card class="info-card">
-            <mat-card-header>
-              <mat-card-title>N* 1567 - AUXÍLIO MORADIA</mat-card-title>
-              <mat-card-subtitle>Cras MS</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <p>Data do Cadastro : 10/07/2023</p>
-              <p>Situação : Ativo</p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button class="view-button" style="color: #2d8bba;" routerLink="/atendimentos/show" >Visualizar</button>
-            </mat-card-actions>
-          </mat-card>
-    </div>
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>N* 1567 - AUXÍLIO MORADIA</mat-card-title>
+        <mat-card-subtitle>Cras MS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Data do Cadastro : 10/07/2023</p>
+        <p>Situação : Ativo</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="view-button" style="color: #2d8bba;"
+          routerLink="/atendimentos/show">Visualizar</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>N* 1567 - AUXÍLIO MORADIA</mat-card-title>
+        <mat-card-subtitle>Cras MS</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Data do Cadastro : 10/07/2023</p>
+        <p>Situação : Ativo</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="view-button" style="color: #2d8bba;"
+          routerLink="/atendimentos/show">Visualizar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </mat-card>
-

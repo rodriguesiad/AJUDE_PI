@@ -1,72 +1,83 @@
-<mat-card class="principal">
-    <mat-card class="secundario">
-      <div class="container-info">
-        <div class="card-info">
-          <p>Nome : Ana de Melo</p>
-          <p>CPF : 092.000.000-00</p>
-          <p>RG: 098112383</p>
-        </div>
-        <div class="card-info">
-          <p>Data de Nascimento</p>
-          <p>15/08/1975</p>
-        </div>
-        <div class="card-info">
-          <p>NIS</p>
-          <p>11111111111111</p>
-        </div>
-        <div class="card-info">
-          <p>Telefone</p>
-          <p>+55 63 99999-9999</p>
-        </div>
-        <div class="card-info">
-          <p>E-mail</p>
-          <p>ana@gmail.com</p>
-        </div>
-        <div>
-          <button mat-raised-button class="back-button" routerLink="/atendimentos/list">
-            VOLTAR
-          </button>
-        </div>
+<mat-card class="principal no-shadow">
+  <mat-card class="secundario">
+    <div class="container-info">
+      <div class="card-info">
+        <p>Nome : Ana de Melo</p>
+        <p>CPF : 092.000.000-00</p>
+        <p>RG: 098112383</p>
       </div>
-    </mat-card>
-
-    <h2 style="margin-left: 15px;">Cadastrar Atendimento </h2>
-    <div class="formulario">
-        <mat-form-field appearance="outline" class="formInput">
-            <mat-label class="tituloInput">Órgão</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="otherInput">
-            <mat-label class="tituloInput">Usuario Responsável</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="otherInput">
-            <mat-label class="tituloInput">Data do Atendimento</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="otherInput">
-            <mat-label class="tituloInput">Tipo de Benefício</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="otherInput">
-            <mat-label class="tituloInput">Situação do Atendimento</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="textInput">
-            <mat-label class="tituloInput">Descrição do Atendimento</mat-label>
-            <input matInput>
-        </mat-form-field> 
-        <button mat-flat-button id="inputButton" style="margin-left: 520px; color: #2d8bba;" routerLink="/atendimentos/list">
-            Cancelar
-        </button> 
-        <button mat-flat-button id="inputButton" style="margin-left: 80px; background-color: #2d8bba; color: white;" routerLink="/atendimentos/show">
-            Salvar
+      <div class="card-info">
+        <p>Data de Nascimento</p>
+        <p>15/08/1975</p>
+      </div>
+      <div class="card-info">
+        <p>NIS</p>
+        <p>11111111111111</p>
+      </div>
+      <div class="card-info">
+        <p>Telefone</p>
+        <p>+55 63 99999-9999</p>
+      </div>
+      <div class="card-info">
+        <p>E-mail</p>
+        <p>ana@gmail.com</p>
+      </div>
+      <div>
+        <button mat-raised-button id="back-button" routerLink="/atendimentos/list">
+          VOLTAR
         </button>
-
+      </div>
     </div>
   </mat-card>
 
+  <h2 style="margin-left: 15px;">Cadastrar Atendimento </h2>
+  <div class="formulario">
+
+    <div class="sub-form">
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label class="tituloInput">Órgão</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="sub-form">
+      <mat-form-field appearance="outline" class="input-2-equals-parts">
+        <mat-label class="tituloInput">Usuario Responsável</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-2-equals-parts">
+        <mat-label class="tituloInput">Data do Atendimento</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="sub-form">
+      <mat-form-field appearance="outline" class="input-2-equals-parts">
+        <mat-label class="tituloInput">Tipo de Benefício</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-2-equals-parts">
+        <mat-label class="tituloInput">Situação do Atendimento</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="sub-form">
+      <mat-form-field appearance="outline" class="textInput">
+        <mat-label class="tituloInput">Descrição do Atendimento</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="sub-form actions">
+      <button mat-raised-button style="color: #2d8bba;" routerLink="/atendimentos/list">
+        Cancelar
+      </button>
+      <button mat-raised-button style="background-color: #2d8bba; color: white;" routerLink="/atendimentos/show">
+        Salvar
+      </button>
+    </div>
+  </div>
+</mat-card>

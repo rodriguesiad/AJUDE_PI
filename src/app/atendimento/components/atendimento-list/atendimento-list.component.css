@@ -1,87 +1,90 @@
-.principal{
-    width: 1250px;
-    margin: 2rem auto;
-    min-height: 100%;
-    padding: 2rem;
-    justify-content: flex-end;
-    border-radius: 0;
-  }
+.principal {
+  width: 1250px;
+  margin: 2rem auto;
+  margin-bottom: 3rem;
+  min-height: 100%;
+  padding: 2rem;
+  justify-content: flex-end;
+  border-radius: 0;
+  --mdc-elevated-card-container-color: var(--default-background-color);
+  --mdc-outlined-card-container-color: var(--default-background-color);
+}
 
-  .secundario{
-    width: 100%;
-    margin: 2rem auto;
-    min-height: 100%;
-    padding: 2rem;
-    justify-content: flex-end;
-    background-color: #EBEBEB;
+.secundario {
+  width: 100%;
+  min-height: 100%;
+  padding: 2rem;
+  justify-content: flex-end;
+  background-color: #EBEBEB;
 
-  }
-  
-  .info {
-    background-color: rgba(206, 206, 206, 0.34);
-    width: 100%;
-    border-radius: 0;
-  }
-  
-  .container-info {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-  }
-  
-  button[mat-raised-button] {
-    width: 120px;
-    font-size: 12px;
-    background-color: inherit;
-    color: cornflowerblue;
-    margin: 5px 5px 0 0;
-    box-shadow: none;
-  }
-  
-  .card-info {
-    width: 20%;
-  }
-  
-  .card-info p {
-    font-size: 15px;
-    margin: 1px;
-  }
-  
-  .card-info p:first-child {
-    font-weight: bold;
-  }
+}
 
-  .principal{
-    height: auto;
+.info {
+  background-color: rgba(206, 206, 206, 0.34);
+  width: 100%;
+  border-radius: 0;
+}
 
-  }
+.container-info {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
 
-  .listAtendimentos{
-    height: 500px;
-    width: 100%;
-    border: 1px solid #2d8bba;
-    border-radius: 5px;
-    display: flex;
+button[mat-raised-button] {
+  width: 120px;
+  font-size: 12px;
+  background-color: inherit;
+  color: cornflowerblue;
+  margin: 5px 5px 0 0;
+  box-shadow: none;
+}
 
-  }
+.card-info {
+  width: 20%;
+}
 
-  .buttonNew{
-    width:25%;
-    margin-bottom: 15px;
-    margin-left: 75%;
-    background-color: #2d8bba;
-    color:"#FFFFFF";
-  }
+.card-info p {
+  font-size: 15px;
+  margin: 1px;
+}
 
-  .info-card{
-    width: 100%;
-    height: 175px;
-    background-color: #EBEBEB;
-    margin: 15px;
-  }
-  .view-button{
-    margin-left: auto;
-    font-size: medium;
-    margin-bottom: 25px;
-    color: #2d8bba;
-  }
+.card-info p:first-child {
+  font-weight: bold;
+}
+
+.principal {
+  height: auto;
+
+}
+
+.listAtendimentos {
+  height: auto;
+  border: 1px solid #2d8bba;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.buttonNew {
+  width: 25%;
+  margin-top: 15px;
+  margin-left: 75%;
+  background-color: #2d8bba;
+  color: "#FFFFFF";
+}
+
+.info-card {
+  width: 100%;
+  height: 175px;
+  background-color: #EBEBEB;
+}
+
+.view-button {
+  margin-left: auto;
+  font-size: medium;
+  margin-bottom: 25px;
+  color: #2d8bba;
+}
