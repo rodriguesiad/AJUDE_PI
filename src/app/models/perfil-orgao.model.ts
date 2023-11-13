@@ -1,11 +1,11 @@
 import { Orgao } from "./orgao.model";
 
 export class PerfilOrgao {
-    perfil!: string;
+    perfil!: {value : number, label: string};
     orgao!: Orgao;
 
     constructor(data: {
-        perfil: string,
+        perfil: {value : number, label: string},
         orgao: Orgao
     }) {
         this.perfil = data.perfil;

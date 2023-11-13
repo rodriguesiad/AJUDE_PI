@@ -1,4 +1,3 @@
-import { inject } from "@angular/core";
 import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from "@angular/router";
 import { Beneficiario } from "src/app/models/beneficiario.model";
 import { Estado } from "src/app/models/estado.model";

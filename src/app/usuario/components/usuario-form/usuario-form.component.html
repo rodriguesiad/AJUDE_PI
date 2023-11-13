@@ -1,7 +1,7 @@
 <mat-card class="no-shadow">
     <mat-toolbar>
         <div class="flex-container">
-            <span class="toolbar-title">Cadastrar Usuário</span>
+            <span class="toolbar-title">{{ formGroup.get('id')?.value ? 'Editar Usuário' : 'Cadastrar Usuário' }}</span>
         </div>
     </mat-toolbar>
     <div class="form-container">
@@ -55,25 +55,27 @@
                             <mat-form-field appearance="outline" class="input-perfil-orgao">
                                 <mat-label>Perfil</mat-label>
                                 <mat-select formControlName="perfil">
-                                    <mat-option *ngFor="let estado of estados" [value]="estado.id">
-                                        {{ estado.nome}}
+                                    <mat-option *ngFor="let perfil of perfis" [value]="perfil.value">
+                                        {{ perfil.label}}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="formGroup.get('estado') &&
-                                formGroup.get('estado')?.invalid &&
-                                formGroup.get('estado')?.touched">
+                                <mat-error *ngIf="formGroup.get('perfil') &&
+                                formGroup.get('perfil')?.invalid &&
+                                formGroup.get('perfil')?.touched">
+                                    O campo Perfil é obrigatório.
                                 </mat-error>
                             </mat-form-field>
                             <mat-form-field appearance="outline" class="input-perfil-orgao">
                                 <mat-label>Órgão</mat-label>
                                 <mat-select formControlName="orgao">
-                                    <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
-                                        {{ municipio.nome}}
+                                    <mat-option *ngFor="let orgao of orgaos" [value]="orgao.id">
+                                        {{ orgao.sigla }} - {{ orgao.nome }}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="formGroup.get('municipio') &&
-                                formGroup.get('municipio')?.invalid &&
-                                formGroup.get('municipio')?.touched">
+                                <mat-error *ngIf="formGroup.get('orgao') &&
+                                formGroup.get('orgao')?.invalid &&
+                                formGroup.get('orgao')?.touched">
+                                    O campo órgão é obrigatório.
                                 </mat-error>
                             </mat-form-field>
 
