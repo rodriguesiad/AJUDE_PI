@@ -89,10 +89,10 @@ export class BeneficiarioFormComponent implements OnInit {
 
       if (novo.id == null) {
         console.log('Beneficiário cadastrado.')
-        this.router.navigateByUrl('/beneficiarios/view');
+        this.router.navigateByUrl('/beneficiarios/view/1');
       } else {
         console.log('Beneficiário alterado.')
-        this.router.navigateByUrl('/beneficiarios/view');
+        this.router.navigateByUrl('/beneficiarios/view/1');
       }
     } else {
       alert('O formulário está inválido.');

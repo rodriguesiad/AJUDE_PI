@@ -22,8 +22,6 @@ import localePtBr from '@angular/common/locales/pt';
 
 registerLocaleData(localePtBr);
 
-
-
 @NgModule({
   declarations: [
     BeneficiarioListComponent,
@@ -46,7 +44,7 @@ registerLocaleData(localePtBr);
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
-  ],
+      ],
   exports: [
     BeneficiarioListComponent,
   ],

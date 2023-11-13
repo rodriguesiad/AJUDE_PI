@@ -10,9 +10,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
-import {NgFor} from '@angular/common';
+import { NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { MatCardModule } from '@angular/material/card';
     MatFormFieldModule,
     RouterModule,
     NgFor,
-    MatCardModule
+    MatCardModule,
   ],
   exports: [
     HeaderComponent,
