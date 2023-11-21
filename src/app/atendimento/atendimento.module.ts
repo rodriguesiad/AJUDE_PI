@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatToolbarModule,
     FormsModule,
     MatFormFieldModule,
+    SharedModule
   ]
 })
 export class AtendimentoModule {

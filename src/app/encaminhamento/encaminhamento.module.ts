@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {EncaminhamentoRoutingModule} from './encaminhamento-routing.module';
 import {MatInputModule} from "@angular/material/input";
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {MatInputModule} from "@angular/material/input";
   imports: [
     CommonModule,
     EncaminhamentoRoutingModule,
-    MatInputModule
+    MatInputModule,
+    SharedModule
   ]
 })
 export class EncaminhamentoModule {

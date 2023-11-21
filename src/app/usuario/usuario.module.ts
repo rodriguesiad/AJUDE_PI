@@ -20,6 +20,7 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePtBr from '@angular/common/locales/pt';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
+    SharedModule
     
   ],
   exports: [

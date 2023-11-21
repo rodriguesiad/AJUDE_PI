@@ -1,0 +1,64 @@
+
+.login-container {
+    background: linear-gradient(208.2deg, rgba(0, 0, 0, 0.3) 17.82%, rgba(45, 139, 186, 0.3) 46.45%),
+    linear-gradient(0deg, #2D8BBA, #2D8BBA); /* Cor do quadrado branco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  
+}
+
+.login-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px; 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 532px;
+    height: 468px;
+}
+
+.login-box span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+    margin-bottom: 2px;
+    color: #2D8BBA;
+    margin-top: 2px;
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+.login-box img {
+    width: 90px;
+    height: 90px; /* Ajuste a altura conforme necessário */
+}
+
+.login-title {
+    color: #00000099; /* Cor do título "Efetuar Login" */
+    margin-bottom: 90px;
+    margin-top: 0px;
+}
+
+.login-input {
+    width: 80%;
+    margin-bottom: 0px;
+}
+
+.login-button {
+    width: 50%; /* Ajuste a largura conforme necessário */
+    margin-top: 50px;
+    margin-bottom: 5px;
+    color: #2D8BBA;
+}
+
+.forgot-password {
+    margin-top: 20px;
+    color: #2D8BBA; /* Cor do texto "Esqueceu a senha? Clique aqui." */
+    cursor: pointer;
+}
+
+button[mat-raised-button] {
+    background-color: #2D8BBA;
+} 

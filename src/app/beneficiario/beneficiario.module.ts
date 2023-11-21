@@ -19,6 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePtBr from '@angular/common/locales/pt';
+import { SharedModule } from '../shared/shared.module';
 
 registerLocaleData(localePtBr);
 
@@ -44,6 +45,7 @@ registerLocaleData(localePtBr);
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
+    SharedModule
       ],
   exports: [
     BeneficiarioListComponent,
