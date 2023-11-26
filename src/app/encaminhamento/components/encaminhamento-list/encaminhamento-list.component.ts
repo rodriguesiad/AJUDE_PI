@@ -10,6 +10,7 @@ import { Municipio } from 'src/app/models/municipio.model';
 import { Orgao } from 'src/app/models/orgao.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-encaminhamento-list',
@@ -21,23 +22,32 @@ export class EncaminhamentoListComponent {
   encaminhamentos: Encaminhamento[] = [];
   encaminhamento: Encaminhamento;
 
+  size = 5;
+  page = 0;
+  pageEvent: PageEvent | undefined;
+
   constructor(private sharedService: SharedService, public dialog: MatDialog, private activatedRoute: ActivatedRoute) {
     this.atendimento = this.activatedRoute.snapshot.data['atendimento'];
     this.encaminhamento = this.cargaDados();
 
-    this.encaminhamentos = [this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento];
+    this.encaminhamentos = [this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento];
   }
 
   isCadastro() {
     this.sharedService.setIsCadastro(true);
   }
 
-  openDialog(encaminhamento : Encaminhamento) {
+  openDialog(encaminhamento: Encaminhamento) {
     const dialogRef = this.dialog.open(EncaminhamentoDownloadModalComponent, {
       width: "40%",
       height: "96%",
       data: { encaminhamento }
     })
+  }
+
+  handlePage(event: PageEvent): void {
+    this.page = event.pageIndex;
+    this.size = event.pageSize;
   }
 
   cargaDados(): Encaminhamento {
@@ -85,5 +95,6 @@ export class EncaminhamentoListComponent {
       dataInclusao: new Date()
     })
   }
+
 
 }

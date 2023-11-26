@@ -13,9 +13,9 @@ export class AtendimentoListComponent implements OnInit {
 
   atendimentos: Atendimento[] = [];
   beneficiario: Beneficiario;
+  
   size = 5;
   page = 0;
-
   pageEvent: PageEvent | undefined;
 
   constructor(private activatedRoute: ActivatedRoute) {

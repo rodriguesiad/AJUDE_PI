@@ -7,6 +7,16 @@
   overflow: hidden;
 }
 
+.botao-encaminhar {
+  width: 97%;
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
 mat-card {
   width: auto;
   margin: 2rem auto;
@@ -29,10 +39,7 @@ button[mat-raised-button] {
   font-size: 12px;
   background-color: var(--default-blue);
   color: white;
-  margin: 5px 5px 0 0;
   box-shadow: none;
-  margin-bottom: 3%;
-  margin-left: 3%;
 }
 
 .container-info p {

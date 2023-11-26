@@ -1,5 +1,11 @@
 <div class="card">
-  <mat-card *ngFor="let encaminhamento of encaminhamentos" class="no-shadow info">
+  <div class="botao-encaminhar">
+    <button mat-raised-button (click)="isCadastro()">
+      ENCAMINHAR
+    </button>
+  </div>
+
+  <mat-card *ngFor="let encaminhamento of encaminhamentos | slice: (page * size): ((page + 1) * size)" class="no-shadow info">
     <div class="container-info">
       <p>{{ encaminhamento.orgaoOrigem.sigla}} - {{ encaminhamento.orgaoOrigem.nome }}
         ({{encaminhamento.orgaoOrigem.municipio.nome }} - {{encaminhamento.orgaoOrigem.estado.sigla}}) ->
@@ -14,10 +20,9 @@
     </button>
   </mat-card>
 
-  <div>
-    <button mat-raised-button (click)="isCadastro()">
-      ENCAMINHAR
-    </button>
-  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="size" (page)="handlePage($event)"
+    [length]="encaminhamentos.length" showFirstLastButtons aria-label="Selecione a página"
+    style="border-top: 1px solid rgb(224, 223, 223);">
+  </mat-paginator>
 
 </div>
