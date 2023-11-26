@@ -21,4 +21,11 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
+
+  entrar(): void {
+    if (this.loginForm.valid) {
+      this.router.navigateByUrl('/beneficiarios/list');
+    }
+  }
+
 }

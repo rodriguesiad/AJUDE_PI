@@ -9,7 +9,6 @@ import { TabSelectionService } from '../../services/tab-selection.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   navLinks = [
     { path: '/beneficiarios/list', label: 'BENEFICIÁRIOS', isActive: false },
     { path: '/orgaos/list', label: 'ÓRGÃOS', isActive: false },
@@ -17,7 +16,6 @@ export class HeaderComponent implements OnInit {
   ]
 
   constructor(private tabSelectionService: TabSelectionService, private router: Router) { }
-
 
   ngOnInit() {
     this.router.events

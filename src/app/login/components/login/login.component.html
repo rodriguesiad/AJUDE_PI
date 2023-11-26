@@ -1,20 +1,22 @@
 <div class="login-container">
     <div class="login-box">
-        <span>
-            AJUDE
-            <img src="../../../../assets/images/logo.svg" alt="Logo do sistema">
-        </span>
-        <h2 class="login-title">Efetuar Login</h2>
+        <div class="box-header">
+            <div id="logo">
+                <span>AJUDE</span>
+                <img src="../../../../assets/images/logo.svg" alt="Logo do sistema">
+            </div>
+            <h2 class="login-title">Efetuar Login</h2>
+        </div>
         <form [formGroup]="loginForm">
-            <mat-form-field class="login-input">
+            <mat-form-field class="login-input" appearance="outline">
                 <input matInput placeholder="Login" formControlName="email" required>
-                <mat-error *ngIf="loginForm.get('email')!.hasError('required')">O email é obrigatório</mat-error>
+                <mat-error *ngIf="loginForm.get('email')!.hasError('required')">O login é obrigatório</mat-error>
             </mat-form-field>
-            <mat-form-field class="login-input">
+            <mat-form-field class="login-input" appearance="outline">
                 <input matInput type="password" placeholder="Senha" formControlName="password" required>
                 <mat-error *ngIf="loginForm.get('password')!.hasError('required')">A senha é obrigatória</mat-error>
             </mat-form-field>
-            <button mat-raised-button class="login-button" color="primary" type="submit">LOGIN</button>
+            <button mat-raised-button class="login-button" color="primary" type="submit" (click)="entrar()">LOGIN</button>
             <p>Esqueceu a senha? <a [routerLink]="['/login/recuperar-senha']">Clique Aqui</a></p>
         </form>
     </div>

@@ -22,16 +22,15 @@ const routes: Routes = [
       () => import('./usuario/usuario.module')
         .then(m => m.UsuarioModule)
   },
-   
   {
     path: 'atendimentos', loadChildren:
-    () => import('./atendimento/atendimento.module')
-      .then(m => m.AtendimentoModule)
+      () => import('./atendimento/atendimento.module')
+        .then(m => m.AtendimentoModule)
   },
   {
     path: 'login', loadChildren:
-    () => import('./login/login.module')
-      .then(m => m.LoginModule)
+      () => import('./login/login.module')
+        .then(m => m.LoginModule)
   }
 ];
 
