@@ -27,6 +27,11 @@ const routes: Routes = [
     path: 'atendimentos', loadChildren:
     () => import('./atendimento/atendimento.module')
       .then(m => m.AtendimentoModule)
+  },
+  {
+    path: 'pdf', loadChildren:
+    () => import('./shared/shared.module')
+    .then(m => m.SharedModule)
   }
 ];
 

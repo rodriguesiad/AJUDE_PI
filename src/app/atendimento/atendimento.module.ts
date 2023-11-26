@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { EncaminhamentoDownloadModalComponent } from '../encaminhamento/components/modal/encaminhamento-download-modal/encaminhamento-download-modal.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EncaminhamentoListComponent,
     MovimentacaoListComponent,
     EncaminhamentoFormComponent,
+    EncaminhamentoDownloadModalComponent,
     MovimentacaoFormComponent,
     AtendimentoListComponent,
     AtendimentoFormComponent
