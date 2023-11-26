@@ -5,11 +5,18 @@ import { AtendimentoFormComponent } from './components/atendimento-form/atendime
 import { AtendimentoShowComponent } from './components/atendimento-show/atendimento-show.component';
 import { atendimentoResolver } from './resolver/atendimento-resolver';
 import { beneficiarioResolver } from '../beneficiario/resolver/beneficiario-resolver';
+import { encaminhamentoResolver } from '../encaminhamento/resolver/encaminhamento-resolver';
+import { movimentacaoResolver } from '../movimentacao/resolver/movimentacao-resolver';
 
 const routes: Routes = [
-  { path: 'show/:id', component: AtendimentoShowComponent, resolve: { atendimento: atendimentoResolver } },
+  {
+    path: 'show/:id', component: AtendimentoShowComponent, resolve: {
+      atendimento: atendimentoResolver, beneficiario: beneficiarioResolver,
+      encaminhemento: encaminhamentoResolver, movimentacao: movimentacaoResolver
+    }
+  },
   { path: 'list', component: AtendimentoListComponent, resolve: { atendimento: atendimentoResolver, beneficiario: beneficiarioResolver } },
-  { path: 'new', component: AtendimentoFormComponent }
+  { path: 'new', component: AtendimentoFormComponent, resolve: { beneficiario: beneficiarioResolver } }
 ];
 
 @NgModule({

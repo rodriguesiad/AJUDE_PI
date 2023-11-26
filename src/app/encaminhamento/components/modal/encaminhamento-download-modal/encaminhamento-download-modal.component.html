@@ -9,18 +9,21 @@
     <header>
       <img class="logo" src="../../../../assets/images/logo_municipio_palmas.png" alt="Logo do sistema">
     </header>
-  
+
     <main>
       <div class="main-header">
         <h4>Encaminhamento</h4>
       </div>
-  
+
       <div class="main-body">
         <section class="texto">
-          <p>Encaminhamos o(a) Sr(a). <b>Ana de Melo</b> e solicito atenção
-            para seu atendimento na unidade/serviço Centro de Ref. Especializado de Ass. Social - CREAS localizada no
-            Município Palmas - TO tendo em consideração as demandas identificadas pelo
-            Serviço Social do órgão Centro de Referência de Assistência Social - CRAS, do Município Palmas - TO.
+          <p>Encaminhamos o(a) Sr(a). {{data.encaminhamento.atendimento.beneficiario.nome}} e solicito atenção
+            para seu atendimento na unidade/serviço {{data.encaminhamento.orgaoDestino.nome}} -
+            {{data.encaminhamento.orgaoDestino.sigla}} localizada no Município de
+            {{data.encaminhamento.orgaoDestino.municipio.nome}} - {{data.encaminhamento.orgaoDestino.estado.sigla}}
+            tendo em consideração as demandas identificadas
+            pelo {{data.encaminhamento.orgaoOrigem.nome}} - {{data.encaminhamento.orgaoOrigem.sigla}}, do
+            {{data.encaminhamento.orgaoOrigem.municipio.nome}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}.
           </p>
         </section>
         <section class="info-pessoal">
@@ -28,15 +31,20 @@
             <tr>
               <td>
                 <p class="texto title">Informações pessoais</p>
-                <p class="texto">Endereço:
+                <p class="texto">Endereço: {{ data.encaminhamento.atendimento.beneficiario.logradouro }},
+                  Bairro: {{ data.encaminhamento.atendimento.beneficiario.bairro }},
+                  Nº: {{ data.encaminhamento.atendimento.beneficiario.numero }},
+                  {{ data.encaminhamento.atendimento.beneficiario.municipio.nome }} - {{
+                  data.encaminhamento.atendimento.beneficiario.estado.sigla }}
                   <br>
-                  Data de Nascimento:
+                  Data de Nascimento: {{data.encaminhamento.atendimento.beneficiario.dataNascimento | date:
+                  'dd/MM/yyy'}}
                   <br>
-                  CPF:
+                  CPF: {{ data.encaminhamento.atendimento.beneficiario.cpf }}
                   <br>
-                  RG:
+                  RG: {{ data.encaminhamento.atendimento.beneficiario.rg }}
                   <br>
-                  Telefone:
+                  Telefone: {{ formatarTelefone(data.encaminhamento.atendimento.beneficiario.telefone) }}
                 </p>
               </td>
             </tr>
@@ -44,15 +52,16 @@
         </section>
       </div>
     </main>
-  
+
     <footer>
-      <p>Palmas - TO<br>01/11/2023</p>
+      <p>{{data.encaminhamento.orgaoOrigem.municipio.nome}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}
+        <br>{{ this.dataAtual | date: 'dd/MM/yyy'}}
+      </p>
     </footer>
   </div>
 
   <div class="container-footer">
     <button mat-raised-button (click)="onConfirm()">Download</button>
   </div>
-  
-</div>
 
+</div>

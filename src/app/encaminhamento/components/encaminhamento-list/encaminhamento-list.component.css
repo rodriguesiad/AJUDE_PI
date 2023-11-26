@@ -17,8 +17,11 @@ mat-card {
 .info {
   background-color: rgba(206, 206, 206, 0.34);
   width: 95%;
-  box-shadow: none;
   border-radius: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button[mat-raised-button] {
@@ -39,4 +42,10 @@ button[mat-raised-button] {
 
 .container-info p:first-child {
   font-weight: bold;
+}
+
+.mat-mdc-icon-button.mat-primary {
+  --mdc-icon-button-icon-color: var(--default-blue);
+  --mat-mdc-button-persistent-ripple-color: #3f51b5;
+  --mat-mdc-button-ripple-color: rgba(63, 81, 181, 0.1);
 }

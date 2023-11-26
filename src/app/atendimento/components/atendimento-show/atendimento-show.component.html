@@ -2,18 +2,17 @@
   <mat-card class="no-shadow info">
     <div class="container-info">
       <div class="card-info">
-        <p>Nº 1567 - AUXÍLIO MORADIA CRAS MS</p>
-        <p>Data do Cadastro: 10/07/2023</p>
-        <p>Situação: Ativo</p>
+        <p>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</p>
+        <p>Data do Cadastro: {{ atendimento.dataInclusao | date:'dd/MM/yyyy' }}</p>
+        <p>Situação: {{ atendimento.situacao ? 'Ativo' : 'Inativo' }}</p>
       </div>
       <div class="card-info">
-        <p>Usuário Responsável - Maria de Souza</p>
+        <p>Órgão Atual:</p>
+        <p>{{ atendimento.orgaoAtual.sigla }} - {{ atendimento.orgaoAtual.nome }}</p>
       </div>
       <div class="card-info">
-        <p>Descrição: Atendimento re- alizado no dia 10/07 para o paciente Ana de Melo</p>
-      </div>
-      <div class="card-info">
-        <p>Órgão Atual: CRAS Morada do Sol</p>
+        <p>Usuário Responsável:</p>
+        <p>{{ atendimento.usuarioInclusao.nome }}</p>
       </div>
       <div>
         <button mat-raised-button class="back-button" routerLink="/atendimentos/list">
@@ -22,6 +21,11 @@
       </div>
     </div>
   </mat-card>
+
+  <div class="descricao">
+    <h4><b>Motivo do Atendimento</b></h4>
+    <p id="text-descricao">{{ atendimento.descricao }}</p>
+  </div>
 
   <mat-tab-group>
     <mat-tab label="Encaminhamentos">

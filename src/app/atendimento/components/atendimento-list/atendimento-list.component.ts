@@ -18,9 +18,8 @@ export class AtendimentoListComponent implements OnInit {
 
   pageEvent: PageEvent | undefined;
 
-
-  constructor(private activatedRoute: ActivatedRoute) { 
-    this.beneficiario =  this.activatedRoute.snapshot.data['beneficiario'];
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.beneficiario = this.activatedRoute.snapshot.data['beneficiario'];
   }
 
   ngOnInit(): void {
@@ -28,17 +27,21 @@ export class AtendimentoListComponent implements OnInit {
     this.atendimentos = [atendimento, atendimento, atendimento, atendimento, atendimento, atendimento];
   }
 
-  formatarTelefone(numero: string): string {
-    const codigoPais = '+' + numero.slice(0, 2);
-    const ddd = numero.slice(2, 4);
-    const parte1 = numero.slice(4, 6);
-    const parte2 = numero.slice(6, 10);
-    return `${codigoPais} ${ddd} ${parte1} ${parte2}`;
-  }
-
   handlePage(event: PageEvent): void {
     this.page = event.pageIndex;
     this.size = event.pageSize;
+  }
+
+  formatarTelefone(numero: string): string {
+    if (numero != '') {
+      const codigoPais = '+' + numero.slice(0, 2);
+      const ddd = numero.slice(2, 4);
+      const parte1 = numero.slice(4, 6);
+      const parte2 = numero.slice(6, 10);
+      return `${codigoPais} ${ddd} ${parte1} ${parte2}`;
+    }
+
+    return '';
   }
 
 }
