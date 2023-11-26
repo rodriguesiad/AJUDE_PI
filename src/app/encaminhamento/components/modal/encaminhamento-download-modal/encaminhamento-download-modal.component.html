@@ -1,0 +1,58 @@
+<div class="document-container">
+  <div class="container-header">
+    <button mat-icon-button aria-label="Fechar" class="close-button" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="pdf-document" id="content" #content>
+    <header>
+      <img class="logo" src="../../../../assets/images/logo_municipio_palmas.png" alt="Logo do sistema">
+    </header>
+  
+    <main>
+      <div class="main-header">
+        <h4>Encaminhamento</h4>
+      </div>
+  
+      <div class="main-body">
+        <section class="texto">
+          <p>Encaminhamos o(a) Sr(a). <b>Ana de Melo</b> e solicito atenção
+            para seu atendimento na unidade/serviço Centro de Ref. Especializado de Ass. Social - CREAS localizada no
+            Município Palmas - TO tendo em consideração as demandas identificadas pelo
+            Serviço Social do órgão Centro de Referência de Assistência Social - CRAS, do Município Palmas - TO.
+          </p>
+        </section>
+        <section class="info-pessoal">
+          <table>
+            <tr>
+              <td>
+                <p class="texto title">Informações pessoais</p>
+                <p class="texto">Endereço:
+                  <br>
+                  Data de Nascimento:
+                  <br>
+                  CPF:
+                  <br>
+                  RG:
+                  <br>
+                  Telefone:
+                </p>
+              </td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </main>
+  
+    <footer>
+      <p>Palmas - TO<br>01/11/2023</p>
+    </footer>
+  </div>
+
+  <div class="container-footer">
+    <button mat-raised-button (click)="onConfirm()">Download</button>
+  </div>
+  
+</div>
+

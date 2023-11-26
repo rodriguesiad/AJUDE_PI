@@ -28,7 +28,6 @@ const routes: Routes = [
     () => import('./atendimento/atendimento.module')
       .then(m => m.AtendimentoModule)
   },
-
   {
     path: 'login', loadChildren:
     () => import('./login/login.module')

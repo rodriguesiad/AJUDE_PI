@@ -23,7 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { SharedModule } from '../shared/shared.module';
+import { EncaminhamentoDownloadModalComponent } from '../encaminhamento/components/modal/encaminhamento-download-modal/encaminhamento-download-modal.component';
 
 
 @NgModule({
@@ -32,6 +32,7 @@ import { SharedModule } from '../shared/shared.module';
     EncaminhamentoListComponent,
     MovimentacaoListComponent,
     EncaminhamentoFormComponent,
+    EncaminhamentoDownloadModalComponent,
     MovimentacaoFormComponent,
     AtendimentoListComponent,
     AtendimentoFormComponent
@@ -54,10 +55,8 @@ import { SharedModule } from '../shared/shared.module';
     MatToolbarModule,
     FormsModule,
     MatFormFieldModule,
-    SharedModule
   ]
 })
 export class AtendimentoModule {
 }
-
 

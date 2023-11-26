@@ -8,18 +8,20 @@ import { SharedModule } from './shared/shared.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedService } from "./shared/services/shared.service";
 import { ReadonlySelectDirective } from './directives/readonly-select.directive';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReadonlySelectDirective
+    ReadonlySelectDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]
