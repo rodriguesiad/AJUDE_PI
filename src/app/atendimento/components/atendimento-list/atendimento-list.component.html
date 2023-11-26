@@ -2,35 +2,35 @@
   <mat-card class="secundario info">
     <div class="container-info">
       <div class="card-info">
-      <div class="info-data">
-        <p>Nome</p>
-        <h2> {{ beneficiario.nome}}</h2>
+        <div class="info-data">
+          <p>Nome</p>
+          <h2> {{ beneficiario.nome}}</h2>
+        </div>
+        <div class="info-data">
+          <p>CPF</p>
+          <p>{{beneficiario.cpf}}</p>
+        </div>
+        <div class="info-data">
+          <p>RG:</p>
+          <p>{{beneficiario.rg}}</p>
+        </div>
+        <div class="info-data">
+          <p>Data de Nascimento</p>
+          <p>{{ beneficiario.dataNascimento | date:'dd/MM/yyyy' }}</p>
+        </div>
+        <div class="info-data">
+          <p>NIS</p>
+          <p>{{beneficiario.nis}}</p>
+        </div>
+        <div class="info-data">
+          <p>Telefone</p>
+          <p>{{ formatarTelefone(beneficiario.telefone) }}</p>
+        </div>
+        <div class="info-data">
+          <p>E-mail</p>
+          <p>{{ beneficiario.email }}</p>
+        </div>
       </div>
-      <div class="info-data">
-        <p>CPF</p>
-        <p>{{beneficiario.cpf}}</p>
-      </div>
-      <div class="info-data">
-        <p>RG:</p>
-        <p>{{beneficiario.rg}}</p>
-      </div>
-      <div class="info-data">
-        <p>Data de Nascimento</p>
-        <p>{{ beneficiario.dataNascimento | date:'dd/MM/yyyy' }}</p>
-      </div>
-      <div class="info-data">
-        <p>NIS</p>
-        <p>{{beneficiario.nis}}</p>
-      </div>
-      <div class="info-data">
-        <p>Telefone</p>
-        <p>{{ formatarTelefone(beneficiario.telefone) }}</p>
-      </div>
-      <div class="info-data">
-        <p>E-mail</p>
-        <p>{{ beneficiario.email }}</p>
-      </div>
-    </div>
       <div>
         <button mat-raised-button class="back-button" routerLink="/beneficiarios/view/1">
           VOLTAR

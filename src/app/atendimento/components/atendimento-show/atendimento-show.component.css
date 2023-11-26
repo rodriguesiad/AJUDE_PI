@@ -20,6 +20,7 @@ mat-card {
 .container-info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 100%;
 }
 
@@ -30,7 +31,6 @@ button[mat-raised-button] {
   color: var(--default-blue);
   margin: 5px 5px 0 0;
   box-shadow: none;
-  margin-top: 30%;
 }
 
 .descricao {
