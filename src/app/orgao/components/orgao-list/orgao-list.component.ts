@@ -12,12 +12,13 @@ import { Orgao } from 'src/app/models/orgao.model';
 })
 export class OrgaoListComponent implements AfterViewInit, OnInit {
 
-  displayedColumns: string[] = ['nome', 'sigla', 'municipio', 'estado', 'acoes'];
+  displayedColumns: string[] = ['nome', 'sigla', 'municipio', 'estado','situacao', 'acoes'];
   dataSource = new MatTableDataSource<Orgao>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  
+  dialog: any;
+
 
   ngOnInit(): void {
 
@@ -25,16 +26,16 @@ export class OrgaoListComponent implements AfterViewInit, OnInit {
     const municipio = new Municipio(1, "Palmas", estado);
 
     const ELEMENT_DATA: Orgao[] = [
-      { id: 1, nome: 'Sec. Municipal de Deseenvolvimento Social', sigla:'SEDES', municipio: municipio, estado: estado},
-      { id: 2, nome: 'Centro de Referência de Assistência Social', sigla:'CRAS', municipio: municipio, estado: estado},
-      { id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla:'CREAS', municipio: municipio, estado: estado},
-      { id: 4, nome: 'Centro de Atenção Psicossocial',sigla:'CAPS', municipio: municipio, estado: estado},
-      { id: 5, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado},
-      { id: 6, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado},
-      { id: 7, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado},
-      { id: 8, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado},
-      { id: 9, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado},
-      { id: 10, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado},
+      { id: 1, nome: 'Sec. Municipal de Deseenvolvimento Social', sigla:'SEDES', municipio: municipio, estado: estado, situacao: true},
+      { id: 2, nome: 'Centro de Referência de Assistência Social', sigla:'CRAS', municipio: municipio, estado: estado, situacao: true},
+      { id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla:'CREAS', municipio: municipio, estado: estado, situacao: true},
+      { id: 4, nome: 'Centro de Atenção Psicossocial',sigla:'CAPS', municipio: municipio, estado: estado, situacao: false},
+      { id: 5, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado, situacao: false},
+      { id: 6, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado, situacao: false},
+      { id: 7, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado, situacao: false},
+      { id: 8, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado, situacao: false},
+      { id: 9, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado, situacao: false},
+      { id: 10, nome: 'Centro de Atenção Psicossocial',sigla:'SEDES', municipio: municipio, estado: estado, situacao: false},
     ];
 
     this.dataSource = new MatTableDataSource<Orgao>(ELEMENT_DATA);

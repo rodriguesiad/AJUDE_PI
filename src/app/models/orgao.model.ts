@@ -7,6 +7,7 @@ export class Orgao {
     sigla!: string;
     municipio!: Municipio;
     estado!: Estado;
+    situacao!: boolean;
    
     constructor(data: {
         id: number;
@@ -14,6 +15,7 @@ export class Orgao {
         sigla: string;
         municipio: Municipio;
         estado: Estado;
+        situacao: boolean;
        
     }) {
         this.id = data.id;
@@ -21,5 +23,6 @@ export class Orgao {
         this.sigla = data.sigla
         this.municipio = data.municipio;
         this.estado = data.estado;
+        this.situacao = data.situacao;
     }
 }

@@ -12,6 +12,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color:  #FEFFFF;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

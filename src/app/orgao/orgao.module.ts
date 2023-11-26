@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { OrgaoFormComponent } from './components/orgao-form/orgao-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import localePtBr from '@angular/common/locales/pt';
 
 registerLocaleData(localePtBr);
@@ -41,7 +42,8 @@ registerLocaleData(localePtBr);
     MatIconModule,
     MatDialogModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSlideToggleModule
   ],
   exports: [
     OrgaoListComponent

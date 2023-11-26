@@ -9,8 +9,8 @@ export const usuarioResolver: ResolveFn<Usuario> =
         const estado = new Estado(1, "Tocantins", "TO");
         const municipio = new Municipio(1, "Palmas", estado);
         const perfil = { value: 1, label: 'Administrador' };
-        const cras = new Orgao({ id: 2, nome: 'Centro de Referência de Assistência Social', sigla: 'CRAS', municipio: municipio, estado: estado },);
-        const creas = new Orgao({ id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla: 'CREAS', municipio: municipio, estado: estado },);
+        const cras = new Orgao({ id: 2, nome: 'Centro de Referência de Assistência Social', sigla: 'CRAS', municipio: municipio, estado: estado, situacao: true },);
+        const creas = new Orgao({ id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla: 'CREAS', municipio: municipio, estado: estado, situacao: true },);
 
         return new Usuario({
             id: 1, nome: 'Maria de Souza',
