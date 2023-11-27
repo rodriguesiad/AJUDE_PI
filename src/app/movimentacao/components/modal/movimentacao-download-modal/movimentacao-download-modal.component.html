@@ -1,0 +1,66 @@
+<div class="document-container">
+    <div class="container-header">
+        <button mat-icon-button aria-label="Fechar" class="close-button" (click)="onClose()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <div class="pdf-document" id="content" #content>
+        <header>
+            <img class="logo" src="../../../../assets/images/logo_municipio_palmas.png" alt="Logo do sistema">
+        </header>
+
+        <main>
+            <div class="main-header">
+                <h4>Movimentação <br> {{ data.movimentacao.titulo}}</h4>
+            </div>
+
+            <div class="main-body">
+                <section class="texto">
+                    <p>{{data.movimentacao.descricao}}</p>
+                </section>
+                <section>
+                    <p><b>Dia da Movimentação:</b> {{data.movimentacao.dataInclusao | date : 'dd/MM/yyyy'}}</p>
+                </section>
+                <section class="info-pessoal">
+                    <table>
+                        <tr>
+                            <td>
+                                <p class="texto title">Informações do Beneficiário</p>
+                                <p class="texto">Endereço: {{ data.movimentacao.atendimento.beneficiario.logradouro
+                                    }},
+                                    Bairro: {{ data.movimentacao.atendimento.beneficiario.bairro }},
+                                    Nº: {{ data.movimentacao.atendimento.beneficiario.numero }},
+                                    {{ data.movimentacao.atendimento.beneficiario.municipio.nome }} - {{
+                                    data.movimentacao.atendimento.beneficiario.estado.sigla }}
+                                    <br>
+                                    Data de Nascimento: {{data.movimentacao.atendimento.beneficiario.dataNascimento |
+                                    date: 'dd/MM/yyyy'}}
+                                    <br>
+                                    CPF: {{ data.movimentacao.atendimento.beneficiario.cpf }}
+                                    <br>
+                                    RG: {{ data.movimentacao.atendimento.beneficiario.rg }}
+                                    <br>
+                                    Telefone: {{ formatarTelefone(data.movimentacao.atendimento.beneficiario.telefone)
+                                    }}
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>{{data.movimentacao.atendimento.usuarioInclusao.perfisOrgao[0].orgao.municipio.nome}} -
+                {{data.movimentacao.atendimento.usuarioInclusao.perfisOrgao[0].orgao.estado.sigla}}
+                <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
+            </p>
+        </footer>
+    </div>
+
+    <div class="container-footer">
+        <button mat-raised-button (click)="onConfirm()">Download</button>
+    </div>
+
+</div>

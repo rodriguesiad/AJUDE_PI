@@ -4,6 +4,7 @@ import { Usuario } from "./usuario.model";
 export class Movimentacao {
     id!: number;
     atendimento!: Atendimento;
+    titulo!: string;
     descricao!: string;
     nomeDocumentos!: string[];
     usuarioInclusao!: Usuario;
@@ -13,6 +14,7 @@ export class Movimentacao {
     constructor(data: {
         id: number;
         atendimento: Atendimento;
+        titulo: string;
         descricao: string;
         nomeDocumentos: string[];
         usuarioInclusao: Usuario;
@@ -21,6 +23,7 @@ export class Movimentacao {
     }) {
         this.id = data.id;
         this.atendimento = data.atendimento;
+        this.titulo =  data.titulo;
         this.descricao = data.descricao;
         this.nomeDocumentos = data.nomeDocumentos;
         this.usuarioInclusao = data.usuarioInclusao;

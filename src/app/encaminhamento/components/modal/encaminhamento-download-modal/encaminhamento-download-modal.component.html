@@ -26,11 +26,14 @@
             {{data.encaminhamento.orgaoOrigem.municipio.nome}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}.
           </p>
         </section>
+        <section>
+          <p><b>Motivo:</b> {{ data.encaminhamento.motivo }}</p>
+        </section>
         <section class="info-pessoal">
           <table>
             <tr>
               <td>
-                <p class="texto title">Informações pessoais</p>
+                <p class="texto title">Informações do Beneficiário</p>
                 <p class="texto">Endereço: {{ data.encaminhamento.atendimento.beneficiario.logradouro }},
                   Bairro: {{ data.encaminhamento.atendimento.beneficiario.bairro }},
                   Nº: {{ data.encaminhamento.atendimento.beneficiario.numero }},
@@ -38,7 +41,7 @@
                   data.encaminhamento.atendimento.beneficiario.estado.sigla }}
                   <br>
                   Data de Nascimento: {{data.encaminhamento.atendimento.beneficiario.dataNascimento | date:
-                  'dd/MM/yyy'}}
+                  'dd/MM/yyyy'}}
                   <br>
                   CPF: {{ data.encaminhamento.atendimento.beneficiario.cpf }}
                   <br>
@@ -55,7 +58,7 @@
 
     <footer>
       <p>{{data.encaminhamento.orgaoOrigem.municipio.nome}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}
-        <br>{{ this.dataAtual | date: 'dd/MM/yyy'}}
+        <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
       </p>
     </footer>
   </div>

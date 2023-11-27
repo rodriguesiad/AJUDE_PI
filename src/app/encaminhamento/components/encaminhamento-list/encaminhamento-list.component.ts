@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { SharedService } from "../../../shared/services/shared.service";
 import { EncaminhamentoDownloadModalComponent } from '../modal/encaminhamento-download-modal/encaminhamento-download-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { Atendimento } from 'src/app/models/atendimento.model';
 import { Encaminhamento } from 'src/app/models/encaminhamento.model';
 import { Estado } from 'src/app/models/estado.model';
@@ -18,7 +17,6 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./encaminhamento-list.component.css']
 })
 export class EncaminhamentoListComponent {
-  atendimento: Atendimento;
   encaminhamentos: Encaminhamento[] = [];
   encaminhamento: Encaminhamento;
 
@@ -26,10 +24,8 @@ export class EncaminhamentoListComponent {
   page = 0;
   pageEvent: PageEvent | undefined;
 
-  constructor(private sharedService: SharedService, public dialog: MatDialog, private activatedRoute: ActivatedRoute) {
-    this.atendimento = this.activatedRoute.snapshot.data['atendimento'];
+  constructor(private sharedService: SharedService, public dialog: MatDialog) {
     this.encaminhamento = this.cargaDados();
-
     this.encaminhamentos = [this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento];
   }
 
@@ -39,7 +35,7 @@ export class EncaminhamentoListComponent {
 
   openDialog(encaminhamento: Encaminhamento) {
     const dialogRef = this.dialog.open(EncaminhamentoDownloadModalComponent, {
-      width: "40%",
+      width: "44%",
       height: "96%",
       data: { encaminhamento }
     })

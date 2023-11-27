@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EncaminhamentoDownloadModalComponent } from '../encaminhamento/components/modal/encaminhamento-download-modal/encaminhamento-download-modal.component';
+import { MovimentacaoDownloadModalComponent } from '../movimentacao/components/modal/movimentacao-download-modal/movimentacao-download-modal.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { EncaminhamentoDownloadModalComponent } from '../encaminhamento/componen
     AtendimentoShowComponent,
     EncaminhamentoListComponent,
     MovimentacaoListComponent,
+    MovimentacaoDownloadModalComponent,
     EncaminhamentoFormComponent,
     EncaminhamentoDownloadModalComponent,
     MovimentacaoFormComponent,

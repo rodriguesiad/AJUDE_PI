@@ -19,6 +19,10 @@ mat-card {
   width: 95%;
   box-shadow: none;
   border-radius: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button[mat-raised-button] {
@@ -26,10 +30,7 @@ button[mat-raised-button] {
   font-size: 12px;
   background-color: var(--default-blue);
   color: white;
-  margin: 5px 5px 0 0;
   box-shadow: none;
-  margin-bottom: 3%;
-  margin-left: 3%;
 }
 
 .container-info p {
@@ -39,4 +40,25 @@ button[mat-raised-button] {
 
 .container-info p:first-child {
   font-weight: bold;
+}
+
+.botao-movimentar {
+  width: 97%;
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+.mat-mdc-icon-button.mat-primary {
+  --mdc-icon-button-icon-color: var(--default-blue);
+  --mat-mdc-button-persistent-ripple-color: #3f51b5;
+  --mat-mdc-button-ripple-color: rgba(63, 81, 181, 0.1);
+}
+
+#descricao {
+  text-align: justify;
+  max-width: 98%;
 }
