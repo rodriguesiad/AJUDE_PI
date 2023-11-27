@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {SharedService} from "../../../shared/services/shared.service";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
 @Component({
   selector: 'app-movimentacao-form',
@@ -9,11 +9,11 @@ import {SharedService} from "../../../shared/services/shared.service";
 })
 export class MovimentacaoFormComponent {
   movimentacao: FormGroup;
-  constructor(private sharedService: SharedService, private formBuilder: FormBuilder) {
+  constructor(private movimentacaoService: MovimentacaoService, private formBuilder: FormBuilder) {
     this.movimentacao = formBuilder.group({});
   }
 
   isCadastro() {
-    this.sharedService.setIsCadastro(false);
+    this.movimentacaoService.setIsCadastro(false);
   }
 }

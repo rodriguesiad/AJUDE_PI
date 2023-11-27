@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {SharedService} from "../../../shared/services/shared.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import { EncaminhamentoService } from 'src/app/services/encaminhamento.service';
 
 @Component({
   selector: 'app-encaminhamento-form',
@@ -9,11 +9,11 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class EncaminhamentoFormComponent {
   encaminhamento: FormGroup;
-  constructor(private sharedService: SharedService, private formBuilder: FormBuilder) {
+  constructor( private encaminhamentoService: EncaminhamentoService, private formBuilder: FormBuilder) {
     this.encaminhamento = formBuilder.group({});
   }
 
   isCadastro() {
-    this.sharedService.setIsCadastro(false);
+    this.encaminhamentoService.setIsCadastro(false);
   }
 }

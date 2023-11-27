@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SharedService } from "../../../shared/services/shared.service";
 import { EncaminhamentoDownloadModalComponent } from '../modal/encaminhamento-download-modal/encaminhamento-download-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Atendimento } from 'src/app/models/atendimento.model';
@@ -10,6 +9,7 @@ import { Orgao } from 'src/app/models/orgao.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
 import { PageEvent } from '@angular/material/paginator';
+import { EncaminhamentoService } from 'src/app/services/encaminhamento.service';
 
 @Component({
   selector: 'app-encaminhamento-list',
@@ -24,13 +24,13 @@ export class EncaminhamentoListComponent {
   page = 0;
   pageEvent: PageEvent | undefined;
 
-  constructor(private sharedService: SharedService, public dialog: MatDialog) {
+  constructor(private encaminhamentoService: EncaminhamentoService, public dialog: MatDialog) {
     this.encaminhamento = this.cargaDados();
     this.encaminhamentos = [this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento, this.encaminhamento];
   }
 
   isCadastro() {
-    this.sharedService.setIsCadastro(true);
+    this.encaminhamentoService.setIsCadastro(true);
   }
 
   openDialog(encaminhamento: Encaminhamento) {

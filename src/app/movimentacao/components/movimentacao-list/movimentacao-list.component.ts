@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SharedService } from "../../../shared/services/shared.service";
 import { Movimentacao } from 'src/app/models/movimentacao.model';
 import { Estado } from 'src/app/models/estado.model';
 import { Municipio } from 'src/app/models/municipio.model';
@@ -10,6 +9,7 @@ import { Atendimento } from 'src/app/models/atendimento.model';
 import { PageEvent } from '@angular/material/paginator';
 import { MovimentacaoDownloadModalComponent } from '../modal/movimentacao-download-modal/movimentacao-download-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
 @Component({
   selector: 'app-movimentacao-list',
@@ -24,13 +24,13 @@ export class MovimentacaoListComponent {
   page = 0;
   pageEvent: PageEvent | undefined;
 
-  constructor(private sharedService: SharedService, public dialog: MatDialog) {
+  constructor(private movimentacaoService: MovimentacaoService, public dialog: MatDialog) {
     this.movimentacao = this.cargaDados();
     this.movimentacoes = [this.movimentacao, this.movimentacao, this.movimentacao, this.movimentacao, this.movimentacao, this.movimentacao];
   }
 
   isCadastro() {
-    this.sharedService.setIsCadastro(true);
+    this.movimentacaoService.setIsCadastro(true);
   }
 
   handlePage(event: PageEvent): void {

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
-export class SharedService {
-
+@Injectable({
+  providedIn: 'root'
+})
+export class MovimentacaoService {
   private isCadastro: boolean = false;
 
   getIsCadastro(): boolean {

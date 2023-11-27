@@ -27,18 +27,18 @@
 
   <mat-tab-group>
     <mat-tab label="Encaminhamentos">
-      <div *ngIf="isCadastro">
+      <div *ngIf="isCadastroEncaminhamento">
         <app-encaminhamento-form></app-encaminhamento-form>
       </div>
-      <div *ngIf="!isCadastro">
+      <div *ngIf="!isCadastroEncaminhamento">
         <app-encaminhamento-list></app-encaminhamento-list>
       </div>
     </mat-tab>
     <mat-tab label="Movimentações">
-      <div *ngIf="isCadastro">
+      <div *ngIf="isCadastroMovimentacao">
         <app-movimentacao-form></app-movimentacao-form>
       </div>
-      <div *ngIf="!isCadastro">
+      <div *ngIf="!isCadastroMovimentacao">
         <app-movimentacao-list></app-movimentacao-list>
       </div>
     </mat-tab>
