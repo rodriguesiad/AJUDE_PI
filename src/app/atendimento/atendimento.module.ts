@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AtendimentoRoutingModule } from './atendimento-routing.module';
 import { AtendimentoShowComponent } from './components/atendimento-show/atendimento-show.component';
 import { MatCardModule } from "@angular/material/card";
@@ -25,6 +24,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EncaminhamentoDownloadModalComponent } from '../encaminhamento/components/modal/encaminhamento-download-modal/encaminhamento-download-modal.component';
 import { MovimentacaoDownloadModalComponent } from '../movimentacao/components/modal/movimentacao-download-modal/movimentacao-download-modal.component';
+import { AtendimentoDownloadModalComponent } from './components/modal/atendimento-download-modal/atendimento-download-modal.component';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { MovimentacaoDownloadModalComponent } from '../movimentacao/components/m
     EncaminhamentoDownloadModalComponent,
     MovimentacaoFormComponent,
     AtendimentoListComponent,
-    AtendimentoFormComponent
+    AtendimentoFormComponent,
+    AtendimentoDownloadModalComponent
   ],
   imports: [
     CommonModule,

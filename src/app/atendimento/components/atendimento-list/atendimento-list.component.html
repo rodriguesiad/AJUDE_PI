@@ -47,19 +47,23 @@
 
   <div class="listAtendimentos">
     <mat-card *ngFor="let atendimento of atendimentos | slice: (page * size): ((page + 1) * size)" class="info-card">
-      <mat-card-header>
+      <mat-card-content>
         <mat-card-title>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</mat-card-title>
         <mat-card-subtitle>{{ atendimento?.orgaoAtual?.sigla }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
         <p>Data do Cadastro : {{ atendimento.dataInclusao | date:'dd/MM/yyyy' }}</p>
         <p>Situação : {{ atendimento.situacao ? 'Ativo' : 'Inativo' }}</p>
       </mat-card-content>
+      
       <mat-card-actions>
+        <button mat-icon-button color="primary" (click)="openDialog(atendimento)" aria-label="Baixar encaminhamento">
+          <mat-icon>print</mat-icon>
+        </button>
+
         <button mat-button class="view-button" style="color: #2d8bba;"
           routerLink="/atendimentos/show/{{atendimento.id}}">Visualizar</button>
       </mat-card-actions>
     </mat-card>
+
   </div>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="size" (page)="handlePage($event)"
     [length]="atendimentos.length" showFirstLastButtons aria-label="Selecione a página"

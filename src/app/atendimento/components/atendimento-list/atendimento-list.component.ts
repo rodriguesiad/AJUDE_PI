@@ -3,6 +3,8 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { Atendimento } from 'src/app/models/atendimento.model';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
+import { AtendimentoDownloadModalComponent } from '../modal/atendimento-download-modal/atendimento-download-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-atendimento-list',
@@ -10,15 +12,14 @@ import { Beneficiario } from 'src/app/models/beneficiario.model';
   styleUrls: ['./atendimento-list.component.css']
 })
 export class AtendimentoListComponent implements OnInit {
-
   atendimentos: Atendimento[] = [];
   beneficiario: Beneficiario;
-  
+
   size = 5;
   page = 0;
   pageEvent: PageEvent | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
     this.beneficiario = this.activatedRoute.snapshot.data['beneficiario'];
   }
 
@@ -30,6 +31,14 @@ export class AtendimentoListComponent implements OnInit {
   handlePage(event: PageEvent): void {
     this.page = event.pageIndex;
     this.size = event.pageSize;
+  }
+
+  openDialog(atendimento: Atendimento) {
+    const dialogRef = this.dialog.open(AtendimentoDownloadModalComponent, {
+      width: "44%",
+      height: "96%",
+      data: { atendimento }
+    })
   }
 
   formatarTelefone(numero: string): string {
