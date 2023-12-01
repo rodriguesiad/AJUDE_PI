@@ -51,7 +51,7 @@
         <mat-card-title>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</mat-card-title>
         <mat-card-subtitle>{{ atendimento?.orgaoAtual?.sigla }}</mat-card-subtitle>
         <p>Data do Cadastro : {{ atendimento.dataInclusao | date:'dd/MM/yyyy' }}</p>
-        <p>Situação : {{ atendimento.situacao ? 'Ativo' : 'Inativo' }}</p>
+        <p>Situação : {{ atendimento.ativo ? 'Ativo' : 'Inativo' }}</p>
       </mat-card-content>
       
       <mat-card-actions>

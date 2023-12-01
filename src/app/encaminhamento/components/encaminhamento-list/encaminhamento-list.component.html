@@ -5,12 +5,13 @@
     </button>
   </div>
 
-  <mat-card *ngFor="let encaminhamento of encaminhamentos | slice: (page * size): ((page + 1) * size)" class="no-shadow info">
+  <mat-card *ngFor="let encaminhamento of encaminhamentos | slice: (page * size): ((page + 1) * size)"
+    class="no-shadow info">
     <div class="container-info">
       <p>{{ encaminhamento.orgaoOrigem.sigla}} - {{ encaminhamento.orgaoOrigem.nome }}
-        ({{encaminhamento.orgaoOrigem.municipio.nome }} - {{encaminhamento.orgaoOrigem.estado.sigla}}) ->
+        ({{encaminhamento.orgaoOrigem.municipio.descricao }} - {{encaminhamento.orgaoOrigem.estado.sigla}}) ->
         {{ encaminhamento.orgaoDestino.sigla}} - {{ encaminhamento.orgaoDestino.nome }}
-        ({{encaminhamento.orgaoDestino.municipio.nome }} - {{encaminhamento.orgaoDestino.estado.sigla}})</p>
+        ({{encaminhamento.orgaoDestino.municipio.descricao }} - {{encaminhamento.orgaoDestino.estado.sigla}})</p>
       <p>Motivo: {{encaminhamento.motivo}}</p>
       <p>Data: 21/10/2023</p>
     </div>

@@ -23,7 +23,7 @@
 
     <div style="padding: 5px;">
       <div class="table-container no-shadow rounded-corners">
-        <table mat-table [dataSource]="dataSource">
+        <table mat-table [dataSource]="orgaos" matSort>
 
           <ng-container matColumnDef="nome">
             <th mat-header-cell *matHeaderCellDef> Nome </th>
@@ -37,17 +37,17 @@
 
           <ng-container matColumnDef="municipio">
             <th mat-header-cell *matHeaderCellDef> Municipio </th>
-            <td mat-cell *matCellDef="let orgao"> {{orgao.municipio.nome}} </td>
+            <td mat-cell *matCellDef="let orgao"> {{orgao.municipio.descricao}} </td>
           </ng-container>
 
           <ng-container matColumnDef="estado">
             <th mat-header-cell *matHeaderCellDef> Estado </th>
-            <td mat-cell *matCellDef="let orgao"> {{orgao.estado.nome}} </td>
+            <td mat-cell *matCellDef="let orgao"> {{orgao.municipio.estado.descricao}} </td>
           </ng-container>
-          <ng-container matColumnDef="situacao">
+          <ng-container matColumnDef="ativo">
             <th mat-header-cell *matHeaderCellDef> Situação </th>
             <td mat-cell *matCellDef="let orgao">
-              {{ orgao.situacao ? 'Ativo' : 'Inativo' }} </td>
+              {{ orgao.ativo ? 'Ativo' : 'Inativo' }} </td>
           </ng-container>
           <ng-container matColumnDef="acoes">
             <th mat-header-cell *matHeaderCellDef> Ações </th>
@@ -57,7 +57,7 @@
                   routerLink="/orgaos/edit/{{orgao.id}}">
                   <mat-icon>edit</mat-icon>
                 </button>
-                <mat-slide-toggle color="primary" [(ngModel)]="orgao.situacao"></mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="orgao.ativo"></mat-slide-toggle>
               </div>
             </td>
           </ng-container>

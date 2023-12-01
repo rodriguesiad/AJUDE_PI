@@ -1,11 +1,11 @@
 export class Estado {
     id!: number;
-    nome!: string;
+    descricao!: string;
     sigla!: string;
 
-    constructor(id: number, nome: string, sigla: string){
+    constructor(id: number, descricao: string, sigla: string) {
         this.id = id;
-        this.nome = nome;
+        this.descricao = descricao;
         this.sigla = sigla;
     }
 }

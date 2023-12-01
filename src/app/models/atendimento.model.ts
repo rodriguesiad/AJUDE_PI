@@ -11,7 +11,7 @@ export class Atendimento {
     dataInclusao!: Date;
     usuarioInclusao!: Usuario;
     perfilInclusao!: string;
-    situacao!: boolean;
+    ativo!: boolean;
 
     constructor(data: {
         id: number,
@@ -22,7 +22,7 @@ export class Atendimento {
         dataInclusao: Date,
         usuarioInclusao: Usuario,
         perfilInclusao: string,
-        situacao: boolean
+        ativo: boolean
     }) {
         this.id = data.id;
         this.orgaoAtual = data.orgaoAtual;
@@ -32,6 +32,6 @@ export class Atendimento {
         this.dataInclusao = data.dataInclusao;
         this.usuarioInclusao = data.usuarioInclusao;
         this.perfilInclusao = data.perfilInclusao;
-        this.situacao = data.situacao;
+        this.ativo = data.ativo;
     }
 }

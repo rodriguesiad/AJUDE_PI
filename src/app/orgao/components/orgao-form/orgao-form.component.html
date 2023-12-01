@@ -33,7 +33,7 @@
                         <mat-label>Estado</mat-label>
                         <mat-select formControlName="estado">
                             <mat-option *ngFor="let estado of estados" [value]="estado.id">
-                                {{ estado.nome}}
+                                {{ estado.descricao }}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="formGroup.get('estado') &&
@@ -45,7 +45,7 @@
                         <mat-label>Município</mat-label>
                         <mat-select formControlName="municipio">
                             <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
-                                {{ municipio.nome}}
+                                {{ municipio.descricao}}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="formGroup.get('municipio') &&

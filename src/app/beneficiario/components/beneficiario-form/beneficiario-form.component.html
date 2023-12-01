@@ -1,7 +1,8 @@
 <mat-card class="no-shadow">
     <mat-toolbar>
         <div class="flex-container">
-            <span class="toolbar-title">{{ formGroup.get('id')?.value ? 'Editar Beneficiário' : 'Cadastrar Beneficiário' }}</span>
+            <span class="toolbar-title">{{ formGroup.get('id')?.value ? 'Editar Beneficiário' : 'Cadastrar Beneficiário'
+                }}</span>
         </div>
     </mat-toolbar>
 
@@ -21,7 +22,7 @@
                 <div class="sub-form">
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>CPF</mat-label>
-                        <input matInput type="text" formControlName="cpf"/>
+                        <input matInput type="text" formControlName="cpf" />
                         <mat-error *ngIf="formGroup.get('cpf') &&
                                 formGroup.get('cpf')?.invalid &&
                                 formGroup.get('cpf')?.touched">
@@ -98,8 +99,8 @@
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>Estado</mat-label>
                         <mat-select formControlName="estado">
-                            <mat-option *ngFor="let estado of estados" [value]="estado.id" >
-                                {{ estado.nome}}
+                            <mat-option *ngFor="let estado of estados" [value]="estado.id">
+                                {{ estado.descricao}}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="formGroup.get('estado') &&
@@ -111,7 +112,7 @@
                         <mat-label>Município</mat-label>
                         <mat-select formControlName="municipio">
                             <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
-                                {{ municipio.nome}}
+                                {{ municipio.descricao}}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="formGroup.get('municipio') &&

@@ -27,7 +27,7 @@
                                 <p class="texto">Endereço: {{ data.atendimento.beneficiario.logradouro }},
                                     Bairro: {{ data.atendimento.beneficiario.bairro }},
                                     Nº: {{ data.atendimento.beneficiario.numero }},
-                                    {{ data.atendimento.beneficiario.municipio.nome }} - {{
+                                    {{ data.atendimento.beneficiario.municipio.descricao }} - {{
                                     data.atendimento.beneficiario.estado.sigla }}
                                     <br>
                                     Data de Nascimento: {{data.atendimento.beneficiario.dataNascimento | date:
@@ -47,7 +47,7 @@
         </main>
 
         <footer>
-            <p>{{data.atendimento.usuarioInclusao.perfisOrgao[0].orgao.municipio.nome}} -
+            <p>{{data.atendimento.usuarioInclusao.perfisOrgao[0].orgao.municipio.descricao}} -
                 {{data.atendimento.usuarioInclusao.perfisOrgao[0].orgao.estado.sigla}}
                 <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
             </p>

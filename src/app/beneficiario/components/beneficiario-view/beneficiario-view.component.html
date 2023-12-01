@@ -56,12 +56,12 @@
 
                 <div class="info-data">
                     <h5>ESTADO</h5>
-                    <h5>{{beneficiario?.estado?.nome || '-' }}</h5>
+                    <h5>{{beneficiario?.estado?.descricao || '-' }}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>CIDADE</h5>
-                    <h5>{{beneficiario?.municipio?.nome || '-' }}</h5>
+                    <h5>{{beneficiario?.municipio?.descricao || '-' }}</h5>
                 </div>
 
                 <div class="info-data">
@@ -90,6 +90,7 @@
     </mat-card>
 
     <div class="card-button">
-        <button mat-flat-button id="atendimentos" class="no-shadow" routerLink="/atendimentos/list">ATENDIMENTOS</button>
+        <button mat-flat-button id="atendimentos" class="no-shadow"
+            routerLink="/atendimentos/list">ATENDIMENTOS</button>
     </div>
 </mat-card>

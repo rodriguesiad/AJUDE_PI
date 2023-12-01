@@ -20,10 +20,10 @@
           <p>Encaminhamos o(a) Sr(a). {{data.encaminhamento.atendimento.beneficiario.nome}} e solicito atenção
             para seu atendimento na unidade/serviço {{data.encaminhamento.orgaoDestino.nome}} -
             {{data.encaminhamento.orgaoDestino.sigla}} localizada no Município de
-            {{data.encaminhamento.orgaoDestino.municipio.nome}} - {{data.encaminhamento.orgaoDestino.estado.sigla}}
+            {{data.encaminhamento.orgaoDestino.municipio.descricao}} - {{data.encaminhamento.orgaoDestino.estado.sigla}}
             tendo em consideração as demandas identificadas
             pelo {{data.encaminhamento.orgaoOrigem.nome}} - {{data.encaminhamento.orgaoOrigem.sigla}}, do
-            {{data.encaminhamento.orgaoOrigem.municipio.nome}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}.
+            {{data.encaminhamento.orgaoOrigem.municipio.descricao}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}.
           </p>
         </section>
         <section>
@@ -37,7 +37,7 @@
                 <p class="texto">Endereço: {{ data.encaminhamento.atendimento.beneficiario.logradouro }},
                   Bairro: {{ data.encaminhamento.atendimento.beneficiario.bairro }},
                   Nº: {{ data.encaminhamento.atendimento.beneficiario.numero }},
-                  {{ data.encaminhamento.atendimento.beneficiario.municipio.nome }} - {{
+                  {{ data.encaminhamento.atendimento.beneficiario.municipio.descricao }} - {{
                   data.encaminhamento.atendimento.beneficiario.estado.sigla }}
                   <br>
                   Data de Nascimento: {{data.encaminhamento.atendimento.beneficiario.dataNascimento | date:
@@ -57,7 +57,7 @@
     </main>
 
     <footer>
-      <p>{{data.encaminhamento.orgaoOrigem.municipio.nome}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}
+      <p>{{data.encaminhamento.orgaoOrigem.municipio.descricao}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}
         <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
       </p>
     </footer>

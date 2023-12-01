@@ -10,6 +10,6 @@ export const orgaoResolver: ResolveFn<Orgao> =
         const municipio = new Municipio(1, "Palmas", estado);
         
         return new Orgao({id: 1, nome: 'Sec. Municipal de Deseenvolvimento Social',
-         sigla:'SEDES', municipio: municipio, estado: estado, situacao: true
+         sigla:'SEDES', municipio: municipio, estado: estado, ativo: true
         })
     };

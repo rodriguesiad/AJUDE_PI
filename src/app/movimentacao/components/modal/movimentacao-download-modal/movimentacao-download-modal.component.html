@@ -31,7 +31,7 @@
                                     }},
                                     Bairro: {{ data.movimentacao.atendimento.beneficiario.bairro }},
                                     Nº: {{ data.movimentacao.atendimento.beneficiario.numero }},
-                                    {{ data.movimentacao.atendimento.beneficiario.municipio.nome }} - {{
+                                    {{ data.movimentacao.atendimento.beneficiario.municipio.descricao }} - {{
                                     data.movimentacao.atendimento.beneficiario.estado.sigla }}
                                     <br>
                                     Data de Nascimento: {{data.movimentacao.atendimento.beneficiario.dataNascimento |
@@ -52,7 +52,7 @@
         </main>
 
         <footer>
-            <p>{{data.movimentacao.atendimento.usuarioInclusao.perfisOrgao[0].orgao.municipio.nome}} -
+            <p>{{data.movimentacao.atendimento.usuarioInclusao.perfisOrgao[0].orgao.municipio.descricao}} -
                 {{data.movimentacao.atendimento.usuarioInclusao.perfisOrgao[0].orgao.estado.sigla}}
                 <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
             </p>

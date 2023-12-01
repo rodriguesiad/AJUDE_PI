@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DatePipe } from '@angular/common';
     BrowserAnimationsModule,
     SharedModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
