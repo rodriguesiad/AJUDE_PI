@@ -26,7 +26,13 @@ export class OrgaoService {
   }
 
   save(orgao: Orgao): Observable<Orgao> {
-    return this.http.post<Orgao>(`${this.baseURL}`, orgao);
+    const orgaoRequest = {
+      nome: orgao.nome.toString(),
+      sigla: orgao.sigla.toString().toLowerCase(),
+      idMunicipio: orgao.municipio.id.toString()
+    }
+
+    return this.http.post<Orgao>(`${this.baseURL}`, orgaoRequest);
   }
 
   update(orgao: Orgao): Observable<Orgao> {

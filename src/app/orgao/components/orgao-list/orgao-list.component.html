@@ -66,8 +66,8 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[4, 10]" showFirstLastButtons
-          aria-label="Select page of periodic beneficiarios">
+        <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" [pageSize]="pageSize" [length]="totalRegistros"
+          (page)="paginar($event)" showFirstLastButtons aria-label="Selecione a página de órgãos">
         </mat-paginator>
       </div>
     </div>

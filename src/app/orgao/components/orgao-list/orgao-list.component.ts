@@ -15,7 +15,7 @@ export class OrgaoListComponent implements OnInit {
   displayedColumns: string[] = ['nome', 'sigla', 'municipio', 'estado', 'ativo', 'acoes'];
   orgaos: Orgao[] = [];
   totalRegistros = 0;
-  pageSize = 2;
+  pageSize = 5;
   pagina = 0
   dialog: any;
 
@@ -23,10 +23,17 @@ export class OrgaoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregarOrgaos();
+    this.carregarTotalRegistros();
   }
 
   carregarOrgaos(): void {
     this.service.findAll(this.pagina, this.pageSize).subscribe(data => { this.orgaos = data; })
+  }
+
+  carregarTotalRegistros() {
+    this.service.count().subscribe(data => {
+      this.totalRegistros = data;
+    });
   }
 
   paginar(event: PageEvent): void {

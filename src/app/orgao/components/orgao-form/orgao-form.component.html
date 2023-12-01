@@ -32,7 +32,7 @@
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
                         <mat-label>Estado</mat-label>
                         <mat-select formControlName="estado">
-                            <mat-option *ngFor="let estado of estados" [value]="estado.id">
+                            <mat-option *ngFor="let estado of estados" [value]="estado">
                                 {{ estado.descricao }}
                             </mat-option>
                         </mat-select>
@@ -44,7 +44,7 @@
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
                         <mat-label>Município</mat-label>
                         <mat-select formControlName="municipio">
-                            <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
+                            <mat-option *ngFor="let municipio of municipios" [value]="municipio">
                                 {{ municipio.descricao}}
                             </mat-option>
                         </mat-select>
