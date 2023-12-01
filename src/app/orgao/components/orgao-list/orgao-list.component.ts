@@ -26,7 +26,7 @@ export class OrgaoListComponent implements OnInit {
   }
 
   carregarOrgaos(): void {
-    this.service.findAll(this.pagina, this.pageSize).subscribe(data => { console.log(data); this.orgaos = data; console.log(this.orgaos) })
+    this.service.findAll(this.pagina, this.pageSize).subscribe(data => { this.orgaos = data; })
   }
 
   paginar(event: PageEvent): void {
