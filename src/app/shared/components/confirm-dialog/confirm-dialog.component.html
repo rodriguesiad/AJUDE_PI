@@ -1,0 +1,12 @@
+<div class="flex-container">
+    <div class="mat-dialog-title">
+        <h1 class="title">{{data.title}}</h1>
+    </div>
+    <div mat-dialog-content class="content">
+        <p>{{data.message}}</p>
+    </div>
+    <div mat-dialog-actions class="footer">
+        <button mat-button mat-dialog-close cdkFocusInitial color="warn" (click)="onCancel()">Não</button>
+        <button mat-button mat-dialog-close style="color: var(--default-green);" (click)="onConfirm()">Sim</button>
+    </div>
+</div>

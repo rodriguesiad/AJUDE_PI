@@ -59,4 +59,8 @@ export class OrgaoService {
     return this.http.get<Orgao[]>(`${this.baseURL}/search/${nomeOuSigla}`, { params });
   }
 
+  alterarSituacao(id: number, situacao: boolean): Observable<Orgao> {
+    return this.http.put<Orgao>(`${this.baseURL}/situacao/${id}`, situacao);
+  }
+
 }

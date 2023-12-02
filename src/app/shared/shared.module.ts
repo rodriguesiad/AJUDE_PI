@@ -12,11 +12,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { MatCardModule } from '@angular/material/card';
   exports: [
     HeaderComponent,
     FooterComponent,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }

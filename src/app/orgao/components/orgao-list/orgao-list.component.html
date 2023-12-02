@@ -60,7 +60,8 @@
                   routerLink="/orgaos/edit/{{orgao.id}}">
                   <mat-icon>edit</mat-icon>
                 </button>
-                <mat-slide-toggle color="primary" [(ngModel)]="orgao.ativo"></mat-slide-toggle>
+                <mat-slide-toggle color="primary" [(ngModel)]="orgao.ativo"
+                  (click)="openConfirmationDialog(orgao)"></mat-slide-toggle>
               </div>
             </td>
           </ng-container>
