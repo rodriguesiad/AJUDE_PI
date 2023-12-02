@@ -47,8 +47,16 @@ export class OrgaoService {
     return this.http.get<number>(`${this.baseURL}/count`);
   }
 
-  countByNome(nome: string): Observable<number> {
+  countByNomeOuSigla(nome: string): Observable<number> {
     return this.http.get<number>(`${this.baseURL}/search/${nome}/count`);
+  }
+
+  findByNomeOuSigla(nomeOuSigla: string, pagina: number, tamanhoPagina: number): Observable<Orgao[]> {
+    const params = {
+      page: pagina.toString(),
+      pageSize: tamanhoPagina.toString()
+    }
+    return this.http.get<Orgao[]>(`${this.baseURL}/search/${nomeOuSigla}`, { params });
   }
 
 }
