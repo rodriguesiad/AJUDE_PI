@@ -1,92 +1,138 @@
 <mat-card class="principal no-shadow">
-  <mat-card class="secundario">
+  <mat-card class="no-shadow info">
     <div class="container-info">
       <div class="card-info">
         <div class="info-data">
-          <p>Nome</p>
-          <h2> {{ beneficiario.nome}}</h2>
+          <h5>NOME</h5>
+          <h2>{{ beneficiario.nome || '-' }}</h2>
         </div>
-        <div class="info-data">
-          <p>CPF</p>
-          <p>{{beneficiario.cpf}}</p>
-        </div>
-        <div class="info-data">
-          <p>RG:</p>
-          <p>{{beneficiario.rg}}</p>
-        </div>
-        <div class="info-data">
-          <p>Data de Nascimento</p>
-          <p>{{ beneficiario.dataNascimento | date:'dd/MM/yyyy' }}</p>
-        </div>
-        <div class="info-data">
-          <p>NIS</p>
-          <p>{{beneficiario.nis}}</p>
-        </div>
-        <div class="info-data">
-          <p>Telefone</p>
-          <p>{{ formatarTelefone(beneficiario.telefone) }}</p>
-        </div>
-        <div class="info-data">
-          <p>E-mail</p>
-          <p>{{ beneficiario.email }}</p>
+        <div class="card-back-button">
+          <button mat-raised-button id="back-button" [routerLink]="'/atendimentos/list/' + beneficiario.id">
+            VOLTAR
+          </button>
         </div>
       </div>
-      <div>
-        <button mat-raised-button id="back-button" routerLink="/beneficiarios/view/1">
-          VOLTAR
-        </button>
+      <div class="card-info">
+        <div class="info-data">
+          <h5>CPF</h5>
+          <h5>{{beneficiario.cpf || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>RG</h5>
+          <h5>{{beneficiario.rg || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>DATA DE NASCIMENTO</h5>
+          <h5>{{beneficiario.dataNascimento | date:'dd/MM/yyyy' || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>CPF DOS PAIS</h5>
+          <h5>{{beneficiario.cpfDosPais || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>NIS</h5>
+          <h5>{{beneficiario.nis || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>TELEFONE</h5>
+          <h5>{{beneficiario.telefone || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>E-MAIL</h5>
+          <h5>{{beneficiario.email || '-'}}</h5>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="info-data">
+          <h5>CEP</h5>
+          <h5>{{beneficiario.endereco.cep || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>ESTADO</h5>
+          <h5>{{beneficiario.endereco.estado.descricao || '-' }}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>CIDADE</h5>
+          <h5>{{beneficiario.endereco.municipio.descricao || '-' }}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>BAIRRO</h5>
+          <h5>{{beneficiario.endereco.bairro || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>LOGRADOURO</h5>
+          <h5>{{beneficiario.endereco.logradouro || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>NÚMERO</h5>
+          <h5>{{beneficiario.endereco.numero || '-' }}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>COMPLEMENTO</h5>
+          <h5>{{beneficiario.endereco.complemento || '-' }}</h5>
+        </div>
       </div>
     </div>
   </mat-card>
 
   <h2 style="margin-left: 15px;">Cadastrar Atendimento </h2>
-  <div class="formulario">
-
+  <form [formGroup]="formGroup">
     <div class="sub-form">
       <mat-form-field appearance="outline" class="formInput">
         <mat-label class="tituloInput">Órgão</mat-label>
-        <input matInput>
+        <input matInput formControlName="orgao">
       </mat-form-field>
     </div>
 
     <div class="sub-form">
-      <mat-form-field appearance="outline" class="input-2-equals-parts">
-        <mat-label class="tituloInput">Usuario Responsável</mat-label>
-        <input matInput>
-      </mat-form-field>
 
-      <mat-form-field appearance="outline" class="input-2-equals-parts">
-        <mat-label class="tituloInput">Data do Atendimento</mat-label>
-        <input matInput>
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Situação do Atendimento</mat-label>
+        <mat-select formControlName="idSituacao">
+          <mat-option *ngFor="let situacao of situacoes" [value]="situacao.id">
+            {{ situacao.label }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('idSituacao') &&
+            formGroup.get('idSituacao')?.invalid &&
+            formGroup.get('idSituacao')?.touched">
+        </mat-error>
       </mat-form-field>
     </div>
 
     <div class="sub-form">
-      <mat-form-field appearance="outline" class="input-2-equals-parts">
+      <mat-form-field appearance="outline" class="formInput">
         <mat-label class="tituloInput">Tipo de Benefício</mat-label>
-        <input matInput>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="input-2-equals-parts">
-        <mat-label class="tituloInput">Situação do Atendimento</mat-label>
-        <input matInput>
+        <input matInput formControlName="tipoBeneficio">
       </mat-form-field>
     </div>
 
     <div class="sub-form">
       <mat-form-field appearance="outline" class="textInput">
         <mat-label class="tituloInput">Descrição do Atendimento</mat-label>
-        <input matInput>
+        <input matInput formControlName="descricao">
       </mat-form-field>
     </div>
 
     <div class="sub-form actions">
-      <button mat-raised-button style="color: #2d8bba;" routerLink="/atendimentos/list">
+      <button mat-raised-button style="color: #2d8bba;" [routerLink]="'/atendimentos/list/' + beneficiario.id">
         Cancelar
       </button>
-      <button mat-raised-button style="background-color: #2d8bba; color: white;" routerLink="/atendimentos/show">
+      <button mat-raised-button style="background-color: #2d8bba; color: white;" (click)="save()">
         Salvar
       </button>
     </div>
-  </div>
+  </form>
 </mat-card>

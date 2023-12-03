@@ -9,7 +9,7 @@ import { atendimentoResolver } from './resolver/atendimento-resolver';
 const routes: Routes = [
   { path: 'show/:id', component: AtendimentoShowComponent, resolve: { atendimento: atendimentoResolver } },
   { path: 'list/:id', component: AtendimentoListComponent, resolve: { beneficiario: beneficiarioResolver } },
-  { path: 'new', component: AtendimentoFormComponent, resolve: { beneficiario: beneficiarioResolver } }
+  { path: 'new/:id', component: AtendimentoFormComponent, resolve: { beneficiario: beneficiarioResolver } }
 ];
 
 @NgModule({

@@ -87,7 +87,8 @@
     </div>
   </mat-card>
 
-  <button mat-stroked-button routerLink="/atendimentos/new" class="buttonNew" style="color:#FFFFFF ;">
+  <button mat-stroked-button [routerLink]="'/atendimentos/new/' + beneficiario.id" class="buttonNew"
+    style="color:#FFFFFF ;">
     Cadastrar Atendimento
   </button>
 
@@ -98,8 +99,8 @@
       <mat-card-content>
         <mat-card-title>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</mat-card-title>
         <mat-card-subtitle>{{ atendimento.orgao.sigla }} - {{ atendimento.orgao.nome }}</mat-card-subtitle>
-        <p>Data do Cadastro : {{ atendimento.dataInclusao | date:'dd/MM/yyyy' }}</p>
-        <p>Situação : {{ atendimento.situacao }}</p>
+        <p>Data do Cadastro : {{ atendimento.dataCadastro | date:'dd/MM/yyyy HH:mm' }}</p>
+        <p>Situação : {{ atendimento.situacao.label }}</p>
       </mat-card-content>
 
       <mat-card-actions>

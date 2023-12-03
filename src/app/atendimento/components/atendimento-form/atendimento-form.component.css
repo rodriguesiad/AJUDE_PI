@@ -1,4 +1,4 @@
-.formulario {
+form {
   height: 60%;
   width: auto;
   background-color: white;
@@ -11,24 +11,21 @@
 }
 
 mat-card {
-  width: 1250px;
-  margin: 2rem auto;
-  min-height: 100%;
-  padding: 2rem;
-  justify-content: flex-end;
+  --mdc-elevated-card-container-color: var(--default-background-color);
+  --mdc-outlined-card-container-color: var(--default-background-color);
+}
+
+.container-info {
+  padding: 1rem;
 }
 
 .info {
   background-color: rgba(206, 206, 206, 0.34);
   width: 100%;
+  margin: 2rem auto;
+  margin-bottom: 3rem;
   box-shadow: none;
   border-radius: 0;
-}
-
-.container-info {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
 }
 
 button[mat-raised-button] {
@@ -39,18 +36,25 @@ button[mat-raised-button] {
 .card-info {
   width: 100%;
   display: flex;
-  gap: 4%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 10px;
 }
 
-
-.card-info p {
-  font-size: 15px;
-  margin: 1px;
+.card-info>.info-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-start;
+  min-width: 126px;
 }
 
-.card-info p:first-child {
-  font-weight: bold;
+.card-info>.info-data>h5 {
+  margin: 0;
+  font-weight: 500;
 }
+
 
 .tituloInput {
   font-size: medium;

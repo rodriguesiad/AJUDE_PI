@@ -9,7 +9,7 @@ export class Atendimento {
     beneficiario!: Beneficiario;
     tipoBeneficio!: string;
     descricao!: string;
-    dataInclusao!: Date;
+    dataCadastro!: Date;
     usuarioInclusao!: Usuario;
     situacao!: SituacaoAtendimento;
 
@@ -19,7 +19,7 @@ export class Atendimento {
         beneficiario: Beneficiario,
         tipoBeneficio: string,
         descricao: string,
-        dataInclusao: Date,
+        dataCadastro: Date,
         usuarioInclusao: Usuario,
         situacao: SituacaoAtendimento
     }) {
@@ -28,7 +28,7 @@ export class Atendimento {
         this.beneficiario = data.beneficiario;
         this.tipoBeneficio = data.tipoBeneficio;
         this.descricao = data.descricao;
-        this.dataInclusao = data.dataInclusao;
+        this.dataCadastro = data.dataCadastro;
         this.usuarioInclusao = data.usuarioInclusao;
         this.situacao = data.situacao
     }
