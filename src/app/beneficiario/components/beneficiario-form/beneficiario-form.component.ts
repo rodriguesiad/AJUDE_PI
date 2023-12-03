@@ -25,6 +25,7 @@ export class BeneficiarioFormComponent implements OnInit {
   formGroup: FormGroup;
   enderecoFormGroup: FormGroup;
   maxDate = new Date();
+  apiResponse: any = null;
   estados: Estado[] = [];
   municipios: Municipio[] = [];
 
@@ -105,12 +106,39 @@ export class BeneficiarioFormComponent implements OnInit {
       novo.dataNascimento = dataFormatada;
       console.log(novo);
       if (novo.id == null) {
-        console.log('Beneficiário cadastrado.');
         this.service.save(novo).subscribe({
           next: (beneficiarioNovo) => {
             this.router.navigateByUrl('/beneficiarios/list');
           },
           error: (err) => {
+            this.apiResponse = err.error;
+
+            const formControls = ['nome', 'email', 'cpf', 'telefone', 'rg', 'nis', 'dataNascimento', 'telefone', 'cpfDosPais', 'endereco'];
+            const enderecoFormControls = ['cep', 'estado', 'municipio', 'bairro', 'logradouro', 'numero', 'complemento'];
+
+            formControls.forEach(controlName => {
+              this.formGroup.get(controlName)?.setErrors(null);
+            });
+
+            enderecoFormControls.forEach(controlName => {
+              this.formGroup.get(controlName)?.setErrors(null);
+            });
+
+            if (this.apiResponse && this.apiResponse.errors) {
+              this.apiResponse.errors.forEach((error: { fieldName: any; message: any; }) => {
+                const fieldName = error.fieldName;
+                const errorMessage = error.message;
+
+                if (formControls.includes(fieldName)) {
+                  this.formGroup.get(fieldName)?.setErrors({ apiError: errorMessage });
+                }
+
+                if (enderecoFormControls.includes(fieldName)) {
+                  this.formGroup.get(fieldName)?.setErrors({ apiError: errorMessage });
+                }
+              });
+            }
+
             console.log('Erro ao incluir' + JSON.stringify(err));
           }
         });
@@ -122,10 +150,38 @@ export class BeneficiarioFormComponent implements OnInit {
             this.router.navigateByUrl('/beneficiarios/list');
           },
           error: (err) => {
-            console.log('Erro ao incluir' + JSON.stringify(err));
+            this.apiResponse = err.error;
+
+            const formControls = ['nome', 'email', 'cpf', 'telefone', 'rg', 'nis', 'dataNascimento', 'telefone', 'cpfDosPais', 'endereco'];
+
+            formControls.forEach(controlName => {
+              this.formGroup.get(controlName)?.setErrors(null);
+            });
+
+            if (this.apiResponse && this.apiResponse.errors) {
+              this.apiResponse.errors.forEach((error: { fieldName: any; message: any; }) => {
+                const fieldName = error.fieldName;
+                const errorMessage = error.message;
+
+                if (formControls.includes(fieldName)) {
+                  this.formGroup.get(fieldName)?.setErrors({ apiError: errorMessage });
+                }
+              });
+            }
+
+            console.log('Erro ao alterar' + JSON.stringify(err));
           }
         })
       }
+    }
+  }
+
+  getErrorMessage(fieldName: string): string {
+    if (this.apiResponse && this.apiResponse.errors) {
+      const error = this.apiResponse.errors.find((error: any) => error.fieldName === fieldName);
+      return error ? error.message : '';
+    } else {
+      return '';
     }
   }
 

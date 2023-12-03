@@ -31,7 +31,15 @@ export class BeneficiarioListComponent implements OnInit {
   }
 
   carregarTotal() {
-    this.service.count().subscribe(data => { this.totalRegistros = data })
+    if (this.filtro) {
+      this.service.countByNomeOuCPF(this.filtro).subscribe(data => {
+        this.totalRegistros = data;
+      });
+    } else {
+      this.service.count().subscribe(data => {
+        this.totalRegistros = data;
+      });
+    }
   }
 
   carregarBeneficiarios() {
@@ -51,5 +59,5 @@ export class BeneficiarioListComponent implements OnInit {
     this.filtro = "";
     this.aplicarFiltro();
   }
-  
+
 }

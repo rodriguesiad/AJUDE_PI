@@ -17,6 +17,9 @@
                             formGroup.get('nome')?.touched">
                         O campo Nome é obrigatório.
                     </mat-error>
+                    <mat-error *ngIf="formGroup.get('nome')?.getError('apiError')">
+                        {{ formGroup.get('nome')?.getError('apiError') }}
+                    </mat-error>
                 </mat-form-field>
 
                 <div class="sub-form">
@@ -28,6 +31,9 @@
                                 formGroup.get('cpf')?.touched">
                             O campo CPF é obrigatório.
                         </mat-error>
+                        <mat-error *ngIf="formGroup.get('cpf')?.getError('apiError')">
+                            {{ formGroup.get('cpf')?.getError('apiError') }}
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>RG</mat-label>
@@ -36,6 +42,9 @@
                                 formGroup.get('rg')?.invalid &&
                                 formGroup.get('rg')?.touched">
                         </mat-error>
+                        <mat-error *ngIf="formGroup.get('rg')?.getError('apiError')">
+                            {{ formGroup.get('rg')?.getError('apiError') }}
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-3-parts">
                         <mat-label>Data de Nascimento</mat-label>
@@ -43,6 +52,9 @@
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                         <mat-error *ngIf="formGroup.get('dataNascimento')?.hasError('apiError')">
+                            {{ formGroup.get('dataNascimento')?.getError('apiError') }}
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('dataNascimento')?.getError('apiError')">
                             {{ formGroup.get('dataNascimento')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
@@ -56,6 +68,9 @@
                             formGroup.get('telefone')?.invalid &&
                             formGroup.get('telefone')?.touched">
                         </mat-error>
+                        <mat-error *ngIf="formGroup.get('telefone')?.getError('apiError')">
+                            {{ formGroup.get('telefone')?.getError('apiError') }}
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
                         <mat-label>E-mail</mat-label>
@@ -63,6 +78,9 @@
                         <mat-error *ngIf="formGroup.get('email') &&
                             formGroup.get('email')?.invalid &&
                             formGroup.get('email')?.touched">
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('email')?.getError('apiError')">
+                            {{ formGroup.get('email')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -76,6 +94,9 @@
                             formGroup.get('nis')?.touched">
                             O campo NIS é obrigatório.
                         </mat-error>
+                        <mat-error *ngIf="formGroup.get('nis')?.getError('apiError')">
+                            {{ formGroup.get('nis')?.getError('apiError') }}
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-1-2-parts">
                         <mat-label>CPF dos Pais</mat-label>
@@ -83,6 +104,9 @@
                         <mat-error *ngIf="formGroup.get('cpfDosPais') &&
                             formGroup.get('cpfDosPais')?.invalid &&
                             formGroup.get('cpfDosPais')?.touched">
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('cpfDosPais')?.getError('apiError')">
+                            {{ formGroup.get('cpfDosPais')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -94,6 +118,9 @@
                             <mat-error *ngIf="formGroup.get('cep') &&
                                 formGroup.get('cep')?.invalid &&
                                 formGroup.get('cep')?.touched">
+                            </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('cep')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('cep')?.getError('apiError') }}
                             </mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="input-3-parts">
@@ -107,6 +134,9 @@
                                 formGroup.get('estado')?.invalid &&
                                 formGroup.get('estado')?.touched">
                             </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('estado')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('estado')?.getError('apiError') }}
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="input-3-parts">
                             <mat-label>Município</mat-label>
@@ -119,6 +149,9 @@
                                 formGroup.get('municipio')?.invalid &&
                                 formGroup.get('municipio')?.touched">
                             </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('municipio')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('municipio')?.getError('apiError') }}
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
@@ -130,6 +163,9 @@
                                 formGroup.get('bairro')?.invalid &&
                                 formGroup.get('bairro')?.touched">
                             </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('bairro')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('bairro')?.getError('apiError') }}
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="input-2-equals-parts">
                             <mat-label>Logradouro</mat-label>
@@ -137,6 +173,9 @@
                             <mat-error *ngIf="formGroup.get('logradouro') &&
                                 formGroup.get('logradouro')?.invalid &&
                                 formGroup.get('logradouro')?.touched">
+                            </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('logradouro')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('logradouro')?.getError('apiError') }}
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -148,6 +187,9 @@
                                 formGroup.get('numero')?.invalid &&
                                 formGroup.get('numero')?.touched">
                             </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('numero')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('numero')?.getError('apiError') }}
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="input-1-2-parts">
                             <mat-label>Complemento</mat-label>
@@ -155,6 +197,9 @@
                             <mat-error *ngIf="formGroup.get('complemento') &&
                                 formGroup.get('complemento')?.invalid &&
                                 formGroup.get('complemento')?.touched">
+                            </mat-error>
+                            <mat-error *ngIf="enderecoFormGroup.get('complemento')?.getError('apiError')">
+                                {{ enderecoFormGroup.get('complemento')?.getError('apiError') }}
                             </mat-error>
                         </mat-form-field>
                     </div>
