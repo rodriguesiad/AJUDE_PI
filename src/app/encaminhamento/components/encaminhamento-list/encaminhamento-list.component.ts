@@ -59,7 +59,7 @@ export class EncaminhamentoListComponent {
     const usuario = new Usuario({
       id: 1, nome: 'Maria de Souza',
       cpf: '474.112.440-15',
-      email: 'maria@gmail.com',
+      login: 'maria@gmail.com',
       senha: '123',
       lotacoes: [{ id: 1, perfil: perfil, orgao: cras }, { id: 2, perfil: perfil, orgao: creas }]
     })

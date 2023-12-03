@@ -20,7 +20,7 @@ export class OrgaoFormComponent {
   municipios: Municipio[] = [];
 
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router,
-    private estadoService: EstadoService, private municipioService: MunicipioService, private OrgaoService: OrgaoService) {
+    private estadoService: EstadoService, private municipioService: MunicipioService, private orgaoService: OrgaoService) {
 
     this.formGroup = formBuilder.group({
       id: [null],
@@ -61,7 +61,7 @@ export class OrgaoFormComponent {
       const orgao = this.formGroup.value;
 
       if (orgao.id == null) {
-        this.OrgaoService.save(orgao).subscribe({
+        this.orgaoService.save(orgao).subscribe({
           next: (orgaoNovo) => {
             this.router.navigateByUrl('/orgaos/list');
           },
@@ -70,7 +70,7 @@ export class OrgaoFormComponent {
           }
         });
       } else {
-        this.OrgaoService.update(orgao).subscribe({
+        this.orgaoService.update(orgao).subscribe({
           next: (orgaoAlterado) => {
             this.router.navigateByUrl('/orgaos/list');
           },

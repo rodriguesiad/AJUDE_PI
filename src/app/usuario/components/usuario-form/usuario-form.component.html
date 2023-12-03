@@ -30,16 +30,18 @@
 
                 <div class="sub-form">
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
-                        <mat-label>E-mail</mat-label>
-                        <input matInput type="text" formControlName="email" />
-                        <mat-error *ngIf="formGroup.get('email') &&
-                                formGroup.get('email')?.invalid &&
-                                formGroup.get('email')?.touched">
+                        <mat-label>E-mail para Login</mat-label>
+                        <input matInput type="text" formControlName="login" />
+                        <mat-error *ngIf="formGroup.get('login') &&
+                                formGroup.get('login')?.invalid &&
+                                formGroup.get('login')?.touched">
                             O campo E-mail é obrigatório.
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
-                        <mat-label>Senha</mat-label>
+                        <mat-label>{{ formGroup.get('id')?.value ?
+                            (modoVisualizacao ? 'Senha - Visualização indisponível' : 'Nova Senha') : 'Senha'
+                            }}</mat-label>
                         <input matInput type="text" formControlName="senha" />
                         <mat-error *ngIf="formGroup.get('senha') &&
                                 formGroup.get('senha')?.invalid &&
@@ -50,22 +52,21 @@
                 </div>
 
                 <div formArrayName="lotacoes">
-                    <div *ngFor="let perfilOrgao of lotacoes.controls; let i = index" [formGroupName]="i">
+                    <div *ngFor="let lotacao  of lotacoes.controls; let i = index" [formGroupName]="i">
                         <div class="sub-form">
 
                             <mat-form-field appearance="outline" class="input-perfil-orgao">
                                 <mat-label>Perfil</mat-label>
                                 <mat-select formControlName="perfil">
-                                    <mat-option *ngFor="let perfil of perfis" [value]="perfil.value">
+                                    <mat-option *ngFor="let perfil of perfis" [value]="perfil.id">
                                         {{ perfil.label}}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="formGroup.get('perfil') &&
-                                formGroup.get('perfil')?.invalid &&
-                                formGroup.get('perfil')?.touched">
+                                <mat-error *ngIf="lotacao.get('perfil')?.invalid && lotacao.get('perfil')?.touched">
                                     O campo Perfil é obrigatório.
                                 </mat-error>
                             </mat-form-field>
+
                             <mat-form-field appearance="outline" class="input-perfil-orgao">
                                 <mat-label>Órgão</mat-label>
                                 <mat-select formControlName="orgao">
@@ -73,9 +74,7 @@
                                         {{ orgao.sigla }} - {{ orgao.nome }}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="formGroup.get('orgao') &&
-                                formGroup.get('orgao')?.invalid &&
-                                formGroup.get('orgao')?.touched">
+                                <mat-error *ngIf="lotacao.get('orgao')?.invalid && lotacao.get('orgao')?.touched">
                                     O campo órgão é obrigatório.
                                 </mat-error>
                             </mat-form-field>

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Estado } from 'src/app/models/estado.model';
-import { Municipio } from 'src/app/models/municipio.model';
 import { Orgao } from 'src/app/models/orgao.model';
+import { Perfil } from 'src/app/models/perfil.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { OrgaoService } from 'src/app/services/orgao.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-usuario-form',
@@ -16,26 +17,16 @@ export class UsuarioFormComponent implements OnInit {
   minPerfilOrgao = false;
   modoVisualizacao: boolean = false;
   idUsuarioVisualizacao: number = 0;
+  perfis: Perfil[] = [];
+  orgaos: Orgao[] = [];
 
-  estado = new Estado(1, "Tocantins", "TO");
-  municipio = new Municipio(1, "Palmas", this.estado);
-
-  perfis: { value: number, label: string }[] = [
-    { value: 1, label: 'Administrador' },
-    { value: 2, label: 'Assistente' }
-  ]
-
-  orgaos: Orgao[] = [
-    new Orgao({ id: 2, nome: 'Centro de Referência de Assistência Social', sigla: 'CRAS', municipio: this.municipio, estado: this.estado, ativo: true },),
-    new Orgao({ id: 3, nome: 'Centro de Ref. Especializado de Ass. Social', sigla: 'CREAS', municipio: this.municipio, estado: this.estado, ativo: true },)
-  ]
-
-  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router,
+    private orgaoService: OrgaoService, private service: UsuarioService) {
     this.formGroup = this.formBuilder.group({
       id: [null],
       nome: ['', Validators.required],
       cpf: ['', Validators.required],
-      email: ['', Validators.required],
+      login: ['', Validators.required],
       senha: ['', Validators.required],
       lotacoes: this.formBuilder.array([]),
     });
@@ -46,11 +37,17 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.modoVisualizacao = params['modoVisualizacao'] === 'true';
+    this.activatedRoute.url.subscribe(segments => {
+      this.modoVisualizacao = this.router.url.includes('view');
     });
 
-    this.initializeForm();
+    this.orgaoService.findAll(0, 100).subscribe(data => {
+      this.orgaos = data;
+      this.service.findPerfis().subscribe(dataPerfil => {
+        this.perfis = dataPerfil;
+        this.initializeForm();
+      })
+    });
   }
 
   initializeForm(): void {
@@ -59,20 +56,25 @@ export class UsuarioFormComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       id: [(usuario && usuario.id) ? usuario.id : null],
       nome: [{ value: (usuario && usuario.nome) ? usuario.nome : '', disabled: this.modoVisualizacao }, Validators.required],
-      email: [{ value: (usuario && usuario.email) ? usuario.email : '', disabled: this.modoVisualizacao }, Validators.required],
+      login: [{ value: (usuario && usuario.login) ? usuario.login : '', disabled: this.modoVisualizacao }, Validators.required],
       cpf: [{ value: (usuario && usuario.cpf) ? usuario.cpf : '', disabled: this.modoVisualizacao }, Validators.required],
-      senha: [{ value: (usuario && usuario.senha) ? usuario.senha : '', disabled: this.modoVisualizacao }, Validators.required],
+      senha: [{ value: (usuario && usuario.senha) ? usuario.senha : '', disabled: this.modoVisualizacao }],
       lotacoes: this.formBuilder.array([])
     });
 
+    if (!usuario || usuario.id === null) {
+      this.formGroup.get('senha')?.setValidators([Validators.required]);
+      this.formGroup.get('senha')?.updateValueAndValidity();
+    }
+
     if (usuario.lotacoes && usuario.lotacoes.length > 0) {
-      usuario.lotacoes.forEach((lotacoes: any) => {
-        this.lotacoes.push(
-          this.formBuilder.group({
-            perfil: [{ value: (lotacoes && lotacoes.perfil) ? lotacoes.perfil.value : null, disabled: this.modoVisualizacao }, Validators.required],
-            orgao: [{ value: (lotacoes && lotacoes.orgao) ? lotacoes.orgao.id : null, disabled: this.modoVisualizacao }, Validators.required],
-          })
-        );
+      usuario.lotacoes.forEach((lotacao: any) => {
+        const newFormGroup = this.formBuilder.group({
+          perfil: [{ value: (lotacao && lotacao.perfil) ? lotacao.perfil.id : null, disabled: this.modoVisualizacao }, Validators.required],
+          orgao: [{ value: (lotacao && lotacao.orgao) ? lotacao.orgao.id : null, disabled: this.modoVisualizacao }, Validators.required],
+        });
+
+        this.lotacoes.push(newFormGroup);
       });
 
       this.minPerfilOrgao = true;
@@ -101,9 +103,27 @@ export class UsuarioFormComponent implements OnInit {
 
   salvar(): void {
     if (this.formGroup.valid && this.minPerfilOrgao) {
-      const dadosFormulario = this.formGroup.value;
-      console.log('Dados do formulário:', dadosFormulario);
-      this.router.navigateByUrl('/usuarios/view');
+      const usuario = this.formGroup.value;
+      if (usuario.id == null) {
+        this.service.save(usuario).subscribe({
+          next: (usuarioNovo) => {
+            this.router.navigateByUrl('usuarios/view/' + usuarioNovo.id);
+          },
+          error: (err) => {
+            console.log('Erro ao incluir ' + JSON.stringify(err));
+          }
+        });
+      } else {
+        console.log(usuario);
+        this.service.update(usuario).subscribe({
+          next: (usuarioAtualizado) => {
+            this.router.navigateByUrl('usuarios/view/' + usuarioAtualizado.id);
+          },
+          error: (err) => {
+            console.log('Erro ao alterar ' + JSON.stringify(err));
+          }
+        });
+      }
     } else {
       if (!this.minPerfilOrgao) {
         alert("Adicione pelo menos 1 perfil para o usuário.")

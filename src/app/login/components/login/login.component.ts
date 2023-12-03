@@ -12,12 +12,12 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private snackBar: MatSnackBar) {}
+    private router: Router,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.minLength(3)]],
+      login: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
