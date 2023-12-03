@@ -34,11 +34,11 @@
             <tr>
               <td>
                 <p class="texto title">Informações do Beneficiário</p>
-                <p class="texto">Endereço: {{ data.encaminhamento.atendimento.beneficiario.logradouro }},
-                  Bairro: {{ data.encaminhamento.atendimento.beneficiario.bairro }},
-                  Nº: {{ data.encaminhamento.atendimento.beneficiario.numero }},
-                  {{ data.encaminhamento.atendimento.beneficiario.municipio.descricao }} - {{
-                  data.encaminhamento.atendimento.beneficiario.estado.sigla }}
+                <p class="texto">Endereço: {{ data.encaminhamento.atendimento.beneficiario.endereco.logradouro }},
+                  Bairro: {{ data.encaminhamento.atendimento.beneficiario.endereco.bairro }},
+                  Nº: {{ data.encaminhamento.atendimento.beneficiario.endereco.numero }},
+                  {{ data.encaminhamento.atendimento.beneficiario.endereco.municipio.descricao }} - {{
+                  data.encaminhamento.atendimento.beneficiario.endereco.estado.sigla }}
                   <br>
                   Data de Nascimento: {{data.encaminhamento.atendimento.beneficiario.dataNascimento | date:
                   'dd/MM/yyyy'}}

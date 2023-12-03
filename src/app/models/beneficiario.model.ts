@@ -1,3 +1,4 @@
+import { Endereco } from "./endereco.model";
 import { Estado } from "./estado.model";
 import { Municipio } from "./municipio.model";
 
@@ -11,13 +12,8 @@ export class Beneficiario {
     email!: string;
     dataNascimento!: Date;
     cpfDosPais!: string;
-    cep!: string;
-    estado!: Estado;
-    municipio!: Municipio;
-    bairro!: string;
-    logradouro!: string;
-    numero!: string;
-    complemento!: string;
+    endereco!: Endereco;
+
 
     constructor(data: {
         id: number;
@@ -29,13 +25,8 @@ export class Beneficiario {
         telefone: string;
         email: string;
         cpfDosPais: string;
-        cep: string;
-        estado: Estado;
-        municipio: Municipio;
-        bairro: string;
-        logradouro: string;
-        numero: string;
-        complemento: string;
+        endereco: Endereco;
+
     }) {
         this.id = data.id;
         this.nome = data.nome;
@@ -46,12 +37,6 @@ export class Beneficiario {
         this.telefone = data.telefone;
         this.email = data.email;
         this.cpfDosPais = data.cpfDosPais;
-        this.cep = data.cep;
-        this.estado = data.estado;
-        this.municipio = data.municipio;
-        this.bairro = data.bairro;
-        this.logradouro = data.logradouro;
-        this.numero = data.numero;
-        this.complemento = data.complemento;
+        this.endereco = data.endereco;
     }
 }

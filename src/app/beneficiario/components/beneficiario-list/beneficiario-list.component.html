@@ -9,21 +9,24 @@
   <div class="body-container">
     <div class="filter-container">
       <form>
-        <mat-form-field appearance="outline" class="full-width-input">
-          <mat-label>Digite o nome, CPF ou NIS do beneficiário</mat-label>
-          <input matInput placeholder="Digite aqui" />
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
+        <div class="input-with-button">
+          <mat-form-field class="example-form-field" appearance="outline">
+            <input matInput placeholder="Digite aqui" class="flexible-input" [(ngModel)]="filtro" name="filtro" #input>
+          </mat-form-field>
+          <button mat-icon-button aria-label="Pesquisar" id="search-button" (click)="aplicarFiltro()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
       </form>
 
-      <button mat-flat-button class="clean-button">
+      <button mat-flat-button class="clean-button" (click)="limparFiltro()">
         LIMPAR
       </button>
     </div>
 
     <div style="padding: 5px;">
       <div class="table-container no-shadow rounded-corners">
-        <table mat-table [dataSource]="dataSource">
+        <table mat-table [dataSource]="beneficiarios" matSort>
 
           <ng-container matColumnDef="nome">
             <th mat-header-cell *matHeaderCellDef> Nome </th>

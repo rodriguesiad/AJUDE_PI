@@ -1,10 +1,7 @@
-.demo-table {
-    width: 100%;
-}
-
 mat-card {
     min-width: 1250px;
     margin: 2rem auto;
+    margin-bottom: 3rem;
     --mdc-elevated-card-container-color: var(--default-background-color);
     --mdc-outlined-card-container-color: var(--default-background-color);
 }
@@ -43,9 +40,23 @@ table {
     min-height: 100%;
 }
 
-.full-width-input {
+.input-with-button {
+    display: flex;
     width: 100%;
-    margin: 0px;
+}
+
+.example-form-field {
+    flex: 1;
+    margin-right: 8px;
+}
+
+.flexible-input {
+    width: 100%;
+}
+
+#search-button {
+    min-width: 40px;
+    color: rgba(0, 0, 0, 0.596);
 }
 
 .filter-container {
@@ -77,10 +88,6 @@ button,
     box-shadow: none;
 }
 
-.search-button {
-    height: 1rem;
-}
-
 #new {
     font-weight: 400;
 }
@@ -105,4 +112,18 @@ button,
 button[mat-raised-button] {
     width: 120px;
     font-size: 12px;
+}
+
+.mat-mdc-slide-toggle {
+    --mdc-switch-selected-focus-state-layer-color: var(--default-blue);
+    --mdc-switch-selected-handle-color: var(--default-blue);
+    --mdc-switch-selected-hover-state-layer-color: var(--default-blue);
+    --mdc-switch-selected-pressed-state-layer-color: var(--default-blue);
+    --mdc-switch-selected-focus-handle-color: var(--default-blue);
+    --mdc-switch-selected-hover-handle-color: #1E6B91;
+    --mdc-switch-selected-pressed-handle-color: #1E6B91;
+    --mdc-switch-selected-focus-track-color: rgb(45, 139, 186, 64%);
+    --mdc-switch-selected-hover-track-color: rgb(45, 139, 186, 64%);
+    --mdc-switch-selected-pressed-track-color: rgb(45, 139, 186, 64%);
+    --mdc-switch-selected-track-color: rgb(45, 139, 186, 64%);
 }
