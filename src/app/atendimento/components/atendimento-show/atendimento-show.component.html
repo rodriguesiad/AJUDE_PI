@@ -4,11 +4,11 @@
       <div class="card-info">
         <p>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</p>
         <p>Data do Cadastro: {{ atendimento.dataInclusao | date:'dd/MM/yyyy' }}</p>
-        <p>Situação: {{ atendimento.ativo ? 'Ativo' : 'Inativo' }}</p>
+        <p>Situação: {{ atendimento.situacao.label }}</p>
       </div>
       <div class="card-info">
         <p>Órgão Atual:</p>
-        <p>{{ atendimento.orgaoAtual.sigla }} - {{ atendimento.orgaoAtual.nome }}</p>
+        <p>{{ atendimento.orgao.sigla }} - {{ atendimento.orgao.nome }}</p>
       </div>
       <div class="card-info">
         <p>Usuário Responsável:</p>

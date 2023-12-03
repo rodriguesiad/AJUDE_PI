@@ -10,7 +10,7 @@ export class BeneficiarioService {
   private baseURL: string = 'http://localhost:8080/beneficiarios';
   constructor(private http: HttpClient) { }
 
-  findByid(id: string): Observable<Beneficiario> {
+  findById(id: string): Observable<Beneficiario> {
     return this.http.get<Beneficiario>(`${this.baseURL}/${id}`);
   }
 
@@ -60,8 +60,6 @@ export class BeneficiarioService {
       dataNascimento: beneficiario.dataNascimento,
       endereco: end
     }
-
-    console.log(entity);
 
     return this.http.put<Beneficiario>(`${this.baseURL}/${beneficiario.id}`, entity);
   }

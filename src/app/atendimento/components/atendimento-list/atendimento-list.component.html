@@ -1,40 +1,88 @@
 <mat-card class="principal no-shadow">
-  <mat-card class="secundario info">
+  <mat-card class="no-shadow info">
     <div class="container-info">
       <div class="card-info">
         <div class="info-data">
-          <p>Nome</p>
-          <h2> {{ beneficiario.nome}}</h2>
+          <h5>NOME</h5>
+          <h2>{{ beneficiario.nome || '-' }}</h2>
         </div>
-        <div class="info-data">
-          <p>CPF</p>
-          <p>{{beneficiario.cpf}}</p>
-        </div>
-        <div class="info-data">
-          <p>RG:</p>
-          <p>{{beneficiario.rg}}</p>
-        </div>
-        <div class="info-data">
-          <p>Data de Nascimento</p>
-          <p>{{ beneficiario.dataNascimento | date:'dd/MM/yyyy' }}</p>
-        </div>
-        <div class="info-data">
-          <p>NIS</p>
-          <p>{{beneficiario.nis}}</p>
-        </div>
-        <div class="info-data">
-          <p>Telefone</p>
-          <p>{{ formatarTelefone(beneficiario.telefone) }}</p>
-        </div>
-        <div class="info-data">
-          <p>E-mail</p>
-          <p>{{ beneficiario.email }}</p>
+        <div class="card-back-button">
+          <button mat-raised-button class="back-button" routerLink="/beneficiarios/list">
+            VOLTAR
+          </button>
         </div>
       </div>
-      <div>
-        <button mat-raised-button class="back-button" routerLink="/beneficiarios/view/1">
-          VOLTAR
-        </button>
+      <div class="card-info">
+        <div class="info-data">
+          <h5>CPF</h5>
+          <h5>{{beneficiario.cpf || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>RG</h5>
+          <h5>{{beneficiario.rg || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>DATA DE NASCIMENTO</h5>
+          <h5>{{beneficiario.dataNascimento | date:'dd/MM/yyyy' || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>CPF DOS PAIS</h5>
+          <h5>{{beneficiario.cpfDosPais || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>NIS</h5>
+          <h5>{{beneficiario.nis || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>TELEFONE</h5>
+          <h5>{{beneficiario.telefone || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>E-MAIL</h5>
+          <h5>{{beneficiario.email || '-'}}</h5>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="info-data">
+          <h5>CEP</h5>
+          <h5>{{beneficiario.endereco.cep || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>ESTADO</h5>
+          <h5>{{beneficiario.endereco.estado.descricao || '-' }}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>CIDADE</h5>
+          <h5>{{beneficiario.endereco.municipio.descricao || '-' }}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>BAIRRO</h5>
+          <h5>{{beneficiario.endereco.bairro || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>LOGRADOURO</h5>
+          <h5>{{beneficiario.endereco.logradouro || '-'}}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>NÚMERO</h5>
+          <h5>{{beneficiario.endereco.numero || '-' }}</h5>
+        </div>
+
+        <div class="info-data">
+          <h5>COMPLEMENTO</h5>
+          <h5>{{beneficiario.endereco.complemento || '-' }}</h5>
+        </div>
       </div>
     </div>
   </mat-card>
@@ -46,14 +94,14 @@
   <h1>Atendimentos</h1>
 
   <div class="listAtendimentos">
-    <mat-card *ngFor="let atendimento of atendimentos | slice: (page * size): ((page + 1) * size)" class="info-card">
+    <mat-card *ngFor="let atendimento of atendimentos" class="info-card">
       <mat-card-content>
         <mat-card-title>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</mat-card-title>
-        <mat-card-subtitle>{{ atendimento?.orgaoAtual?.sigla }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ atendimento.orgao.sigla }} - {{ atendimento.orgao.nome }}</mat-card-subtitle>
         <p>Data do Cadastro : {{ atendimento.dataInclusao | date:'dd/MM/yyyy' }}</p>
-        <p>Situação : {{ atendimento.ativo ? 'Ativo' : 'Inativo' }}</p>
+        <p>Situação : {{ atendimento.situacao }}</p>
       </mat-card-content>
-      
+
       <mat-card-actions>
         <button mat-icon-button color="primary" (click)="openDialog(atendimento)" aria-label="Baixar encaminhamento">
           <mat-icon>print</mat-icon>
@@ -65,8 +113,7 @@
     </mat-card>
 
   </div>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="size" (page)="handlePage($event)"
-    [length]="atendimentos.length" showFirstLastButtons aria-label="Selecione a página"
-    style="border-top: 1px solid rgb(224, 223, 223);">
+  <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" [pageSize]="size" [length]="totalRegistros"
+    (page)="handlePage($event)" showFirstLastButtons aria-label="Selecione a página">
   </mat-paginator>
 </mat-card>

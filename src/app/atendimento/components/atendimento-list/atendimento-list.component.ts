@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { Atendimento } from 'src/app/models/atendimento.model';
 import { Beneficiario } from 'src/app/models/beneficiario.model';
+import { AtendimentoService } from 'src/app/services/atendimento.service';
 import { AtendimentoDownloadModalComponent } from '../modal/atendimento-download-modal/atendimento-download-modal.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-atendimento-list',
@@ -14,23 +15,37 @@ import { MatDialog } from '@angular/material/dialog';
 export class AtendimentoListComponent implements OnInit {
   atendimentos: Atendimento[] = [];
   beneficiario: Beneficiario;
-
+  totalRegistros = 0;
   size = 5;
-  page = 0;
+  page = 0
+
   pageEvent: PageEvent | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+  constructor(private activatedRoute: ActivatedRoute, public dialog: MatDialog, private service: AtendimentoService) {
     this.beneficiario = this.activatedRoute.snapshot.data['beneficiario'];
   }
 
   ngOnInit(): void {
-    const atendimento: Atendimento = this.activatedRoute.snapshot.data['atendimento'];
-    this.atendimentos = [atendimento, atendimento, atendimento, atendimento, atendimento, atendimento];
+    this.carregarAtendimentos();
+    this.carregarTotalRegistros();
+  }
+
+  carregarAtendimentos() {
+    this.service.findByBeneficiario(this.beneficiario.id.toString(), this.page, this.size).subscribe(data => {
+      this.atendimentos = data;
+    })
+  }
+
+  carregarTotalRegistros() {
+    this.service.count(this.beneficiario.id.toString()).subscribe(data => {
+      this.totalRegistros = data;
+    });
   }
 
   handlePage(event: PageEvent): void {
     this.page = event.pageIndex;
     this.size = event.pageSize;
+    this.carregarAtendimentos();
   }
 
   openDialog(atendimento: Atendimento) {
@@ -39,18 +54,6 @@ export class AtendimentoListComponent implements OnInit {
       height: "96%",
       data: { atendimento }
     })
-  }
-
-  formatarTelefone(numero: string): string {
-    if (numero != '') {
-      const codigoPais = '+' + numero.slice(0, 2);
-      const ddd = numero.slice(2, 4);
-      const parte1 = numero.slice(4, 6);
-      const parte2 = numero.slice(6, 10);
-      return `${codigoPais} ${ddd} ${parte1} ${parte2}`;
-    }
-
-    return '';
   }
 
 }

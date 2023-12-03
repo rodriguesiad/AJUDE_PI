@@ -5,7 +5,7 @@
     </div>
     <button mat-flat-button id="new" class="no-shadow" routerLink="/beneficiarios/new">Cadastrar Beneficiário</button>
   </mat-toolbar>
-  
+
   <div class="body-container">
     <div class="filter-container">
       <form>
@@ -53,7 +53,7 @@
             <td mat-cell *matCellDef="let beneficiario">
               <div class="edit-button-container">
                 <button mat-icon-button aria-label="Visualizar beneficiario" class="no-shadow"
-                  routerLink="/beneficiarios/view/{{beneficiario.id}}">
+                  [routerLink]="'/atendimentos/list/' + beneficiario.id">
                   <mat-icon>remove_red_eye</mat-icon>
                 </button>
                 <button mat-icon-button aria-label="Editar beneficiario" class="no-shadow"

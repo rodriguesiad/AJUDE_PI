@@ -30,15 +30,7 @@ export class AtendimentoDownloadModalComponent {
   }
 
   formatarTelefone(numero: string): string {
-    if (numero != '') {
-      const codigoPais = '+' + numero.slice(0, 2);
-      const ddd = numero.slice(2, 4);
-      const parte1 = numero.slice(4, 6);
-      const parte2 = numero.slice(6, 10);
-      return `${codigoPais} ${ddd} ${parte1} ${parte2}`;
-    }
-
-    return '';
+    return numero;
   }
 
   formatarData(data: Date): string {

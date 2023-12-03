@@ -54,7 +54,7 @@ export class BeneficiarioFormComponent implements OnInit {
       cpfDosPais: [''],
       endereco: this.enderecoFormGroup
     })
-      
+
   }
 
   ngOnInit(): void {
@@ -108,7 +108,7 @@ export class BeneficiarioFormComponent implements OnInit {
       if (novo.id == null) {
         this.service.save(novo).subscribe({
           next: (beneficiarioNovo) => {
-            this.router.navigateByUrl('/beneficiarios/list');
+            this.router.navigateByUrl('/atendimentos/list/' + beneficiarioNovo.id);
           },
           error: (err) => {
             this.apiResponse = err.error;
@@ -146,8 +146,8 @@ export class BeneficiarioFormComponent implements OnInit {
       else {
         console.log('Beneficiário atualizado.');
         this.service.update(novo).subscribe({
-          next: (orgaoNovo) => {
-            this.router.navigateByUrl('/beneficiarios/list');
+          next: (beneficiarioAtualizado) => {
+            this.router.navigateByUrl('/atendimentos/list/' + beneficiarioAtualizado.id);
           },
           error: (err) => {
             this.apiResponse = err.error;

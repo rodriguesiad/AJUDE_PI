@@ -1,37 +1,35 @@
 import { Beneficiario } from "./beneficiario.model";
 import { Orgao } from "./orgao.model";
+import { SituacaoAtendimento } from "./situacao-atendimento.model";
 import { Usuario } from "./usuario.model";
 
 export class Atendimento {
     id!: number;
-    orgaoAtual!: Orgao;
+    orgao!: Orgao;
     beneficiario!: Beneficiario;
     tipoBeneficio!: string;
     descricao!: string;
     dataInclusao!: Date;
     usuarioInclusao!: Usuario;
-    perfilInclusao!: string;
-    ativo!: boolean;
+    situacao!: SituacaoAtendimento;
 
     constructor(data: {
         id: number,
-        orgaoAtual: Orgao,
+        orgao: Orgao,
         beneficiario: Beneficiario,
         tipoBeneficio: string,
         descricao: string,
         dataInclusao: Date,
         usuarioInclusao: Usuario,
-        perfilInclusao: string,
-        ativo: boolean
+        situacao: SituacaoAtendimento
     }) {
         this.id = data.id;
-        this.orgaoAtual = data.orgaoAtual;
+        this.orgao = data.orgao;
         this.beneficiario = data.beneficiario;
         this.tipoBeneficio = data.tipoBeneficio;
         this.descricao = data.descricao;
         this.dataInclusao = data.dataInclusao;
         this.usuarioInclusao = data.usuarioInclusao;
-        this.perfilInclusao = data.perfilInclusao;
-        this.ativo = data.ativo;
+        this.situacao = data.situacao
     }
 }

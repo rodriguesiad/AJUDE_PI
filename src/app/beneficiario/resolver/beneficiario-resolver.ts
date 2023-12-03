@@ -5,6 +5,5 @@ import { inject } from "@angular/core";
 
 export const beneficiarioResolver: ResolveFn<Beneficiario> =
     (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-        return inject(BeneficiarioService).findByid(route.paramMap.get('id')!);
-
+        return inject(BeneficiarioService).findById(route.paramMap.get('id')!);
     };

@@ -21,7 +21,6 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.baseURL}/lotacoes/${id}`);
   }
 
-
   findAll(pagina: number, tamanhoPagina: number): Observable<Usuario[]> {
     const params = {
       page: pagina.toString(),

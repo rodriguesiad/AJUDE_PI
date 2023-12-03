@@ -1,11 +1,13 @@
 import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from "@angular/router";
 import { Atendimento } from "src/app/models/atendimento.model";
-import { Beneficiario } from "src/app/models/beneficiario.model"; import { Endereco } from "src/app/models/endereco.model";
+import { Beneficiario } from "src/app/models/beneficiario.model";
+import { Endereco } from "src/app/models/endereco.model";
 import { Estado } from "src/app/models/estado.model";
 import { Movimentacao } from "src/app/models/movimentacao.model";
 import { Municipio } from "src/app/models/municipio.model";
 import { Orgao } from "src/app/models/orgao.model";
 import { Perfil } from "src/app/models/perfil.model";
+import { SituacaoAtendimento } from "src/app/models/situacao-atendimento.model";
 import { Usuario } from "src/app/models/usuario.model";
 
 export const movimentacaoResolver: ResolveFn<Movimentacao> =
@@ -41,15 +43,18 @@ export const movimentacaoResolver: ResolveFn<Movimentacao> =
             email: 'ana@gmail.com', cpfDosPais: 'Nenhum', endereco: dados
         })
 
+        const situacao = new SituacaoAtendimento();
+        situacao.id = 1;
+        situacao.label = 'Em andamento';
+
         const atendimento = new Atendimento({
-            id: 1, orgaoAtual: cras,
+            id: 1, orgao: cras,
             beneficiario: beneficiario,
             tipoBeneficio: 'AUXILIO MORADIA',
             descricao: 'Durante o cadastro do atendimento de auxílio moradia para a família Melo, foi registrado que eles residem em uma casa de três quartos localizada na Rua das Flores, número 123, no bairro Esperança, na cidade de Cidade Feliz. A casa, de propriedade da família, apresenta bom estado de conservação e conta com infraestrutura básica de água, luz e saneamento. Entretanto, foi mencionado que a área é suscetível a inundações sazonais durante períodos chuvosos, o que tem gerado preocupação em relação à segurança e à habitabilidade do local para os membros da família. Durante a entrevista, a Sra. Melo expressou a necessidade urgente de melhorias estruturais para garantir um ambiente mais seguro e estável para sua família, principalmente para os três filhos pequenos. Esse cadastro detalhado será fundamental para o desenvolvimento de um plano de assistência personalizado, visando oferecer o suporte necessário para aprimorar as condições habitacionais e promover um ambiente mais seguro e adequado para a família.',
             dataInclusao: new Date(),
             usuarioInclusao: usuario,
-            perfilInclusao: usuario.nome + ' - ' + usuario.lotacoes[0].orgao.sigla + ' - ' + usuario.lotacoes[0].perfil.label,
-            ativo: true
+            situacao: situacao
         })
 
         return new Movimentacao({

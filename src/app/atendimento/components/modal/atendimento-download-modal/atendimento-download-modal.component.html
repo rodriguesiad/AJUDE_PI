@@ -12,7 +12,9 @@
 
         <main>
             <div class="main-header">
-                <h4>Atendimento<br>{{data.atendimento.tipoBeneficio}}</h4>
+                <h4>Atendimento
+                    <br>{{data.atendimento.tipoBeneficio}}
+                </h4>
             </div>
 
             <div class="main-body">
@@ -39,6 +41,9 @@
                                     <br>
                                     Telefone: {{ formatarTelefone(data.atendimento.beneficiario.telefone) }}
                                 </p>
+
+                                <p class="texto title">Situação do Atendimento: {{ data.atendimento.situacao }}
+                                <p>
                             </td>
                         </tr>
                     </table>
@@ -47,8 +52,8 @@
         </main>
 
         <footer>
-            <p>{{data.atendimento.usuarioInclusao.lotacoes[0].orgao.municipio.descricao}} -
-                {{data.atendimento.usuarioInclusao.lotacoes[0].orgao.estado.sigla}}
+            <p>{{data.atendimento.orgao.municipio.descricao}} -
+                {{data.atendimento.orgao.municipio.estado.sigla}}
                 <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
             </p>
         </footer>
