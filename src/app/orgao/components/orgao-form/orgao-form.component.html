@@ -16,6 +16,9 @@
                             formGroup.get('nome')?.touched">
                         O campo Nome é obrigatório.
                     </mat-error>
+                    <mat-error *ngIf="formGroup.get('nome')?.getError('apiError')">
+                        {{ formGroup.get('nome')?.getError('apiError') }}
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="full-width-input">
@@ -25,6 +28,9 @@
                             formGroup.get('sigla')?.invalid &&
                             formGroup.get('sigla')?.touched">
                         O campo Sigla é obrigatório.
+                    </mat-error>
+                    <mat-error *ngIf="formGroup.get('sigla')?.getError('apiError')">
+                        {{ formGroup.get('sigla')?.getError('apiError') }}
                     </mat-error>
                 </mat-form-field>
 
@@ -39,6 +45,10 @@
                         <mat-error *ngIf="formGroup.get('estado') &&
                             formGroup.get('estado')?.invalid &&
                             formGroup.get('estado')?.touched">
+                            O campo Estado é obrigatório
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('estado')?.getError('apiError')">
+                            {{ formGroup.get('estado')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
@@ -51,6 +61,9 @@
                         <mat-error *ngIf="formGroup.get('municipio') &&
                             formGroup.get('municipio')?.invalid &&
                             formGroup.get('municipio')?.touched">
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('municipio')?.getError('apiError')">
+                            {{ formGroup.get('municipio')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
                 </div>

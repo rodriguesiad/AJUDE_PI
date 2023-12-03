@@ -142,7 +142,26 @@ export class UsuarioFormComponent implements OnInit {
             this.router.navigateByUrl('usuarios/view/' + usuarioAtualizado.id);
           },
           error: (err) => {
-            console.log('Erro ao alterar ' + JSON.stringify(err));
+            this.apiResponse = err.error;
+          
+            const formControls = ['nome', 'login', 'cpf', 'senha', 'lotacoes'];
+
+            formControls.forEach(controlName => {
+              this.formGroup.get(controlName)?.setErrors(null);
+            });
+          
+            if (this.apiResponse && this.apiResponse.errors) {
+              this.apiResponse.errors.forEach((error: { fieldName: any; message: any; }) => {
+                const fieldName = error.fieldName;
+                const errorMessage = error.message;
+          
+                if (formControls.includes(fieldName)) {
+                  this.formGroup.get(fieldName)?.setErrors({ apiError: errorMessage });
+                }
+              });
+            }
+          
+            console.log('Erro ao incluir' + JSON.stringify(err));
           }
         });
       }
