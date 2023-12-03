@@ -10,21 +10,25 @@
     <div class="body-container">
         <div class="filter-container">
             <form>
-                <mat-form-field appearance="outline" class="full-width-input">
-                    <mat-label>Digite o nome ou órgão do usuário</mat-label>
-                    <input matInput placeholder="Digite aqui" />
-                    <mat-icon matSuffix>search</mat-icon>
-                </mat-form-field>
+                <div class="input-with-button">
+                    <mat-form-field class="example-form-field" appearance="outline">
+                        <input matInput placeholder="Digite aqui" class="flexible-input" [(ngModel)]="filtro"
+                            name="filtro" #input>
+                    </mat-form-field>
+                    <button mat-icon-button aria-label="Pesquisar" id="search-button" (click)="aplicarFiltro()">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
             </form>
 
-            <button mat-flat-button class="clean-button">
+            <button mat-flat-button class="clean-button" (click)="limparFiltro()">
                 LIMPAR
             </button>
         </div>
 
         <div style="padding: 5px;">
             <div class="table-container no-shadow rounded-corners">
-                <table mat-table [dataSource]="dataSource">
+                <table mat-table [dataSource]="usuarios">
 
                     <ng-container matColumnDef="nome">
                         <th mat-header-cell *matHeaderCellDef> Nome </th>
@@ -34,8 +38,8 @@
                     <ng-container matColumnDef="perfil">
                         <th mat-header-cell *matHeaderCellDef> Perfil </th>
                         <td mat-cell *matCellDef="let usuario">
-                            <ng-container *ngFor="let item of usuario.perfisOrgao">
-                                {{ item.orgao.sigla }} - {{ item.perfil.label }} 
+                            <ng-container *ngFor="let item of usuario.lotacoes">
+                                {{ item.perfil.label }} - {{ item.orgao.sigla }}
                                 <br>
                             </ng-container>
                         </td>
@@ -43,7 +47,7 @@
 
                     <ng-container matColumnDef="email">
                         <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                        <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
+                        <td mat-cell *matCellDef="let usuario"> {{usuario.login}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="cpf">
@@ -54,7 +58,7 @@
                     <ng-container matColumnDef="acoes">
                         <th mat-header-cell *matHeaderCellDef> Ações </th>
                         <td mat-cell *matCellDef="let usuario">
-                            <div class="edit-button-container">
+                            <div class="actions-button-container">
                                 <button mat-icon-button aria-label="Visualizar usuario" class="no-shadow"
                                     routerLink="/usuarios/view/{{usuario.id}}"
                                     [queryParams]="{ modoVisualizacao: true }">
@@ -64,16 +68,23 @@
                                     routerLink="/usuarios/edit/{{usuario.id}}">
                                     <mat-icon>edit</mat-icon>
                                 </button>
+                                <mat-slide-toggle [(ngModel)]="usuario.ativo"
+                                    (click)="openConfirmationDialog(usuario)"></mat-slide-toggle>
                             </div>
                         </td>
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4"> Não existem registros com o valor "{{input.value}}"</td>
+                    </tr>
                 </table>
 
-                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
-                    aria-label="Selecione a página de usuários">
+                <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" [pageSize]="pageSize" [length]="totalRegistros"
+                    (page)="paginar($event)" showFirstLastButtons aria-label="Selecione a página de usuários">
                 </mat-paginator>
             </div>
         </div>

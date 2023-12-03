@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-
   private baseURL: string = 'http://localhost:8080/usuarios';
 
   constructor(private http: HttpClient) { }
@@ -22,7 +21,7 @@ export class UsuarioService {
       pageSize: tamanhoPagina.toString()
     }
 
-    return this.http.get<Usuario[]>(`${this.baseURL}/lotacoes`, { params });
+    return this.http.get<Usuario[]>(`${this.baseURL}`, { params });
   }
 
   save(usuario: Usuario): Observable<Usuario> {
@@ -43,20 +42,19 @@ export class UsuarioService {
     return this.http.get<number>(`${this.baseURL}/count`);
   }
 
-  countByNomeOuCpf(nome: string): Observable<number> {
+  countByNomeOuSigla(nome: string): Observable<number> {
     return this.http.get<number>(`${this.baseURL}/search/${nome}/count`);
   }
 
-  findByNomeOuCpf(nomeOuCpf: string, pagina: number, tamanhoPagina: number): Observable<Usuario[]> {
+  findByNomeOuSigla(nomeOuSigla: string, pagina: number, tamanhoPagina: number): Observable<Usuario[]> {
     const params = {
       page: pagina.toString(),
       pageSize: tamanhoPagina.toString()
     }
-    return this.http.get<Usuario[]>(`${this.baseURL}/search/${nomeOuCpf}`, { params });
+    return this.http.get<Usuario[]>(`${this.baseURL}/search/${nomeOuSigla}`, { params });
   }
 
   alterarSituacao(id: number, situacao: boolean): Observable<Usuario> {
     return this.http.put<Usuario>(`${this.baseURL}/situacao/${id}`, situacao);
   }
-
 }

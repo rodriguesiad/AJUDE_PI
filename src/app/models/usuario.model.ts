@@ -6,7 +6,8 @@ export class Usuario {
     cpf!: string;
     email!: string;
     senha!: string;
-    perfisOrgao!: PerfilOrgao[];
+    lotacoes!: PerfilOrgao[];
+    ativo!: Boolean;
 
     constructor(data: {
         id: number,
@@ -14,13 +15,13 @@ export class Usuario {
         cpf: string,
         email: string,
         senha: string,
-        perfisOrgao: PerfilOrgao[],
+        lotacoes: PerfilOrgao[],
     }) {
         this.id = data.id;
         this.nome = data.nome;
         this.cpf = data.cpf;
         this.email = data.email;
         this.senha = data.senha;
-        this.perfisOrgao = data.perfisOrgao;
+        this.lotacoes = data.lotacoes;
     }
 }

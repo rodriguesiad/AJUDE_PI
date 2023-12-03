@@ -37,12 +37,12 @@ export class UsuarioFormComponent implements OnInit {
       cpf: ['', Validators.required],
       email: ['', Validators.required],
       senha: ['', Validators.required],
-      perfisOrgao: this.formBuilder.array([]),
+      lotacoes: this.formBuilder.array([]),
     });
   }
 
-  get perfisOrgao(): FormArray {
-    return this.formGroup.get('perfisOrgao') as FormArray;
+  get lotacoes(): FormArray {
+    return this.formGroup.get('lotacoes') as FormArray;
   }
 
   ngOnInit(): void {
@@ -62,15 +62,15 @@ export class UsuarioFormComponent implements OnInit {
       email: [{ value: (usuario && usuario.email) ? usuario.email : '', disabled: this.modoVisualizacao }, Validators.required],
       cpf: [{ value: (usuario && usuario.cpf) ? usuario.cpf : '', disabled: this.modoVisualizacao }, Validators.required],
       senha: [{ value: (usuario && usuario.senha) ? usuario.senha : '', disabled: this.modoVisualizacao }, Validators.required],
-      perfisOrgao: this.formBuilder.array([])
+      lotacoes: this.formBuilder.array([])
     });
 
-    if (usuario.perfisOrgao && usuario.perfisOrgao.length > 0) {
-      usuario.perfisOrgao.forEach((perfilOrgao: any) => {
-        this.perfisOrgao.push(
+    if (usuario.lotacoes && usuario.lotacoes.length > 0) {
+      usuario.lotacoes.forEach((lotacoes: any) => {
+        this.lotacoes.push(
           this.formBuilder.group({
-            perfil: [{ value: (perfilOrgao && perfilOrgao.perfil) ? perfilOrgao.perfil.value : null, disabled: this.modoVisualizacao }, Validators.required],
-            orgao: [{ value: (perfilOrgao && perfilOrgao.orgao) ? perfilOrgao.orgao.id : null, disabled: this.modoVisualizacao }, Validators.required],
+            perfil: [{ value: (lotacoes && lotacoes.perfil) ? lotacoes.perfil.value : null, disabled: this.modoVisualizacao }, Validators.required],
+            orgao: [{ value: (lotacoes && lotacoes.orgao) ? lotacoes.orgao.id : null, disabled: this.modoVisualizacao }, Validators.required],
           })
         );
       });
@@ -86,7 +86,7 @@ export class UsuarioFormComponent implements OnInit {
   adicionarPerfil(): void {
     this.minPerfilOrgao = true;
 
-    this.perfisOrgao.push(
+    this.lotacoes.push(
       this.formBuilder.group({
         perfil: [null, Validators.required],
         orgao: [null, Validators.required],
@@ -95,8 +95,8 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   removerPerfil(index: number): void {
-    this.perfisOrgao.removeAt(index);
-    this.minPerfilOrgao = this.perfisOrgao.length > 0;
+    this.lotacoes.removeAt(index);
+    this.minPerfilOrgao = this.lotacoes.length > 0;
   }
 
   salvar(): void {

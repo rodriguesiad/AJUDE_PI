@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { LOCALE_ID } from '@angular/core';
 import { UsuarioFormComponent } from './components/usuario-form/usuario-form.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { UsuarioFormComponent } from './components/usuario-form/usuario-form.com
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
-    
+    MatSlideToggleModule
   ],
   exports: [
     UsuarioListComponent

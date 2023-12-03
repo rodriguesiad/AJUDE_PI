@@ -10,7 +10,7 @@
     <div class="container-info">
       <p>Nº {{movimentacao.atendimento.id}} // MOVª - {{movimentacao.titulo}}</p>
       <p id="descricao">{{movimentacao.atendimento.descricao}}</p>
-      <p>{{movimentacao.atendimento.usuarioInclusao.perfisOrgao[0].orgao.sigla}}</p>
+      <p>{{movimentacao.atendimento.usuarioInclusao.lotacoes[0].orgao.sigla}}</p>
       <p>Data: {{ movimentacao.dataInclusao | date:
         'dd/MM/yyyy'}}</p>
     </div>
