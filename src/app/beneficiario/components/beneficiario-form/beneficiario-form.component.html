@@ -86,77 +86,78 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
+                <div formGroupName="endereco">
+                    <div class="sub-form">
+                        <mat-form-field appearance="outline" class="input-3-parts">
+                            <mat-label>CEP</mat-label>
+                            <input matInput type="text" formControlName="cep" />
+                            <mat-error *ngIf="formGroup.get('cep') &&
+                                formGroup.get('cep')?.invalid &&
+                                formGroup.get('cep')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="input-3-parts">
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="estado">
+                                <mat-option *ngFor="let estado of estados" [value]="estado">
+                                    {{ estado.descricao}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="formGroup.get('estado') &&
+                                formGroup.get('estado')?.invalid &&
+                                formGroup.get('estado')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="input-3-parts">
+                            <mat-label>Município</mat-label>
+                            <mat-select formControlName="municipio">
+                                <mat-option *ngFor="let municipio of municipios" [value]="municipio">
+                                    {{ municipio.descricao}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="formGroup.get('municipio') &&
+                                formGroup.get('municipio')?.invalid &&
+                                formGroup.get('municipio')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
 
-                <div class="sub-form">
-                    <mat-form-field appearance="outline" class="input-3-parts">
-                        <mat-label>CEP</mat-label>
-                        <input matInput type="text" formControlName="cep" />
-                        <mat-error *ngIf="formGroup.get('cep') &&
-                            formGroup.get('cep')?.invalid &&
-                            formGroup.get('cep')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="input-3-parts">
-                        <mat-label>Estado</mat-label>
-                        <mat-select formControlName="estado">
-                            <mat-option *ngFor="let estado of estados" [value]="estado.id">
-                                {{ estado.descricao}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="formGroup.get('estado') &&
-                            formGroup.get('estado')?.invalid &&
-                            formGroup.get('estado')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="input-3-parts">
-                        <mat-label>Município</mat-label>
-                        <mat-select formControlName="municipio">
-                            <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">
-                                {{ municipio.descricao}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="formGroup.get('municipio') &&
-                            formGroup.get('municipio')?.invalid &&
-                            formGroup.get('municipio')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-
-                <div class="sub-form">
-                    <mat-form-field appearance="outline" class="input-2-equals-parts">
-                        <mat-label>Bairro</mat-label>
-                        <input matInput type="bairro" formControlName="bairro" />
-                        <mat-error *ngIf="formGroup.get('bairro') &&
-                            formGroup.get('bairro')?.invalid &&
-                            formGroup.get('bairro')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="input-2-equals-parts">
-                        <mat-label>Logradouro</mat-label>
-                        <input matInput type="text" formControlName="logradouro" />
-                        <mat-error *ngIf="formGroup.get('logradouro') &&
-                            formGroup.get('logradouro')?.invalid &&
-                            formGroup.get('logradouro')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="sub-form">
-                    <mat-form-field appearance="outline" class="input-3-parts">
-                        <mat-label>Número</mat-label>
-                        <input matInput type="text" formControlName="numero" />
-                        <mat-error *ngIf="formGroup.get('numero') &&
-                            formGroup.get('numero')?.invalid &&
-                            formGroup.get('numero')?.touched">
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="input-1-2-parts">
-                        <mat-label>Complemento</mat-label>
-                        <input matInput type="text" formControlName="complemento" />
-                        <mat-error *ngIf="formGroup.get('complemento') &&
-                            formGroup.get('complemento')?.invalid &&
-                            formGroup.get('complemento')?.touched">
-                        </mat-error>
-                    </mat-form-field>
+                    <div class="sub-form">
+                        <mat-form-field appearance="outline" class="input-2-equals-parts">
+                            <mat-label>Bairro</mat-label>
+                            <input matInput type="bairro" formControlName="bairro" />
+                            <mat-error *ngIf="formGroup.get('bairro') &&
+                                formGroup.get('bairro')?.invalid &&
+                                formGroup.get('bairro')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="input-2-equals-parts">
+                            <mat-label>Logradouro</mat-label>
+                            <input matInput type="text" formControlName="logradouro" />
+                            <mat-error *ngIf="formGroup.get('logradouro') &&
+                                formGroup.get('logradouro')?.invalid &&
+                                formGroup.get('logradouro')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="sub-form">
+                        <mat-form-field appearance="outline" class="input-3-parts">
+                            <mat-label>Número</mat-label>
+                            <input matInput type="text" formControlName="numero" />
+                            <mat-error *ngIf="formGroup.get('numero') &&
+                                formGroup.get('numero')?.invalid &&
+                                formGroup.get('numero')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="input-1-2-parts">
+                            <mat-label>Complemento</mat-label>
+                            <input matInput type="text" formControlName="complemento" />
+                            <mat-error *ngIf="formGroup.get('complemento') &&
+                                formGroup.get('complemento')?.invalid &&
+                                formGroup.get('complemento')?.touched">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
                 </div>
             </form>
         </mat-card-content>

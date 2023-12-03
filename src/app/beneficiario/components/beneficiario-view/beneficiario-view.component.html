@@ -51,41 +51,39 @@
             <div class="card-info">
                 <div class="info-data">
                     <h5>CEP</h5>
-                    <h5>{{beneficiario?.cep || '-'}}</h5>
+                    <h5>{{beneficiario?.endereco?.cep || '-'}}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>ESTADO</h5>
-                    <h5>{{beneficiario?.estado?.descricao || '-' }}</h5>
+                    <h5>{{beneficiario?.endereco?.estado?.descricao || '-' }}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>CIDADE</h5>
-                    <h5>{{beneficiario?.municipio?.descricao || '-' }}</h5>
+                    <h5>{{beneficiario?.endereco?.municipio?.descricao || '-' }}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>BAIRRO</h5>
-                    <h5>{{beneficiario?.bairro || '-'}}</h5>
+                    <h5>{{beneficiario?.endereco?.bairro || '-'}}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>LOGRADOURO</h5>
-                    <h5>{{beneficiario?.logradouro || '-'}}</h5>
+                    <h5>{{beneficiario?.endereco?.logradouro || '-'}}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>NÚMERO</h5>
-                    <h5>{{beneficiario?.numero || '-' }}</h5>
+                    <h5>{{beneficiario?.endereco?.numero || '-' }}</h5>
                 </div>
 
                 <div class="info-data">
                     <h5>COMPLEMENTO</h5>
-                    <h5>{{beneficiario?.complemento || '-' }}</h5>
+                    <h5>{{beneficiario?.endereco?.complemento || '-' }}</h5>
                 </div>
             </div>
-
-
         </div>
     </mat-card>
 

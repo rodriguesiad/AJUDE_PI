@@ -27,12 +27,12 @@
                         <tr>
                             <td>
                                 <p class="texto title">Informações do Beneficiário</p>
-                                <p class="texto">Endereço: {{ data.movimentacao.atendimento.beneficiario.logradouro
+                                <p class="texto">Endereço: {{ data.movimentacao.atendimento.beneficiario.endereco.logradouro
                                     }},
-                                    Bairro: {{ data.movimentacao.atendimento.beneficiario.bairro }},
-                                    Nº: {{ data.movimentacao.atendimento.beneficiario.numero }},
-                                    {{ data.movimentacao.atendimento.beneficiario.municipio.descricao }} - {{
-                                    data.movimentacao.atendimento.beneficiario.estado.sigla }}
+                                    Bairro: {{ data.movimentacao.atendimento.beneficiario.endereco.bairro }},
+                                    Nº: {{ data.movimentacao.atendimento.beneficiario.endereco.numero }},
+                                    {{ data.movimentacao.atendimento.beneficiario.endereco.municipio.descricao }} - {{
+                                    data.movimentacao.atendimento.beneficiario.endereco.estado.sigla }}
                                     <br>
                                     Data de Nascimento: {{data.movimentacao.atendimento.beneficiario.dataNascimento |
                                     date: 'dd/MM/yyyy'}}

@@ -10,6 +10,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { MovimentacaoDownloadModalComponent } from '../modal/movimentacao-download-modal/movimentacao-download-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MovimentacaoService } from 'src/app/services/movimentacao.service';
+import { Endereco } from 'src/app/models/endereco.model';
 
 @Component({
   selector: 'app-movimentacao-list',
@@ -61,12 +62,19 @@ export class MovimentacaoListComponent {
       perfisOrgao: [{ perfil: perfil, orgao: cras }, { perfil: perfil, orgao: creas }]
     })
 
+    const dados= new Endereco(
+      estado,  
+      municipio,
+      'Aureny III',
+      'Rua 8',
+      '20',
+      '',
+      '8890-182');
+
     const beneficiario = new Beneficiario({
       id: 1, nome: 'Ana de Melo', cpf: '172.643.380-37', nis: '1 1111111111',
       dataNascimento: new Date(1998, 9, 1), rg: '1111111', telefone: '63999889999',
-      email: 'ana@gmail.com', cpfDosPais: 'Nenhum', cep: '8890-182',
-      estado: estado, municipio: municipio, bairro: 'Aureny III',
-      logradouro: 'Rua 8', numero: '20', complemento: ' '
+      email: 'ana@gmail.com', cpfDosPais: 'Nenhum', endereco: dados
     })
 
     const atendimento = new Atendimento({
