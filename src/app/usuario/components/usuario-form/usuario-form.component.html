@@ -11,20 +11,24 @@
                 <mat-form-field appearance="outline" class="full-width-input">
                     <mat-label>Nome</mat-label>
                     <input matInput type="text" formControlName="nome" [attr.readonly]="isModoVisualizacao()" />
-                    <mat-error *ngIf="formGroup.get('nome') &&
-                            formGroup.get('nome')?.invalid &&
-                            formGroup.get('nome')?.touched">
+                    <mat-error
+                        *ngIf="(formGroup.get('nome') && formGroup.get('nome')?.invalid && formGroup.get('nome')?.touched || formGroup.get('nome')?.dirty)">
                         O campo Nome é obrigatório.
+                    </mat-error>
+                    <mat-error *ngIf="formGroup.get('nome')?.getError('apiError')">
+                        {{ formGroup.get('nome')?.getError('apiError') }}
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="full-width-input">
                     <mat-label>CPF</mat-label>
                     <input matInput type="text" formControlName="cpf" />
-                    <mat-error *ngIf="formGroup.get('cpf') &&
-                            formGroup.get('cpf')?.invalid &&
-                            formGroup.get('cpf')?.touched">
+                    <mat-error
+                        *ngIf="(formGroup.get('cpf') && formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched || formGroup.get('cpf')?.dirty)">
                         O campo CPF é obrigatório.
+                    </mat-error>
+                    <mat-error *ngIf="formGroup.get('cpf')?.hasError('apiError')">
+                        {{ formGroup.get('cpf')?.getError('apiError') }}
                     </mat-error>
                 </mat-form-field>
 
@@ -32,10 +36,12 @@
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
                         <mat-label>E-mail para Login</mat-label>
                         <input matInput type="text" formControlName="login" />
-                        <mat-error *ngIf="formGroup.get('login') &&
-                                formGroup.get('login')?.invalid &&
-                                formGroup.get('login')?.touched">
-                            O campo E-mail é obrigatório.
+                        <mat-error
+                            *ngIf="(formGroup.get('login') && formGroup.get('login')?.invalid && formGroup.get('login')?.touched || formGroup.get('login')?.dirty)">
+                            O campo Login é obrigatório.
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('login')?.hasError('apiError')">
+                            {{ formGroup.get('login')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="input-2-equals-parts">
@@ -43,10 +49,12 @@
                             (modoVisualizacao ? 'Senha - Visualização indisponível' : 'Nova Senha') : 'Senha'
                             }}</mat-label>
                         <input matInput type="text" formControlName="senha" />
-                        <mat-error *ngIf="formGroup.get('senha') &&
-                                formGroup.get('senha')?.invalid &&
-                                formGroup.get('senha')?.touched">
+                        <mat-error
+                            *ngIf="(formGroup.get('senha') && formGroup.get('senha')?.invalid && formGroup.get('senha')?.touched || formGroup.get('senha')?.dirty)">
                             O campo Senha é obrigatório.
+                        </mat-error>
+                        <mat-error *ngIf="formGroup.get('senha')?.hasError('apiError')">
+                            {{ formGroup.get('senha')?.getError('apiError') }}
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -62,8 +70,12 @@
                                         {{ perfil.label}}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="lotacao.get('perfil')?.invalid && lotacao.get('perfil')?.touched">
+                                <mat-error
+                                    *ngIf="(formGroup.get('perfil') && formGroup.get('perfil')?.invalid && formGroup.get('perfil')?.touched || formGroup.get('perfil')?.dirty)">
                                     O campo Perfil é obrigatório.
+                                </mat-error>
+                                <mat-error *ngIf="formGroup.get('perfil')?.hasError('apiError')">
+                                    {{ formGroup.get('perfil')?.getError('apiError') }}
                                 </mat-error>
                             </mat-form-field>
 
@@ -74,8 +86,12 @@
                                         {{ orgao.sigla }} - {{ orgao.nome }}
                                     </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="lotacao.get('orgao')?.invalid && lotacao.get('orgao')?.touched">
-                                    O campo órgão é obrigatório.
+                                <mat-error
+                                    *ngIf="(formGroup.get('orgao') && formGroup.get('orgao')?.invalid && formGroup.get('orgao')?.touched || formGroup.get('orgao')?.dirty)">
+                                    O campo Órgão é obrigatório.
+                                </mat-error>
+                                <mat-error *ngIf="formGroup.get('orgao')?.hasError('apiError')">
+                                    {{ formGroup.get('orgao')?.getError('apiError') }}
                                 </mat-error>
                             </mat-form-field>
 

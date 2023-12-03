@@ -17,11 +17,13 @@ export class UsuarioFormComponent implements OnInit {
   minPerfilOrgao = false;
   modoVisualizacao: boolean = false;
   idUsuarioVisualizacao: number = 0;
+  apiResponse: any = null;
   perfis: Perfil[] = [];
   orgaos: Orgao[] = [];
 
   constructor(private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router,
     private orgaoService: OrgaoService, private service: UsuarioService) {
+
     this.formGroup = this.formBuilder.group({
       id: [null],
       nome: ['', Validators.required],
@@ -45,6 +47,7 @@ export class UsuarioFormComponent implements OnInit {
       this.orgaos = data;
       this.service.findPerfis().subscribe(dataPerfil => {
         this.perfis = dataPerfil;
+        this.perfis = this.perfis.filter(item => item.id !== 3);
         this.initializeForm();
       })
     });
@@ -110,7 +113,26 @@ export class UsuarioFormComponent implements OnInit {
             this.router.navigateByUrl('usuarios/view/' + usuarioNovo.id);
           },
           error: (err) => {
-            console.log('Erro ao incluir ' + JSON.stringify(err));
+            this.apiResponse = err.error;
+          
+            const formControls = ['nome', 'login', 'cpf', 'senha', 'lotacoes'];
+
+            formControls.forEach(controlName => {
+              this.formGroup.get(controlName)?.setErrors(null);
+            });
+          
+            if (this.apiResponse && this.apiResponse.errors) {
+              this.apiResponse.errors.forEach((error: { fieldName: any; message: any; }) => {
+                const fieldName = error.fieldName;
+                const errorMessage = error.message;
+          
+                if (formControls.includes(fieldName)) {
+                  this.formGroup.get(fieldName)?.setErrors({ apiError: errorMessage });
+                }
+              });
+            }
+          
+            console.log('Erro ao incluir' + JSON.stringify(err));
           }
         });
       } else {
@@ -135,6 +157,15 @@ export class UsuarioFormComponent implements OnInit {
 
   isModoVisualizacao(): any {
     return this.modoVisualizacao ? { readonly: true } : null;
+  }
+
+  getErrorMessage(fieldName: string): string {
+    if (this.apiResponse && this.apiResponse.errors) {
+      const error = this.apiResponse.errors.find((error: any) => error.fieldName === fieldName);
+      return error ? error.message : '';
+    } else {
+      return '';
+    }
   }
 
 }
