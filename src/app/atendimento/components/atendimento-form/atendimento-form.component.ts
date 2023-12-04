@@ -31,7 +31,6 @@ export class AtendimentoFormComponent implements OnInit {
 
     this.formGroup = formBuilder.group({
       id: [null],
-      orgao: [null],
       idBeneficiario: [null],
       idSituacao: [null, Validators.required],
       tipoBeneficio: ['', Validators.required],
@@ -46,7 +45,6 @@ export class AtendimentoFormComponent implements OnInit {
   inicializeForm(): void {
     this.formGroup = this.formBuilder.group({
       id: [null],
-      orgao: [null],
       usuarioInclusao: [null],
       idBeneficiario: [this.beneficiario.id],
       idSituacao: [null, Validators.required],
@@ -58,7 +56,6 @@ export class AtendimentoFormComponent implements OnInit {
   save(): void {
     if (this.formGroup.valid) {
       const atendimento = this.formGroup.value;
-      console.log(atendimento);
       this.service.save(atendimento).subscribe({
         next: (atendimentoNovo) => {
           this.router.navigateByUrl('/atendimentos/show/' + atendimentoNovo.id);

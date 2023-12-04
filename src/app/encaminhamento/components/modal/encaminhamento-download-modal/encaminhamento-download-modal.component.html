@@ -20,10 +20,10 @@
           <p>Encaminhamos o(a) Sr(a). {{data.encaminhamento.atendimento.beneficiario.nome}} e solicito atenção
             para seu atendimento na unidade/serviço {{data.encaminhamento.orgaoDestino.nome}} -
             {{data.encaminhamento.orgaoDestino.sigla}} localizada no Município de
-            {{data.encaminhamento.orgaoDestino.municipio.descricao}} - {{data.encaminhamento.orgaoDestino.estado.sigla}}
+            {{data.encaminhamento.orgaoDestino.municipio.descricao}} - {{data.encaminhamento.orgaoAtual.municipio.estado.sigla}}
             tendo em consideração as demandas identificadas
-            pelo {{data.encaminhamento.orgaoOrigem.nome}} - {{data.encaminhamento.orgaoOrigem.sigla}}, do
-            {{data.encaminhamento.orgaoOrigem.municipio.descricao}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}.
+            pelo {{data.encaminhamento.orgaoAtual.nome}} - {{data.encaminhamento.orgaoAtual.sigla}}, do
+            {{data.encaminhamento.orgaoAtual.municipio.descricao}} - {{data.encaminhamento.orgaoAtual.municipio.estado.sigla}}.
           </p>
         </section>
         <section>
@@ -47,7 +47,7 @@
                   <br>
                   RG: {{ data.encaminhamento.atendimento.beneficiario.rg }}
                   <br>
-                  Telefone: {{ formatarTelefone(data.encaminhamento.atendimento.beneficiario.telefone) }}
+                  Telefone: {{ data.encaminhamento.atendimento.beneficiario.telefone}}
                 </p>
               </td>
             </tr>
@@ -57,7 +57,7 @@
     </main>
 
     <footer>
-      <p>{{data.encaminhamento.orgaoOrigem.municipio.descricao}} - {{data.encaminhamento.orgaoOrigem.estado.sigla}}
+      <p>{{data.encaminhamento.orgaoAtual.municipio.descricao}} - {{data.encaminhamento.orgaoAtual.municipio.estado.sigla}}
         <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
       </p>
     </footer>
