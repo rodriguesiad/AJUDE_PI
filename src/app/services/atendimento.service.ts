@@ -9,7 +9,17 @@ import { SituacaoAtendimento } from '../models/situacao-atendimento.model';
 })
 export class AtendimentoService {
   private baseURL: string = 'http://localhost:8080/atendimentos';
+  private atendimentoSelecionado: Atendimento | undefined;
+
   constructor(private http: HttpClient) { }
+
+  setAtendimento(atendimento: Atendimento): void {
+    this.atendimentoSelecionado = atendimento;
+  }
+
+  getAtendimento(): Atendimento | undefined {
+    return this.atendimentoSelecionado;
+  }
 
   findById(id: string): Observable<Atendimento> {
     return this.http.get<Atendimento>(`${this.baseURL}/${id}`);

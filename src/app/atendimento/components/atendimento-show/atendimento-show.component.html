@@ -3,7 +3,7 @@
     <div class="container-info">
       <div class="card-info">
         <p>{{ 'Nº ' + atendimento.id + ' - ' + atendimento.tipoBeneficio }}</p>
-        <p>Data do Cadastro: {{ atendimento.dataCadastro | date:'dd/MM/yyyy' }}</p>
+        <p>Data do Cadastro: {{ atendimento.dataCadastro | date:'dd/MM/yyyy HH:mm' }}</p>
         <p>Situação: {{ atendimento.situacao.label }}</p>
       </div>
       <div class="card-info">
@@ -11,10 +11,10 @@
         <p>{{ atendimento.orgao.sigla }} - {{ atendimento.orgao.nome }}</p>
       </div>
       <div class="card-info">
-        <p>Usuário Responsável:</p>
+        <p>Usuário Inclusão:</p>
         <p>{{ atendimento.usuarioInclusao.nome }}</p>
       </div>
-      <button mat-raised-button class="back-button" routerLink="/atendimentos/list">
+      <button mat-raised-button class="back-button"[routerLink]="'/atendimentos/list/' + atendimento.beneficiario.id">
         VOLTAR
       </button>
     </div>

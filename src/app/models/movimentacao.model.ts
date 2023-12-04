@@ -6,9 +6,8 @@ export class Movimentacao {
     atendimento!: Atendimento;
     titulo!: string;
     descricao!: string;
-    nomeDocumentos!: string[];
-    usuarioInclusao!: Usuario;
-    perfilInclusao!: string;
+    nomeDocumento!: string;
+    usuarioAutor!: Usuario;
     dataInclusao!: Date;
 
     constructor(data: {
@@ -16,18 +15,16 @@ export class Movimentacao {
         atendimento: Atendimento;
         titulo: string;
         descricao: string;
-        nomeDocumentos: string[];
-        usuarioInclusao: Usuario;
-        perfilInclusao: string;
+        nomeDocumento: string;
+        usuarioAutor: Usuario;
         dataInclusao: Date;
     }) {
         this.id = data.id;
         this.atendimento = data.atendimento;
-        this.titulo =  data.titulo;
+        this.titulo = data.titulo;
         this.descricao = data.descricao;
-        this.nomeDocumentos = data.nomeDocumentos;
-        this.usuarioInclusao = data.usuarioInclusao;
-        this.perfilInclusao = data.perfilInclusao;
+        this.nomeDocumento = data.nomeDocumento;
+        this.usuarioAutor = data.usuarioAutor;
         this.dataInclusao = data.dataInclusao;
     }
 }

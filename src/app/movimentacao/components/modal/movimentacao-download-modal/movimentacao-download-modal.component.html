@@ -27,7 +27,8 @@
                         <tr>
                             <td>
                                 <p class="texto title">Informações do Beneficiário</p>
-                                <p class="texto">Endereço: {{ data.movimentacao.atendimento.beneficiario.endereco.logradouro
+                                <p class="texto">Endereço: {{
+                                    data.movimentacao.atendimento.beneficiario.endereco.logradouro
                                     }},
                                     Bairro: {{ data.movimentacao.atendimento.beneficiario.endereco.bairro }},
                                     Nº: {{ data.movimentacao.atendimento.beneficiario.endereco.numero }},
@@ -41,8 +42,7 @@
                                     <br>
                                     RG: {{ data.movimentacao.atendimento.beneficiario.rg }}
                                     <br>
-                                    Telefone: {{ formatarTelefone(data.movimentacao.atendimento.beneficiario.telefone)
-                                    }}
+                                    Telefone: {{ data.movimentacao.atendimento.beneficiario.telefone}}
                                 </p>
                             </td>
                         </tr>
@@ -52,8 +52,8 @@
         </main>
 
         <footer>
-            <p>{{data.movimentacao.atendimento.usuarioInclusao.lotacoes[0].orgao.municipio.descricao}} -
-                {{data.movimentacao.atendimento.usuarioInclusao.lotacoes[0].orgao.estado.sigla}}
+            <p>{{data.movimentacao.atendimento.orgao.municipio.descricao}} -
+                {{data.movimentacao.atendimento.orgao.municipio.estado.sigla}}
                 <br>{{ this.dataAtual | date: 'dd/MM/yyyy'}}
             </p>
         </footer>

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Atendimento } from 'src/app/models/atendimento.model';
-import { Beneficiario } from 'src/app/models/beneficiario.model';
-import { MovimentacaoService } from 'src/app/services/movimentacao.service';
-import { Encaminhamento } from 'src/app/models/encaminhamento.model';
+import { AtendimentoService } from 'src/app/services/atendimento.service';
 import { EncaminhamentoService } from 'src/app/services/encaminhamento.service';
+import { MovimentacaoService } from 'src/app/services/movimentacao.service';
 
 @Component({
   selector: 'app-atendimento-show',
@@ -13,11 +12,13 @@ import { EncaminhamentoService } from 'src/app/services/encaminhamento.service';
 })
 export class AtendimentoShowComponent {
   atendimento: Atendimento;
-  beneficiario: Beneficiario;
 
-  constructor(private activatedRoute: ActivatedRoute, private movimentacaoService: MovimentacaoService, private encaminhamentoService: EncaminhamentoService) {
-    this.beneficiario = this.activatedRoute.snapshot.data['beneficiario'];
+  constructor(private activatedRoute: ActivatedRoute,
+    private movimentacaoService: MovimentacaoService,
+    private encaminhamentoService: EncaminhamentoService,
+    private service: AtendimentoService) {
     this.atendimento = this.activatedRoute.snapshot.data['atendimento'];
+    this.service.setAtendimento(this.atendimento);
   }
 
   get isCadastroMovimentacao() {

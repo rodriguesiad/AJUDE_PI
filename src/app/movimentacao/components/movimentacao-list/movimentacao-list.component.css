@@ -62,3 +62,12 @@ button[mat-raised-button] {
   text-align: justify;
   max-width: 98%;
 }
+
+.documento-info {
+  display: flex;
+  align-items: center;
+}
+
+.documento-info p {
+  margin-right: 10px;
+}

@@ -5,12 +5,17 @@
     </button>
   </div>
 
-  <mat-card *ngFor="let movimentacao of movimentacoes | slice: (page * size): ((page + 1) * size)"
-    class="no-shadow info">
+  <mat-card *ngFor="let movimentacao of movimentacoes" class="no-shadow info">
     <div class="container-info">
       <p>Nº {{movimentacao.atendimento.id}} // MOVª - {{movimentacao.titulo}}</p>
       <p id="descricao">{{movimentacao.atendimento.descricao}}</p>
-      <p>{{movimentacao.atendimento.usuarioInclusao.lotacoes[0].orgao.sigla}}</p>
+      <p>{{movimentacao.atendimento.orgao.sigla}}</p>
+      <div class="documento-info">
+        <p>{{ movimentacao.nomeDocumento }}</p>
+        <button mat-icon-button color="primary" (click)="baixarDocumento(movimentacao.nomeDocumento)" aria-label="Baixar documento">
+          <mat-icon>cloud_download</mat-icon>
+        </button>
+      </div>
       <p>Data: {{ movimentacao.dataInclusao | date:
         'dd/MM/yyyy'}}</p>
     </div>
@@ -20,8 +25,8 @@
     </button>
   </mat-card>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="size" (page)="handlePage($event)"
-    [length]="movimentacoes.length" showFirstLastButtons aria-label="Selecione a página"
+  <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" [pageSize]="size" (page)="handlePage($event)"
+    [length]="totalRegistros" showFirstLastButtons aria-label="Selecione a página"
     style="border-top: 1px solid rgb(224, 223, 223);">
   </mat-paginator>
 
